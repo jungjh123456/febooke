@@ -1,7 +1,6 @@
 let perons = [];
-var database = firebase.database();
-console.log('sdgds')
-console.log(database)
+let database = firebase.database();
+
 const $singupFieldset = document.querySelector('.singup-fieldset');
 const $singupName = document.querySelector('.singup-name');
 const $singupNink = document.querySelector('.singup-nink');
@@ -18,18 +17,6 @@ $signupBtn.onclick = e => {
 }
 
 
-// db
-
-function writeUserData(userId, name) {
-  firebase.database().ref('users/' + userId ).set({
-    username: name
-  })
-  
-}
-
-firebase.database().ref('users/').on('value', (snapshot) => {
-  person = snapshot.val()
-})
 
 
 // // storage

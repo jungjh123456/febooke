@@ -1,10 +1,15 @@
-// server.js
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
-server.use(middlewares)
-server.use(router)
-server.listen(4000, () => {
-console.log('JSON Server is running')
+let database = firebase.database();
+
+
+// db
+
+function writeUserData(userId, name) {
+  firebase.database().ref('users/' + userId ).set({
+    username: name
+  })
+  
+}
+
+firebase.database().ref('users/').on('value', (snapshot) => {
+  person = snapshot.val()
 })

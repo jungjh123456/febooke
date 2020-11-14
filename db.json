@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "asfaf",
+      "complete": false,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "content": "dasdasd",
+      "complete": false,
+      "completed": false
+    },
+    {
+      "id": 3,
+      "content": "afasf",
+      "complete": false,
+      "completed": true
+    }
+  ]
+}

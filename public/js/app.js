@@ -1,11 +1,11 @@
 let perons = [];
 let database = firebase.database();
 
-const $singupFieldset = document.querySelector('.singup-fieldset');
-const $singupName = document.querySelector('.singup-name');
-const $singupNink = document.querySelector('.singup-nink');
+const $signupFieldset = document.querySelector('.signup-fieldset');
+const $signupName = document.querySelector('.signup-name');
+const $signupNink = document.querySelector('.signup-nink');
 const $signupBtn = document.querySelector('.signup-btn');
-const $singupId = document.querySelector('.singup-id');
+const $signupId = document.querySelector('.singup-id');
 const $input = document.querySelector('input');
 console.log($signupBtn)
 
@@ -13,7 +13,7 @@ $signupBtn.onclick = e => {
   e.preventDefault();
   if ($input.value === '') console.log('비었습니다.');
 
-  writeUserData($singupId.value  ,{name: $singupName.value, ninkname: $singupNink.value, id: $singupId.value })
+  writeUserData($signupId.value  ,{name: $signupName.value, ninkname: $signupNink.value, id: $signupId.value })
 }
 
 

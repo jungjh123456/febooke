@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+  <link rel="stylesheet" href="css/signup.css">
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/8.0.2/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/8.0.2/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-functions.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-storage.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-remote-config.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-performance.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script defer src="../server.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+
+    <div class="sign-popup">
+      <form id="signupform">
+        <legend class="signup-menu">Sign-Up</legend>
+        <fieldset class="signup-fieldset">
+          <label for="name" class="a11hinden">이름</label>
+          <input type="text" id="name" placeholder="name" class="signup-name">
+          <label for="signupNick" class="a11hinden">닉네임</label>
+          <input type="text" id="signupNick" placeholder="nickname" class="signup-nink">
+          <label for="signupId" class="a11hinden">아이디</label>
+          <input type="text" id="signupId" placeholder="ID" class="signup-id">
+          <label for="signupPass" class="a11hinden">비밀번호</label>
+          <input type="text" id="signupPass" placeholder="Password" class="signup-pass">
+          <label for="signupPass2" class="a11hinden">비밀번호 확인</label>
+          <input type="text" id="signupPass2" placeholder="Confirm Password" class="signup-pass2">
+          <label for="phoneNumber" class="a11hinden">전화번호</label>
+          <input type="text" id="phoneNumber" placeholder='please input without "-" ' maxlength="11"
+            class="signup-number" max="11">
+          <button class="signup-btn">Sign Up</button>
+          <button class="signup-cancel-btn">Cancel</button>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loadEl = document.querySelector('#load');
+      try {
+        let app = firebase.app();
+        let features = [
+          'auth',
+          'database',
+          'firestore',
+          'functions',
+          'messaging',
+          'storage',
+          'analytics',
+          'remoteConfig',
+          'performance',
+        ].filter(feature => typeof app[feature] === 'function');
+        loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+      } catch (e) {
+        console.error(e);
+        loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+      }
+    });
+    var firebaseConfig = {
+      apiKey: "AIzaSyBlmO_eIoewf7E_gwMmEHJ4GT6zZUu9cXQ",
+      authDomain: "febook-98a1f.firebaseapp.com",
+      databaseURL: "https://febook-98a1f.firebaseio.com",
+      projectId: "febook-98a1f",
+      storageBucket: "febook-98a1f.appspot.com",
+      messagingSenderId: "963499727155",
+      appId: "1:963499727155:web:ca037c439a175ff2ff4646",
+      measurementId: "G-7PPFWHX85C"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+
+</body>
+
+</html>

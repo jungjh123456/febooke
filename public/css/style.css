@@ -46,7 +46,7 @@ body {
 .sign-popup {
   width: 100vw;
   height: 100vh;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -141,10 +141,10 @@ body {
 .login-popup {
   width: 100vw;
   height: 100vh;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
-  /* display: none; */
+  display: none;
   /* filter: blur(5px); */
   position: absolute;
 }

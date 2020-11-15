@@ -1,5 +1,4 @@
 let perons = [];
-let database = firebase.database();
 
 const $signupFieldset = document.querySelector('.signup-fieldset');
 const $signupName = document.querySelector('.signup-name');
@@ -18,12 +17,6 @@ $signupBtn.onclick = e => {
 
 // db
 
-function writeUserData(userId, name) {
-  firebase.database().ref('users/' + userId ).set({
-    username: name
-  })
-  
-}
 
 firebase.database().ref('users/').on('value', (snapshot) => {
   person = snapshot.val()

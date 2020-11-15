@@ -9,7 +9,6 @@ function writeUserData(userId, name) {
   })
   
 }
-
 firebase.database().ref('users/').on('value', (snapshot) => {
   person = snapshot.val()
 })

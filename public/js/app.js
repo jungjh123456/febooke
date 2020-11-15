@@ -11,7 +11,6 @@ const $input = document.querySelector('input');
 $signupBtn.onclick = e => {
   e.preventDefault();
   if ($input.value === '') console.log('비었습니다.');
-
   writeUserData($signupId.value  , { name: $signupName.value, ninkname: $signupNink.value, id: $signupId.value })
 }
 

@@ -161,7 +161,7 @@ body {
   filter: blur(15px);
 }
 
-#form {
+#loginForm {
   /* display: flex; */
   width: 300px;
   /* justify-content: center; */
@@ -251,17 +251,17 @@ fieldset a:hover {
 
 /* 체크박스 */
 
-#form fieldset input[type="checkbox"] {
+#loginForm fieldset input[type="checkbox"] {
   display: none;
 }
 
-#form fieldset input[type="checkbox"]+label {
+#loginForm fieldset input[type="checkbox"]+label {
   cursor: pointer;
   vertical-align: middle;
   font-size: 0.7rem;
 }
 
-#form fieldset input[type="checkbox"]+label::after {
+#loginForm fieldset input[type="checkbox"]+label::after {
   content: "";
   float: left;
   margin-right: 5px;
@@ -273,7 +273,7 @@ fieldset a:hover {
   border-radius: 3px;
 }
 
-#form fieldset input[type="checkbox"]:checked+label::after {
+#loginForm fieldset input[type="checkbox"]:checked+label::after {
   background-color: rgb(200, 199, 170);
   background: url(../image/checked.png) no-repeat center/20px 20px;
   ;

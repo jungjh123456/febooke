@@ -7,6 +7,7 @@ const $btnSignup = document.querySelector('.btn-signup');
 console.log('sdgds')
 
 $btnSignup.onclick = e => {
+  e.preventDefault();
   console.log('aas')
   location.assign('../public/signup.html');
 }

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>board</title>
+    <style>
+        .board {
+            margin-top: 18vh;
+            margin-left: 30px;
+            width: 80%;
+            height: 100%;
+            border: 1px solid;
+            position: relative;
+        }
+
+        /* Tech 게시판 */
+        .tech-heading {
+            margin: 0;
+            margin-left: 10px;
+            margin-top: 10px;
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        /* Tech 게시판 설명 */
+        .caption {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+
+        .filter-write {
+            display: flex;
+            justify-content: flex-end;
+            margin: 15px 0;
+            margin-right: 15px;
+        }
+
+        /* 필터링 */
+        select {
+            outline: none;
+            width: 100px;
+            height: 28px;
+            padding: 4px 0;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        /* 글쓰기 버튼 */
+        .write-btn {
+            border: 1px solid;
+            background-color: transparent;
+            font-size: 14px;
+            padding: 4px 7px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* .board-header ( 제목 , 닉네임, 날짜, 조회수) */
+        .board-header {
+
+            font-size: 0;
+            border-top: 1px solid;
+            padding-top: 10px;
+        }
+
+
+        /* .board-header > .title */
+        .board-header .title {
+            font-size: 16px;
+            margin: 0;
+            display: inline-block;
+            font-weight: normal;
+            width: 80%;
+            text-align: center;
+        }
+
+        /* .board-header > .nick-name */
+        .board-header .nick-name {
+            display: inline-block;
+            font-size: 16px;
+            text-align: center;
+            width: 5%;
+        }
+
+        /* .board-header > .heading-date */
+        .board-header .heading-date {
+            display: inline-block;
+            font-size: 16px;
+            text-align: center;
+            width: 8%;
+        }
+
+        /* .board-header > .heading-click */
+        .board-header .heading-click {
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+            width: 7%;
+        }
+
+
+        /* ul.board-list */
+        .board-list {
+            padding: 0;
+            min-height: 130px;
+        }
+
+        /* ul.board-list > li */
+        .board-list>li {
+            font-size: 0;
+            list-style: none;
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        /* ul.board-list > li > a */
+        .board-list>li>a {
+            width: 79%;
+            font-size: 16px;
+            margin-left: 1%;
+            display: inline-block;
+            color: black;
+            text-decoration: none;
+            padding-bottom: 10px;
+        }
+
+        /* ul.board-list > author*/
+        .board-list .author {
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            width: 5%;
+        }
+
+
+        /* ul.board-list > date*/
+        .time {
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            width: 8%;
+        }
+
+
+        /* ul.board-list > click*/
+        .click {
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            width: 7%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="board">
+        <h2 class="tech-heading">Tech 게시판</h2>
+        <span class="caption">프론트엔드 개발자들의 기술개발 게시판</span>
+        <div class="filter-write"><select name="조건 검색" id="">
+                <option value="조회수">내글</option>
+                <optgroup label="조회수">
+                    <option value="높은 순">높은 순</option>
+                    <option value="낮은 순">낮은 순</option>
+                </optgroup>
+                <optgroup label="날짜 순">
+                    <option value="조회수">최근날짜 순</option>
+                    <option value="조회수">과거날짜 순</option>
+                </optgroup>
+            </select>
+
+            <button class="write-btn">글쓰기</button></div>
+        <div class="board-header">
+            <h3 class="title">제목</h3>
+            <span class="nick-name">닉네임</span>
+            <span class="heading-date">날짜</span>
+            <span class="heading-click">조회수</span>
+        </div>
+        <ul class="board-list">
+            <li>
+                <a href="#">웹 접근성에 대한 고찰</a>
+                <span class="author">주혀늬</span>
+                <time class="time">
+                    <span class="year"></span>
+                    <span class="month"></span>
+                    <span class="date"></span>
+                </time>
+                <span class="click">38</span>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        const $year = document.querySelector('.year');
+        const $month = document.querySelector('.month');
+        const $date = document.querySelector('.date');
+
+
+        const date = new Date();
+        const yearText = date.getFullYear();
+        const monthText = date.getMonth() + 1;
+        const dateText = date.getDate();
+
+
+        $year.textContent = `${yearText} /`;
+        $month.textContent = `${monthText} /`;
+        $date.textContent = dateText;
+    </script>
+</body>
+
+
+</html>

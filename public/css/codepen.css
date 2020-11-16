@@ -1,9 +1,9 @@
-.make-codefen {
+.make-codePen {
   margin: 0 auto;
   width: 700px;
   border: 1px solid red;
 }
-.codefen legend {
+.codePen legend {
   font-size: 1.5rem;
   text-align: center;
   padding: 10px;
@@ -15,7 +15,7 @@
   background: #000;
 }
 
-.codefen textarea {
+.codePen textarea {
   margin-right: 10px;
   width: 30%;
 }

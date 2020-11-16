@@ -65,7 +65,8 @@ body::-webkit-scrollbar-track {
 .logo-title {
   font-weight: 700;
   font-size: 40px;
-  transform: translate(-75%);
+  text-align: center;
+  transform: translate(-20%);
 }
 
 .header-timer {

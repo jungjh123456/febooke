@@ -9,7 +9,7 @@ console.log('sdgds')
 $btnSignup.onclick = e => {
   e.preventDefault();
   console.log('aas')
-  location.assign('../public/signup.html');
+  location.assign('https://febook-98a1f.web.app/signup.html');
 }
 
 // db

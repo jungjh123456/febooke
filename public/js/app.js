@@ -9,7 +9,7 @@ console.log('sdgds')
 $btnSignup.onclick = e => {
   
   console.log('aas')
-  location.assign('../signup.html');
+  location.assign('../../signup.html');
 }
 
 // db

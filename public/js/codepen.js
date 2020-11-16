@@ -30,7 +30,6 @@ let js = '';
 // textarea html 생성
 $htmlCode.oninput = debounce(e => {
   text = `
-<body>
   ${e.target.value}
 `
 $textArea.innerHTML = text;
@@ -39,10 +38,6 @@ $textArea.innerHTML = text;
 // htmlarea css 생성
 $cssCode.oninput = debounce(e => {
   style = `
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <style>
     ${e.target.value}
   </style>
@@ -50,12 +45,27 @@ $cssCode.oninput = debounce(e => {
 $textArea.innerHTML = style + text;
 },300)
 
-// script 생성
-const $script = document.createElement('script');
-$jsCode.oninput = debounce(e => {
- js = `
-  <script>${e.target.value}</script>`
-  $script.innerHTML = `${e.target.value}`;
-  $body.appendChild($script); 
+// // script 생성
+// const $script = document.createElement('script');
+
+
+// $jsCode.oninput = debounce(e => {
+//  js = `
+//   <script>${e.target.value}</script>`
+//   $script.innerHTML = `${e.target.value}`;
+//   $body.appendChild($script); 
  
-},300)
+// },300)
+
+writeUserData()
+
+function writeUserData(userId, name) {
+  firebase.database().ref('users/' + userId ).set({
+    username: name
+  })
+}
+
+
+firebase.database().ref('users/').on('value', (snapshot) => {
+  person = snapshot.val()
+})

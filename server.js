@@ -1,6 +1,7 @@
 let database = firebase.database();
 
 
+
 // db
 
 function writeUserData(userId, name) {
@@ -9,3 +10,4 @@ function writeUserData(userId, name) {
   })
   
 }
+

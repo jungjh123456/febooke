@@ -1,5 +1,4 @@
-let perons = [];
-let database = firebase.database();
+
 
 const $signupFieldset = document.querySelector('.signup-fieldset');
 const $signupName = document.querySelector('.signup-name');
@@ -8,20 +7,32 @@ const $signupBtn = document.querySelector('.signup-btn');
 const $signupId = document.querySelector('.signup-id');
 const $input = document.querySelector('input');
 
-$signupBtn.onclick = e => {
-  e.preventDefault();
-  if ($input.value === '') console.log('비었습니다.');
+
+
+let perons = [];
+
 
   writeUserData($signupId.value  , { name: $signupName.value, ninkname: $signupNink.value, id: $signupId.value })
+}
+
+const $btnSignup = document.querySelector('.btn-signup');
+
+
+
+
+
+
+$btnSignup.onclick = () => {
+  
+  location.assign('../../signup.html');
 }
 
 
 // db
 
 
-firebase.database().ref('users/').on('value', (snapshot) => {
-  person = snapshot.val()
-})
+
+
 
 
 // // storage

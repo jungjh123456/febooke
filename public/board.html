@@ -11,26 +11,27 @@
             margin-left: 30px;
             width: 80%;
             height: 100%;
-            border: 1px solid;
-            position: relative;
+            border: 1px solid #A593E0;
         }
 
-        /* Tech 게시판 */
+        /* Tech 게시판 타이틀*/
         .tech-heading {
             margin: 0;
             margin-left: 10px;
             margin-top: 10px;
             font-size: 25px;
             margin-bottom: 5px;
+            color: #566270;
         }
 
         /* Tech 게시판 설명 */
         .caption {
             display: inline-block;
             margin-left: 10px;
+            color: #566270;
         }
 
-
+        /* 내글, 글쓰기 그룹*/
         .filter-write {
             display: flex;
             justify-content: flex-end;
@@ -46,24 +47,38 @@
             padding: 4px 0;
             margin-right: 10px;
             cursor: pointer;
+            border-radius: 5px;
+            color: #566270;
+            border-color: #566270;;
         }
 
         /* 글쓰기 버튼 */
         .write-btn {
-            border: 1px solid;
+            border: 1px solid transparent;;
             background-color: transparent;
             font-size: 14px;
             padding: 4px 7px;
             cursor: pointer;
             outline: none;
+            border-radius: 5px;
+            /* color: #566270; */
+            background-color: #A593E0;
+            color: #eee;
+            font-weight: 800;
         }
 
+
+              
+        .write-btn:hover {
+            background-color: rgb(101, 91, 159);
+            color: #eee;
+        }
         /* .board-header ( 제목 , 닉네임, 날짜, 조회수) */
         .board-header {
-
             font-size: 0;
-            border-top: 1px solid;
+            border-top: 1px solid #A593E0;
             padding-top: 10px;
+            color: #566270;
         }
 
 
@@ -90,7 +105,9 @@
             display: inline-block;
             font-size: 16px;
             text-align: center;
-            width: 8%;
+            width: 9%;
+            /* background-color: red; */
+
         }
 
         /* .board-header > .heading-click */
@@ -106,6 +123,7 @@
         .board-list {
             padding: 0;
             min-height: 130px;
+            color: #566270;
         }
 
         /* ul.board-list > li */
@@ -139,7 +157,7 @@
         .time {
             display: inline-block;
             text-align: center;
-            font-size: 14px;
+            font-size: 16px;
             width: 9%;
         }
 
@@ -151,6 +169,42 @@
             font-size: 16px;
             width: 7%;
         }
+
+        .page {
+            /* margin: 0 auto; */
+        }
+
+        .page-nation {
+            display: flex;
+            /* background-color: red; */
+            justify-content: center;
+        }
+
+        .page-nation::before {
+            content: "<";
+            padding: 0 20px;
+            margin: 0 10px;
+        }
+
+        .page-nation::after {
+            content: ">";
+            padding: 0 20px;
+            margin: 0 10px;
+        }
+
+
+        .page-item {
+            list-style: none;
+        }
+
+        .page-item > a {
+            margin: 0 10px;
+            padding: 0 20px;
+            color: black;
+            text-decoration: none;
+        }
+
+        
     </style>
 </head>
 
@@ -158,7 +212,8 @@
     <div class="board">
         <h2 class="tech-heading">Tech 게시판</h2>
         <span class="caption">프론트엔드 개발자들의 기술개발 게시판</span>
-        <div class="filter-write"><select name="조건 검색" id="">
+        <div class="filter-write">
+            <select name="조건 검색" id="">
                 <option value="조회수">내글</option>
                 <optgroup label="조회수">
                     <option value="높은 순">높은 순</option>
@@ -169,8 +224,8 @@
                     <option value="조회수">과거날짜 순</option>
                 </optgroup>
             </select>
-
-            <button class="write-btn">글쓰기</button></div>
+            <button class="write-btn">글쓰기</button>
+        </div>
         <div class="board-header">
             <h3 class="title">제목</h3>
             <span class="nick-name">닉네임</span>
@@ -188,13 +243,23 @@
                 </time>
                 <span class="click">38</span>
             </li>
-
         </ul>
+        <div class="page">
+            <ul class="page-nation">
+                <li class="page-item"> <a href="#">1</a></li>
+                <li class="page-item"> <a href="#">2</a></li>
+                <li class="page-item"> <a href="#">3</a></li>
+                <li class="page-item"> <a href="#">4</a></li>
+                <li class="page-item"> <a href="#">5</a></li>
+            </ul>
+        </div>
     </div>
     <script>
         const $year = document.querySelector('.year');
         const $month = document.querySelector('.month');
         const $date = document.querySelector('.date');
+        const $writeBtn = document.querySelector('.write-btn');
+
 
 
         const date = new Date();
@@ -206,6 +271,10 @@
         $year.textContent = `${yearText} /`;
         $month.textContent = `${monthText} /`;
         $date.textContent = dateText;
+
+        $writeBtn.onclick = () => {
+            window.location.href = './write.html'
+        }
     </script>
 </body>
 

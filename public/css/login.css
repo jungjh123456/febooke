@@ -159,6 +159,7 @@ body {
   text-decoration: none;
   transition: 1s;
   color: #E0E3DA;
+  cursor: pointer;
 }
 
 fieldset a:hover {

@@ -4,11 +4,10 @@ let perons = [];
 
 const $btnSignup = document.querySelector('.btn-signup');
 
-console.log('sdgds')
 
-$btnSignup.onclick = e => {
+
+$btnSignup.onclick = () => {
   
-  console.log('aas')
   location.assign('../../signup.html');
 }
 

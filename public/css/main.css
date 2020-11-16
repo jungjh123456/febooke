@@ -1,12 +1,10 @@
 @import url(./normalize.css);
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Noto+Sans+KR");
-
 .clearfix {
   content: "";
   display: block;
   clear: both;
 }
-
 .a11y-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -15,36 +13,29 @@
   white-space: nowrap;
   width: 1px;
 }
-
 body {
   font-family: "Roboto";
 }
-
 body {
   overflow: auto;
 }
-
 body::-webkit-scrollbar {
   width: 12px;
 }
-
 body::-webkit-scrollbar-thumb {
   background-color: #535353;
   border-radius: 10px;
   background-clip: padding-box;
   border: 2px solid transparent;
 }
-
 body::-webkit-scrollbar-track {
   background-color: rgb(248, 248, 248);
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px white;
 }
-
 .container {
   padding: 30px;
 }
-
 /* --------------------------header-------------------------- */
 .header {
   display: flex;
@@ -52,20 +43,16 @@ body::-webkit-scrollbar-track {
   height: 17vh;
   padding: 0 15px 0;
 }
-
 .logo {
   margin: 0;
 }
-
 .logo-image {
   width: 100px;
   height: 100px;
 }
-
 .logo-title {
   font-weight: 700;
   font-size: 40px;
-  text-align: center;
   transform: translate(-20%);
 }
 
@@ -74,118 +61,94 @@ body::-webkit-scrollbar-track {
   font-size: 18px;
   font-weight: 300;
 }
-
 .second {
   font-size: 13px;
 }
-
 .profile-image {
   width: 50px;
 }
-
 .small-container {
   display: flex;
   justify-content: space-between;
 }
-
 /* --------------------------left-container-------------------------- */
 .left-container {
   width: 70%;
   height: 100vh;
   border: 1px solid purple;
 }
-
 .tech-title {
   display: block;
   text-align: center;
 }
-
 .tech-list {
   padding: 0;
   list-style-type: none;
   height: 15vh;
 }
-
 .tech-list > li > a {
   text-decoration: none;
 }
-
 .tech-list > li {
   font-size: 20px;
   margin-left: 20px;
   margin-top: 20px;
 }
-
 .tech-title {
   font-weight: 400;
   margin: 30px;
 }
-
 .chat-title {
   font-weight: 400;
   text-align: center;
   margin-top: 30px;
 }
-
 .chat-room {
   padding: 0;
   list-style-type: none;
 }
-
 /* --------------------------right-container-------------------------- */
-
 .right-container {
   width: 30%;
   height: 100vh;
   border: 1px solid darkblue;
 }
-
 .profile-title {
   text-align: center;
   font-weight: 400;
   margin: 0;
 }
-
 .profile-nickname {
   display: block;
 }
-
 .current-users-list {
   list-style-type: none;
   padding: 0;
 }
-
 .current-users-list {
 }
-
 .current-users-list > li {
   margin-top: 10px;
 }
-
 .current-users-title {
   text-align: center;
   margin: 0;
 }
-
 .friends-list {
   list-style-type: none;
   padding: 0;
 }
-
 .friends-list > li {
   margin-top: 10px;
 }
-
 .friends-users-title {
   text-align: center;
   margin: 0;
 }
-
 .code-book {
   text-align: center;
   margin-top: 40px;
 }
-
 .code-book-btn {
   border: 0.3px solid palevioletred;
   cursor: pointer;

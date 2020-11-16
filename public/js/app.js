@@ -7,9 +7,9 @@ const $btnSignup = document.querySelector('.btn-signup');
 console.log('sdgds')
 
 $btnSignup.onclick = e => {
-  e.preventDefault();
+  
   console.log('aas')
-  location.assign('https://febook-98a1f.web.app/signup.html');
+  location.assign('../signup.html');
 }
 
 // db

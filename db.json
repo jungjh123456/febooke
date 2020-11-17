@@ -1,19 +1,19 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "정지훈",
+      "id": "wjdwlgns",
+      "password": "jungj",
+      "phone": "jsgsgj"
+    },
+    {
+      "name": "정지훈",
+      "id": "jungjh565",
+      "password": "wjdwlgns1474",
+      "phone": "01042288874"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  "posting": [
+    
+  ]
 }

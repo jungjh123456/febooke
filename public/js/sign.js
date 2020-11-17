@@ -69,14 +69,15 @@ const ninkfilter = async () => {
   let nickname = arr.map(item => item.nickname);
 
   $signupNick.onkeyup = e => {
-      if ($signupNick.value !== nickname[0]) {
+      if ($signupNick.value === nickname[0]) {
         console.log('중복')
         state = 'false';
         redBorder(e);
-      } else if ($signupNick.value === nickname){
+      } else if ($signupNick.value !== nickname) {
         state = 'true';
         clearBorder(e); 
       }
+
       if (state === 'false') {
         $signupBtn.style.opacity = '0.6';
         $signupBtn.style.cursor = 'not-allowed';

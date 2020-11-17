@@ -15,6 +15,10 @@
 }
 body {
   font-family: "Roboto";
+  color: #fff;
+  background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/59/purple-690724_960_720.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 body {
   overflow: auto;
@@ -34,31 +38,123 @@ body::-webkit-scrollbar-track {
   box-shadow: inset 0px 0px 5px white;
 }
 .container {
-  padding: 30px;
+  width: 80vw;
+  margin: 0 auto;
 }
 /* --------------------------header-------------------------- */
 .header {
-  display: flex;
-  justify-content: space-between;
-  height: 17vh;
-  padding: 0 15px 0;
+  padding-top: 2vh;
+  height: 20vh;
+  position: relative;
 }
 .logo {
   margin: 0;
 }
 .logo-image {
-  width: 100px;
-  height: 100px;
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  z-index: 4;
+  opacity: 0;
 }
+.logo-image.showImage {
+  opacity: 1;
+  transition:2s;
+}
+/* 헤딩 텍스트 */
 .logo-title {
-  font-weight: 700;
-  font-size: 40px;
-  transform: translate(-20%);
+  
+  font-weight: 400;
+  color: rgba(245,234,244,0.6);
+  font-size: 4rem;
+  line-height: 6rem;
+  margin: 0;
+  margin-top: -1%;
+  transition: 2s;
+}
+.logo-title span{
+  position: absolute;
+}
+.logo-title.wT{
+  font-weight: 500;
+  font-size: 5rem;
+}
+.logo-title .logoT {
+  font-size : 6rem;
+
+  color: rgba(255,255,255,1);
+}
+
+.logo-title.midTime{
+  /* position: absolute; */
+  /* font-size: 4rem; */
+  /* letter-spacing: -0.4rem; */
+  color: rgb(255,255,255,0)
+}
+
+.logo-title.midTime span{
+  /* font-size: 3.5rem; */
+}
+.midTime .firstT {
+  position: absolute;
+  color: rgba(255,255,255,1);
+  transition: 2s;
+}
+.midTime .secondT {
+  position: absolute;
+  color: rgba(255,255,255,1);
+  transition: 2s;
+}
+@keyframes moveF{
+  0%{
+   /* position:absolute;  */
+  }50%{
+    top: 5%;
+     left: 50%;
+     color: #ff0;
+     font-size: 0.3rem;
+    } 
+    
+    100%{
+      /* position: absolute; */
+      font-size: 3.5rem;
+      top: 24%;
+      left: 1.5%;
+      color: #ff0;
+      opacity:0.5;
+    }
+  }
+  @keyframes moveE{
+    0%{
+      /* position:absolute;  */
+    } 
+    50% {
+      top: 12%;
+      left: 80%;
+      color: #ff0;
+      font-size: 0.3rem;
+    }
+    100%{
+      /* position: absolute; */
+      font-size: 3.5rem;
+      top: 24%;
+      left: 5%;
+      color: #ff0;
+      opacity:0.5;
+   }
+}
+
+.lastTime .firstT{
+  animation: moveF 2s forwards;
+}
+.lastTime .secondT{
+  animation: moveE 3s forwards;
 }
 .header-timer {
-  margin-top: 80px;
   font-size: 18px;
   font-weight: 300;
+  align-self: flex-end;
+
 }
 .second {
   font-size: 13px;

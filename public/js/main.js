@@ -26,6 +26,7 @@ const $logoImage = document.querySelector('.logo-image');
   setTimeout(printNow, 1000);
 })();
 
+
 const printTitle = (printCount) => {
 
 }
@@ -56,5 +57,13 @@ window.onload = e=>{
     };
     ++titleCount;
   },120);
+}
+
+
+const $signup = document.querySelector('.signup');
+
+$signup.onclick = e => {
+  e.preventDefault();
+  location.assign('../../signup.html');
 }
 

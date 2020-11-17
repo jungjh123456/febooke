@@ -6,23 +6,7 @@
   <title>Welcome to Firebase Hosting</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
   <link rel="stylesheet" href="css/login.css">
-  <!-- update the version number as needed -->
-  <script defer src="/__/firebase/8.0.2/firebase-app.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <script defer src="/__/firebase/8.0.2/firebase-auth.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-database.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-firestore.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-functions.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-messaging.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-storage.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-analytics.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-remote-config.js"></script>
-  <script defer src="/__/firebase/8.0.2/firebase-performance.js"></script>
-  <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  
   <script defer src="../server.js"></script>
   <script defer src="js/app.js"></script>
 
@@ -49,42 +33,7 @@
   </div>  
 
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const loadEl = lectodocument.querySer('#load');
-      try {
-        let app = firebase.app();
-        let features = [
-          'auth',
-          'database',
-          'firestore',
-          'functions',
-          'messaging',
-          'storage',
-          'analytics',
-          'remoteConfig',
-          'performance',
-        ].filter(feature => typeof app[feature] === 'function');
-        loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-      } catch (e) {
-        console.error(e);
-        loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-      }
-    });
-    var firebaseConfig = {
-      apiKey: "AIzaSyBlmO_eIoewf7E_gwMmEHJ4GT6zZUu9cXQ",
-      authDomain: "febook-98a1f.firebaseapp.com",
-      databaseURL: "https://febook-98a1f.firebaseio.com",
-      projectId: "febook-98a1f",
-      storageBucket: "febook-98a1f.appspot.com",
-      messagingSenderId: "963499727155",
-      appId: "1:963499727155:web:ca037c439a175ff2ff4646",
-      measurementId: "G-7PPFWHX85C"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
+  
 
 </body>
 </html>

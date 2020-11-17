@@ -1,4 +1,4 @@
-let user = [];
+let data = [];
 const obj = {};
 
 const $signupFieldset = document.querySelector('.signup-fieldset');
@@ -26,6 +26,9 @@ $signupFieldset.onkeyup = e => {
     let num = +$signupName.value ? redBorder(e) : e.key > 0 && e.key < 9 ? redBorder(e) : clearBorder(e); 
     obj['name'] = $signupName.value; 
   } else if (e.target.matches('.signup-nick')) {
+    firebase.database().ref('users/').on('add-child', (snapshot) => {
+      data = snapshot.val();
+    })
     obj['ninkname'] = $signupNick.value;
   } else if (e.target.matches('.signup-id')) {
     obj['id'] = $signupId.value;
@@ -41,7 +44,7 @@ $signupFieldset.onkeyup = e => {
 
 function writeUserData(name) {
   firebase.database().ref('users/').push({
-    username: name
+    user: name
   })
 }
 
@@ -53,7 +56,3 @@ $signupBtn.onclick = e => {
 }
 
 
-
-firebase.database().ref('users/').on('value', (snapshot) => {
-  person = snapshot.val()
-})

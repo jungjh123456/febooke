@@ -9,12 +9,9 @@
  const $editorValue = document.querySelector('.editor');
  const $titleWrite = document.querySelector('.title-write');
  const $languageBox = document.querySelector('.language-box');
- const languageCheckBox = $languageBox.querySelectorAll('input');
  
  // ul
  const $boardList = document.querySelector('.board-list');
- const $label = $languageBox.querySelectorAll('label');
- console.log($label);
 
 
 
@@ -72,10 +69,6 @@ todos = [ {id: 1, title: 'SEO관점으로서의 접근', completed: true}];
      // render();
  }
 
-$label.onclick = (e) => {
-   if(!e.target.matches('$languageBox > input')) return;
 
-
-}
 
 

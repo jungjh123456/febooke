@@ -2,6 +2,12 @@
   "users": [
     {
       "name": "정지훈",
+      "id": "cjy0019@gmail.com",
+      "password": "jungj",
+      "phone": "jsgsgj"
+    },
+    {
+      "name": "정지훈",
       "id": "jungjh565",
       "password": "zz64112491",
       "nickname": "jungjh",

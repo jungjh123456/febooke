@@ -1,6 +1,8 @@
 // --------------------회원가입-------------------------//
 
 const arr = [];
+var state = 'false';
+
 
 const $signupFieldset = document.querySelector('.signup-fieldset');
 const $signupName = document.querySelector('.signup-name');
@@ -13,17 +15,56 @@ const $signupPass2 = document.querySelector('.signup-pass2');
 const $signupNumber = document.querySelector('.signup-number');
 
 
-
 $signupBtn.onclick = async e => {
   e.preventDefault();
 
   const newUser = {name: $signupName.value, id: $signupId.value, password: $signupPass.value, phone: $signupNumber.value}
 
+  
   const res = await fetch('/users', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newUser)
   });
   console.log(res)
+
+}
+
+const redBorder = e => {
+  e.target.style.borderBottomColor = 'red';
+}
+
+const clearBorder = e => {
+  e.target.style.borderBottomColor = '#f0f3f4';
+}
+
+
+$signupName.onkeyup = e => {
+  if(+$signupName.value || !$signupName.value.trim()) {
+    state = 'false';
+    redBorder(e) 
+  } else if (e.key > 0 && e.key < 9) {
+    state = 'false';
+    redBorder(e) 
+  } else {
+    state = 'true';
+    clearBorder(e); 
+  } 
+
+  if (state === 'false') {
+    $signupBtn.style.opacity = '0.6';
+    $signupBtn.style.cursor = 'not-allowed';
+  } else if (state === 'true') {
+    $signupBtn.style.opacity = '1';
+    $signupBtn.style.cursor = 'pointer';
+  }
   
 }
+
+
+const ninkfilter = async e => {
+  const userNick = await fetch('/users');
+  arr = userNick.json();
+  
+}
+

@@ -5,207 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>board</title>
-    <style>
-        .board {
-            margin-top: 18vh;
-            margin-left: 30px;
-            width: 80%;
-            height: 100%;
-            border: 1px solid #A593E0;
-        }
-
-        /* Tech 게시판 타이틀*/
-        .tech-heading {
-            margin: 0;
-            margin-left: 10px;
-            margin-top: 10px;
-            font-size: 25px;
-            margin-bottom: 5px;
-            color: #566270;
-        }
-
-        /* Tech 게시판 설명 */
-        .caption {
-            display: inline-block;
-            margin-left: 10px;
-            color: #566270;
-        }
-
-        /* 내글, 글쓰기 그룹*/
-        .filter-write {
-            display: flex;
-            justify-content: flex-end;
-            margin: 15px 0;
-            margin-right: 15px;
-        }
-
-        /* 필터링 */
-        select {
-            outline: none;
-            width: 100px;
-            height: 28px;
-            padding: 4px 0;
-            margin-right: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            color: #566270;
-            border-color: #566270;;
-        }
-
-        /* 글쓰기 버튼 */
-        .write-btn {
-            border: 1px solid transparent;;
-            background-color: transparent;
-            font-size: 14px;
-            padding: 4px 7px;
-            cursor: pointer;
-            outline: none;
-            border-radius: 5px;
-            /* color: #566270; */
-            background-color: #A593E0;
-            color: #eee;
-            font-weight: 800;
-        }
-
-
-              
-        .write-btn:hover {
-            background-color: rgb(101, 91, 159);
-            color: #eee;
-        }
-        /* .board-header ( 제목 , 닉네임, 날짜, 조회수) */
-        .board-header {
-            font-size: 0;
-            border-top: 1px solid #A593E0;
-            padding-top: 10px;
-            color: #566270;
-        }
-
-
-        /* .board-header > .title */
-        .board-header .title {
-            font-size: 16px;
-            margin: 0;
-            display: inline-block;
-            font-weight: normal;
-            width: 79%;
-            text-align: center;
-        }
-
-        /* .board-header > .nick-name */
-        .board-header .nick-name {
-            display: inline-block;
-            font-size: 16px;
-            text-align: center;
-            width: 5%;
-        }
-
-        /* .board-header > .heading-date */
-        .board-header .heading-date {
-            display: inline-block;
-            font-size: 16px;
-            text-align: center;
-            width: 9%;
-            /* background-color: red; */
-
-        }
-
-        /* .board-header > .heading-click */
-        .board-header .heading-click {
-            font-size: 16px;
-            display: inline-block;
-            text-align: center;
-            width: 7%;
-        }
-
-
-        /* ul.board-list */
-        .board-list {
-            padding: 0;
-            min-height: 130px;
-            color: #566270;
-        }
-
-        /* ul.board-list > li */
-        .board-list>li {
-            font-size: 0;
-            list-style: none;
-            border-bottom: 1px solid #f2f2f2;
-        }
-
-        /* ul.board-list > li > a */
-        .board-list>li>a {
-            width: 78%;
-            font-size: 16px;
-            margin-left: 1%;
-            display: inline-block;
-            color: black;
-            text-decoration: none;
-            padding-bottom: 10px;
-        }
-
-        /* ul.board-list > author*/
-        .board-list .author {
-            display: inline-block;
-            text-align: center;
-            font-size: 16px;
-            width: 5%;
-        }
-
-
-        /* ul.board-list > date*/
-        .time {
-            display: inline-block;
-            text-align: center;
-            font-size: 16px;
-            width: 9%;
-        }
-
-
-        /* ul.board-list > click*/
-        .click {
-            display: inline-block;
-            text-align: center;
-            font-size: 16px;
-            width: 7%;
-        }
-
-        .page {
-            /* margin: 0 auto; */
-        }
-
-        .page-nation {
-            display: flex;
-            /* background-color: red; */
-            justify-content: center;
-        }
-
-        .page-nation::before {
-            content: "<";
-            padding: 0 20px;
-            margin: 0 10px;
-        }
-
-        .page-nation::after {
-            content: ">";
-            padding: 0 20px;
-            margin: 0 10px;
-        }
-
-
-        .page-item {
-            list-style: none;
-        }
-
-        .page-item > a {
-            margin: 0 10px;
-            padding: 0 20px;
-            color: black;
-            text-decoration: none;
-        }
-
-        
-    </style>
+    <link rel="stylesheet" href="./css/board.css">
 </head>
 
 <body>
@@ -243,39 +43,39 @@
                 </time>
                 <span class="click">38</span>
             </li>
+            <li>
+                <a href="#">SEO관점에서의 접근</a>
+                <span class="author">주혀늬</span>
+                <time class="time">
+                    <span class="year"></span>
+                    <span class="month"></span>
+                    <span class="date"></span>
+                </time>
+                <span class="click">38</span>
+            </li>
         </ul>
         <div class="page">
+        
+
             <ul class="page-nation">
-                <li class="page-item"> <a href="#">1</a></li>
+                <li class="page-item"> 
+                    <i class="fas fa-angle-double-left"></i>   
+                    <a href="#">1</a>
+                </li>
                 <li class="page-item"> <a href="#">2</a></li>
                 <li class="page-item"> <a href="#">3</a></li>
                 <li class="page-item"> <a href="#">4</a></li>
-                <li class="page-item"> <a href="#">5</a></li>
+                <li class="page-item"> 
+                    <a href="#">5</a>
+                    <i class="fas fa-angle-double-right"></i>
+                </li>
             </ul>
+     
         </div>
     </div>
-    <script>
-        const $year = document.querySelector('.year');
-        const $month = document.querySelector('.month');
-        const $date = document.querySelector('.date');
-        const $writeBtn = document.querySelector('.write-btn');
-
-
-
-        const date = new Date();
-        const yearText = date.getFullYear();
-        const monthText = date.getMonth() + 1;
-        const dateText = date.getDate();
-
-
-        $year.textContent = `${yearText} /`;
-        $month.textContent = `${monthText} /`;
-        $date.textContent = dateText;
-
-        $writeBtn.onclick = () => {
-            window.location.href = './write.html'
-        }
-    </script>
+    
+    <script src="./js/board.js"></script>
+    <script src="https://kit.fontawesome.com/168c41ea51.js" crossorigin="anonymous"></script>
 </body>
 
 

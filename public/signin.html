@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+  <link rel="stylesheet" href="css/login.css">
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/8.0.2/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/8.0.2/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-functions.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-storage.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-remote-config.js"></script>
+  <script defer src="/__/firebase/8.0.2/firebase-performance.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script defer src="../server.js"></script>
+  <script defer src="js/app.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="login-popup">
+      <form id="loginForm">
+        <legend class="form-menu">FEbook</legend>
+        <fieldset class="clearfix">
+          <label for="login" class="a11hidden">로그인</label>
+          <input type="email" id="login" placeholder="Email" class="login-input" autocomplete="off">
+          <label for="pass" class="a11hidden">패스워드</label>
+          <input type="password" id="pass" placeholder="Password" class="pass-input">
+          <button class="btn-login">Log in</button>
+          <input id="checkId" class="check-id" type="checkbox">
+          <label for="checkId">Remember ID</label>
+          <a class="search-id">Find ID</a>
+          <a class="search-pass">Find Password</a>
+          <a class="btn-signup">Sign Up</a>
+        </fieldset>
+      </form>
+    </div>
+  </div>  
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loadEl = lectodocument.querySer('#load');
+      try {
+        let app = firebase.app();
+        let features = [
+          'auth',
+          'database',
+          'firestore',
+          'functions',
+          'messaging',
+          'storage',
+          'analytics',
+          'remoteConfig',
+          'performance',
+        ].filter(feature => typeof app[feature] === 'function');
+        loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+      } catch (e) {
+        console.error(e);
+        loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+      }
+    });
+    var firebaseConfig = {
+      apiKey: "AIzaSyBlmO_eIoewf7E_gwMmEHJ4GT6zZUu9cXQ",
+      authDomain: "febook-98a1f.firebaseapp.com",
+      databaseURL: "https://febook-98a1f.firebaseio.com",
+      projectId: "febook-98a1f",
+      storageBucket: "febook-98a1f.appspot.com",
+      messagingSenderId: "963499727155",
+      appId: "1:963499727155:web:ca037c439a175ff2ff4646",
+      measurementId: "G-7PPFWHX85C"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+</body>
+</html>

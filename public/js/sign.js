@@ -1,4 +1,5 @@
 const obj = {};
+var state = false;
 
 const $signupFieldset = document.querySelector('.signup-fieldset');
 const $signupName = document.querySelector('.signup-name');
@@ -9,6 +10,7 @@ const $signupPass = document.querySelector('.signup-pass');
 const $input = document.querySelector('input');
 const $signupPass2 = document.querySelector('.signup-pass2');
 const $signupNumber = document.querySelector('.signup-number');
+
 
 const redBorder = e => {
   e.target.style.borderBottomColor = 'red';
@@ -25,11 +27,14 @@ $signupFieldset.onkeyup = e => {
     obj['name'] = $signupName.value; 
   } else if (e.target.matches('.signup-nick')) {
     firebase.database().ref('users/').on('child_added', (snapshot) => {
-      let nick = [snapshot.val()].filter(nink => nink.ninckname === $signupNick.value);
-      if (nick.length) {
+      
+      console.log(snapshot.val());
+      if (nick.user.nickname === $signupNick.value) {
+        state = false;
         redBorder(e);
       }
       else {
+        state = true;
         obj['nickname'] = $signupNick.value;
         clearBorder(e);
       } 
@@ -39,9 +44,11 @@ $signupFieldset.onkeyup = e => {
     firebase.database().ref('users/').on('child_added', (snapshot) => {
       let data = snapshot.val();
       if (data.user.id === $signupId.value) {
+        state = false;
         redBorder(e);
       }
       else {
+        state = true;
         obj['id'] = $signupId.value;
         clearBorder(e);
       } 

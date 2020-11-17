@@ -97,6 +97,7 @@ body {
   border: 0;
   border-bottom: 1px solid #f0f3f4;
   margin-top: 10px;
+  position: relative;
 }
 
 .signup-fieldset>input:focus {

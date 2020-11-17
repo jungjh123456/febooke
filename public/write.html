@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>writeBoard</title>
     <link rel="stylesheet" href="./css/write.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/stylesdefault.min.css">
+
 </head>
 
 <body>
@@ -19,35 +21,52 @@
             <div class="hash-tag">
                 <span>관련 주제를 골라주세요</span>
                 <div class="language-box">
-                    <input class="HTML" type="checkbox">
-                    <label for="">HTML</label>
-                    <input class="CSS" type="checkbox">
-                    <label for="">CSS</label>
-                    <input class="Javascript" type="checkbox">
-                    <label for="">Javascript</label>
-                    <input class="Vue" type="checkbox">
-                    <label for="">Vue</label>
-                    <input class="React" type="checkbox">
-                    <label for="">React</label>
-                    <input class="TypeScript" type="checkbox">
-                    <label for="">TypeScript</label>
-                    <input class="Python" type="checkbox">
-                    <label for="">Python</label>
-                    <input class="java" type="checkbox">
-                    <label for="">java</label>
-                    <input class="C" type="checkbox">
-                    <label for="">C</label>
-                    <input class="C#" type="checkbox">
-                    <label for="">C#</label>
-                    <input class="C++" type="checkbox">
-                    <label for="">C++</label>
-                    <input class="XML" type="checkbox">
-                    <label for="">XML</label>
-                    <input class="php" type="checkbox">
-                    <label for="">php</label>
+                    <label>
+                        <input class="HTML" type="checkbox">HTML
+                    </label>
+                    <label>
+                        <input class="CSS" type="checkbox">CSS
+                    </label>
+                    <label>
+                        <input class="Javascript" type="checkbox">Javascript
+                    </label>
+                    <label>
+                        <input class="Vue" type="checkbox">Vue
+                    </label>
+                    <label>
+                        <input class="React" type="checkbox">React
+                    </label>
+                    <label>
+                        <input class="TypeScript" type="checkbox">TypeScript
+                    </label>
+                    <label>
+                        <input class="Python" type="checkbox">Python
+                    </label>
+                    <label>
+                        <input class="java" type="checkbox">java
+                    </label>
+                    <label>
+                        <input class="C" type="checkbox">C
+                    </label>
+                    <label>
+                        <input class="C#" type="checkbox">C#
+                    </label>
+                    <label>
+                        <input class="C++" type="checkbox">C++
+                    </label>
+                    <label>
+                        <input class="XML" type="checkbox">XML
+                    </label>
+                    <label>
+                        <input class="php" type="checkbox">php
+                    </label>
+                    <label>
+                        <input class="php" type="checkbox">Others
+                    </label>
                 </div>
             </div>
             <textarea class="editor" name="editor" id="" cols="30" rows="10"></textarea>
+
             <div class="written">
                 <button class="modify">수정</button>
                 <button class="delete">삭제</button>

@@ -11,9 +11,13 @@
       "id": "jungjh565",
       "password": "wjdwlgns1474",
       "phone": "01042288874"
+    },
+    {
+      "name": "정재훈",
+      "id": "jungjh123456",
+      "password": "wjdwlgns1474@",
+      "phone": "01042288874"
     }
   ],
-  "posting": [
-    
-  ]
+  "posting": []
 }

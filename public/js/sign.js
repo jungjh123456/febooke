@@ -18,4 +18,10 @@ $signupBtn.onclick = async e => {
   e.preventDefault();
   const newUser = {name: $signupName.value, id: $signupId.value, password: $signupPass.value, phone: $signupNumber.value}
 
+  const res = await fetch('/users', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newUser)
+  });
+
 }

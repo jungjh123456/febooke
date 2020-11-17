@@ -94,17 +94,3 @@ $signupBtn.onclick = e => {
   window.location.href('signin.html');
 }
 
-// --------------------회원가입-------------------------//
-
-const $loginInput = document.querySelector('.login-input');
-const $passInput = document.querySelector('.pass-input');
-
-console.log($loginInput)
-
-$loginInput.onkeyup = e => {
-  firebase.database().ref('users/').on('child_added', (snapshot) => {
-    let data = [];
-    data.push(snapshot.val());
-    console.log(data)
-  }
-};

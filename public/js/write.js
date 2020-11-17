@@ -4,9 +4,10 @@
 
 // 게시판의 ul 이라고 생각하자
 // let todos = [];
+let arr = [];
 
  const $registerBtn = document.querySelector('.register-btn');
- const $editorValue = document.querySelector('.editor');
+ const $editor = document.querySelector('.editor');
  const $titleWrite = document.querySelector('.title-write');
  const $languageBox = document.querySelector('.language-box');
  
@@ -44,30 +45,43 @@ let todos = [];
 todos = [ {id: 1, title: 'SEO관점으로서의 접근', completed: true}];
 
 
- const addList = (title) => {
-     // console.log(title); // 2. 강주현
 
-    // 에디터에 작성한 것 + 기존 게시판 글 
-    const newList = [{id: 3, title, completed: true}];
-    // console.log(newList); // [ {id: 3, title: "강주현", completed: true}]
-    todos = newList.concat(todos);
-    console.log(todos);
-    //  <- render 해야 함
- }
+const render = () => {
+
+}
+
+
 
 
 
  // 등록버튼 클릭이벤트
- $registerBtn.onclick = () => {
-    //  console.log(e.target);
-     console.log('클릭했습니다'); // 1. 클릭했습니다.
+ $registerBtn.onclick = async (e) => {
 
-     // 게시판의 ul의 li가 추가되는 함수 실행
 
-     // 인수 = 제목의 값
-     addList($titleWrite.value);
-     // render();
- }
+    const res2 = await fetch('/users');
+    arr = await res2.json();
+    console.log(arr);
+    // const test = arr.map(ar => ar.id)
+    // console.log(test);
+
+    const newList = {
+        title: $titleWrite.value, 
+        content: $editor.value,
+        id: arr.id,
+        nickname: arr.nickname
+    }
+    // console.log(newList);
+    
+    const res = await fetch('/board', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newList)
+    });
+    // console.log(res);
+    
+      }
+
+ 
 
 
 

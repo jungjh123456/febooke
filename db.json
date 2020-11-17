@@ -2,45 +2,10 @@
   "users": [
     {
       "name": "정지훈",
-      "id": "wjdwlgns",
-      "password": "jungj",
-      "phone": "jsgsgj"
-    },
-    {
-      "name": "정지훈",
       "id": "jungjh565",
-      "password": "wjdwlgns1474",
+      "password": "zz64112491",
+      "nickname": "jungjh",
       "phone": "01042288874"
-    },
-    {
-      "name": "정재훈",
-      "id": "jungjh123456",
-      "password": "wjdwlgns1474@",
-      "phone": "01042288874"
-    },
-    {
-      "name": "sdgsdg",
-      "id": "sdgsdg",
-      "password": "sdgsdg",
-      "phone": "sdgsdg"
-    },
-    {
-      "name": "jsd3",
-      "id": "QDhSjyY",
-      "password": "",
-      "phone": ""
-    },
-    {
-      "name": "dsfds135",
-      "id": "CMrGRAs",
-      "password": "",
-      "phone": ""
-    },
-    {
-      "name": "dsdsgsg",
-      "id": "rSGl6Ql",
-      "password": "",
-      "phone": ""
     }
   ],
   "posting": []

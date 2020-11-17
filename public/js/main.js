@@ -13,3 +13,10 @@ const $headerTimer = document.querySelector(".header-timer");
 
   setTimeout(printNow, 1000);
 })();
+
+const $signup = document.querySelector('.signup');
+
+$signup.onclick = e => {
+  e.preventDefault();
+  location.assign('../../signup.html');
+}

@@ -1,15 +1,23 @@
 {
-  "name": "todos-v8",
+  "name": "Febook-fds17",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "json-server --watch db.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jungjh123456/febooke.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jungjh123456/febooke/issues"
+  },
+  "homepage": "https://github.com/jungjh123456/febooke#readme",
   "dependencies": {
-    "json-server": "^0.16.2"
+    "json-server": "^0.16.3"
   }
 }

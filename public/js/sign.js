@@ -1,5 +1,8 @@
+// --------------------회원가입-------------------------//
+
 const obj = {};
 var state = false;
+
 
 const $signupFieldset = document.querySelector('.signup-fieldset');
 const $signupName = document.querySelector('.signup-name');
@@ -10,6 +13,11 @@ const $signupPass = document.querySelector('.signup-pass');
 const $input = document.querySelector('input');
 const $signupPass2 = document.querySelector('.signup-pass2');
 const $signupNumber = document.querySelector('.signup-number');
+
+
+if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+  var email = window.localStorage.getItem('emailForSignIn');
+}
 
 
 const redBorder = e => {
@@ -81,5 +89,8 @@ function writeUserData(name) {
 
 $signupBtn.onclick = e => {
   e.preventDefault();
+  
   writeUserData(obj);
+  window.location.href('signin.html');
 }
+

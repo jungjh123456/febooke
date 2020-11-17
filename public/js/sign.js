@@ -38,6 +38,7 @@ const clearBorder = e => {
   e.target.style.borderBottomColor = '#f0f3f4';
 }
 
+// 유저 이름
 
 $signupName.onkeyup = e => {
   if(+$signupName.value || !$signupName.value.trim()) {
@@ -61,6 +62,7 @@ $signupName.onkeyup = e => {
   
 }
 
+// 닉네임
 
 const ninkfilter = async () => {
   let nickFillter = await fetch('/users');
@@ -69,11 +71,12 @@ const ninkfilter = async () => {
   let nickname = arr.map(item => item.nickname);
 
   $signupNick.onkeyup = e => {
-      if ($signupNick.value === nickname[0]) {
-        console.log('중복')
-        state = 'false';
-        redBorder(e);
-      } else if ($signupNick.value !== nickname) {
+      
+    if(nickname.filter(item => item === $signupNick.value).length) {
+      console.log('error')
+      state = 'false';
+      redBorder(e); 
+    } else {
         state = 'true';
         clearBorder(e); 
       }
@@ -91,3 +94,49 @@ const ninkfilter = async () => {
 
 
 ninkfilter();
+
+// id
+
+// 이메일 유효성
+function chkEmail(str) {
+  let email = str;
+  let regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+  if (!(regExp.test(str))) {
+      return false;
+  }
+
+  return true;
+}
+
+const idFilter = async () => {
+  let nickFillter = await fetch('/users');
+  arr = await nickFillter.json();
+  let idName = arr.map(item => item.id);
+  console.log(idName)
+  $signupId.onkeyup = e => {
+    if(idName.filter(item => item === $signupId.value).length) {
+      console.log('중복');
+      state = 'false';
+      redBorder(e); 
+    } else if (chkEmail($signupId.value) !== true) {
+         console.log("이메일 형식이 아닙니다")
+         state = 'false';
+      redBorder(e); 
+      } else {
+        state = 'true';
+        clearBorder(e);
+      }
+
+      if (state === 'false') {
+        $signupBtn.style.opacity = '0.6';
+        $signupBtn.style.cursor = 'not-allowed';
+      } else if (state === 'true') {
+        $signupBtn.style.opacity = '1';
+        $signupBtn.style.cursor = 'pointer';
+      }
+  }
+
+}
+
+idFilter();

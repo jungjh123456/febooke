@@ -6,6 +6,8 @@ const $btnSignup = document.querySelector('.btn-signup');
 
 
 
+
+
 $btnSignup.onclick = e => {
   
   location.assign('../../signup.html');

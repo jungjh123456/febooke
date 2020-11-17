@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to Firebase Hosting</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
-  <link rel="stylesheet" href="css/login.css">
-  
-  <script defer src="../server.js"></script>
-  <script defer src="js/app.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to Firebase Hosting</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css"
+    />
+    <link rel="stylesheet" href="css/login.css" />
 
-</head>
-<body>
-  <div class="container">
-    <div class="login-popup">
-      <form id="loginForm">
-        <legend class="form-menu">FEbook</legend>
-        <fieldset class="clearfix">
-          <label for="login" class="a11hidden">로그인</label>
-          <input type="email" id="login" placeholder="Email" class="login-input" autocomplete="off">
-          <label for="pass" class="a11hidden">패스워드</label>
-          <input type="password" id="pass" placeholder="Password" class="pass-input">
-          <button class="btn-login">Log in</button>
-          <input id="checkId" class="check-id" type="checkbox">
-          <label for="checkId">Remember ID</label>
-          <a class="search-id">Find ID</a>
-          <a class="search-pass">Find Password</a>
-          <a class="btn-signup">Sign Up</a>
-        </fieldset>
-      </form>
+    <script defer src="../server.js"></script>
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-popup">
+        <form id="loginForm">
+          <legend class="form-menu">FEbook</legend>
+          <fieldset class="clearfix">
+            <label for="login" class="a11hidden">로그인</label>
+            <input
+              type="email"
+              id="login"
+              placeholder="Email"
+              class="login-input"
+              autocomplete="off"
+            />
+            <label for="pass" class="a11hidden">패스워드</label>
+            <input
+              type="password"
+              id="pass"
+              placeholder="Password"
+              class="pass-input"
+            />
+            <button class="btn-login">Log in</button>
+            <input id="checkId" class="check-id" type="checkbox" />
+            <label for="checkId">Remember ID</label>
+            <a class="search-id">Find ID</a>
+            <a class="search-pass">Find Password</a>
+            <a class="btn-signup">Sign Up</a>
+          </fieldset>
+        </form>
+      </div>
     </div>
-  </div>  
-
-
-  
-
-</body>
+  </body>
 </html>

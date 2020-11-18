@@ -24,6 +24,13 @@
       "password": "wjdwlgns1474@",
       "nickname": "jungjh565",
       "phone": "01042288874"
+    },
+    {
+      "name": "정훈",
+      "id": "wjdwlgns12345@naver.com",
+      "password": "wjdwlgns14@",
+      "nickname": "jungjh123",
+      "phone": "010422874"
     }
   ],
   "board": [
@@ -49,7 +56,7 @@
       "id": 3,
       "nickname": "jungjh565",
       "time": "2020-11-18 12:36:17",
-      "clickcount": 32
+      "clickcount": 35
     },
     {
       "title": "sdgdsgsd",
@@ -58,6 +65,14 @@
       "nickname": "jungjh565",
       "time": "2020-11-18 13:07:25",
       "clickcount": 26
+    },
+    {
+      "title": "oksdfsd",
+      "content": "hedsfsdfsllo",
+      "id": 3,
+      "nickname": "jungjh123",
+      "time": "2020-11-18 12:36:17",
+      "clickcount": 32
     }
   ]
 }

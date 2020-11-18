@@ -33,6 +33,10 @@ const $btnGroup = document.querySelector('.btn-group');
     if(!sessionStorage.getItem('login')){
       console.log('login이 필요합니다.')
       $loginCheck.classList.add('on');
+      $btnGroup.onclick = e => {
+        if (e.target.matches('.btn-yes')) location.assign('../signin.html');
+        else if(e.target.matches('.btn-no')) $loginCheck.classList.remove('on');
+      }
     } else {
       window.location.href = './write.html'
     }
@@ -57,11 +61,12 @@ const $btnGroup = document.querySelector('.btn-group');
       <a href="#">${list.title}</a>
       <span class="author">${list.nickname}</span>
       <time class="time">
+        ${list.time}
           <span class="year"></span>
           <span class="month"></span>
           <span class="date"></span>
       </time>
-      <span class="click">38</span>
+      <span class="click">${list.clickcount}</span>
   </li>`}
       )
       $boardList.innerHTML = html;

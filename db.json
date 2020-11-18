@@ -28,28 +28,28 @@
   ],
   "board": [
     {
-      "title": "sdfsf",
-      "content": "sdfsdf",
+      "title": "dsgsdg",
+      "content": "sdgssdgsg",
       "id": 1,
-      "nickname": "ddd"
+      "nickname": "jungjh565",
+      "time": "2020-11-18 11:52:59",
+      "clickcount": 0
     },
     {
-      "title": "sdfsf3252",
-      "content": "sdfsdf",
+      "title": "hello",
+      "content": "ok",
       "id": 2,
-      "nickname": "ddd"
+      "nickname": "jungjh565",
+      "time": "2020-11-18 12:33:57",
+      "clickcount": 0
     },
     {
-      "title": "sdfsf3252",
-      "content": "sdfsdf",
+      "title": "ok",
+      "content": "hello",
       "id": 3,
-      "nickname": "ddd"
-    },
-    {
-      "title": "sdfsf3252",
-      "content": "sdfsdf",
-      "id": 4,
-      "nickname": "ddd"
+      "nickname": "jungjh565",
+      "time": "2020-11-18 12:36:17",
+      "clickcount": 0
     }
   ]
 }

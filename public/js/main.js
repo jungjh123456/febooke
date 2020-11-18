@@ -24,7 +24,7 @@ const $header = document.querySelector('.header');
 
   $headerTimer.textContent = `${hour < 10 ? "0" + hour : hour} : ${
     min < 10 ? "0" + min : min
-  }.${sec < 10 ? "0" + sec : sec}`;
+  } : ${sec < 10 ? "0" + sec : sec}`;
 
   setTimeout(printNow, 1000);
 })();

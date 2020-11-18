@@ -254,7 +254,6 @@ body::before {
   overflow: hidden;
   width: 5vw;
   height: 5vh;
-  
 }
 /* --------------------------left-container-------------------------- */
 .left-container {
@@ -348,25 +347,29 @@ body::before {
 /* 기술게시판 new 게시판 */
 .tech-news{
   background-color: skyblue;
-  height: 50vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
+
+
 .news-heading{
   font-size:3vw;
-  width: 25vw;
-}
-.news-heading a{
-  color: rgba(240,240,240,0.7);
-  text-decoration: none;
-
+  background-color: pink;
 }
 
 .tech-new-list{
-background-color: pink;
+  width: 100%;
+  background-color: orange;
 }
 /* 타이틀 닉네임 날짜 조회수 */
 .tech-new-item{
-
+  height: 30vh;
+  width: 30vw;
+  background-color: lightblue;
 }
+
+
 .tech-list {
   padding: 0;
   list-style-type: none;

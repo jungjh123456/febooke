@@ -15,6 +15,7 @@
 
  // login check
 const $loginCheck = document.querySelector('.login-check');
+const $btnGroup = document.querySelector('.btn-group');
 
   const date = new Date();
   const yearText = date.getFullYear();

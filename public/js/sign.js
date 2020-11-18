@@ -13,6 +13,7 @@ const $input = document.querySelector("input");
 const $signupPass2 = document.querySelector(".signup-pass2");
 const $signupNumber = document.querySelector(".signup-number");
 const $checkPhone = document.querySelector(".check-phone");
+const $signupCancelBtn = document.querySelector('.signup-cancel-btn');
 
 $signupBtn.onclick = async (e) => {
   e.preventDefault();
@@ -201,4 +202,12 @@ if (state === "false") {
 } else if (state === "true") {
   $signupBtn.style.opacity = "1";
   $signupBtn.style.cursor = "pointer";
+}
+
+
+// 취소 버튼 누를 시 메인페이지
+
+$signupCancelBtn.onclick = e => {
+  e.preventDefault();
+  location.assign('../index.html');
 }

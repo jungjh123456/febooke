@@ -14,6 +14,8 @@ let titleLength = title.length;
 const $logoImage = document.querySelector('.logo-image');
 const $headerSearch = document.querySelector('.header-search');
 const $header = document.querySelector('.header');
+
+//헤더 함수, 이벤트
 (function printNow() {
   const now = new Date();
   let hour = now.getHours();
@@ -28,9 +30,7 @@ const $header = document.querySelector('.header');
 })();
 
 
-const printTitle = (printCount) => {
-
-}
+// 첫로딩 이벤트
 let titleCount = 0;
 window.onload = e=>{
   const key = setInterval(()=> {
@@ -62,6 +62,30 @@ window.onload = e=>{
     ++titleCount;
   },120);
 }
+
+// 기술 게시판 변수, 함수, 이벤트
+// 게시판 statement
+const $techBoard = document.querySelector('.tech-board');
+const $techStatement = document.querySelector('.tech-statement');
+
+let stateCount = 0;
+let stateColor = 0;
+setInterval(()=>{
+  if(stateCount){
+    $techBoard.classList.remove('transStatement');
+    --stateCount;
+  }else{
+    $techBoard.classList.add('transStatement');
+    ++stateCount;
+  }
+},1000);
+setTimeout(()=>{setInterval(()=>{
+  [...$techStatement.children].forEach((item,i) => {
+    item.classList.toggle('stateColor', i===stateColor);
+  })
+  stateColor===2 ? stateColor=0 : stateColor++;
+},1500)},5000)
+
 
 
 const $signup = document.querySelector('.signup');

@@ -40,22 +40,11 @@ const $boardList = document.querySelector('.board-list');
 //        </li>`
 
 //  }
-let todos = [];
 
-todos = [{
-    id: 1,
-    title: 'SEO관점으로서의 접근',
-    completed: true
-}];
-
-
-
-const render = () => {
-
-}
 
 
 const maxId = () => arr.length ? Math.max(...arr.map(item => item.id)) : 1;
+
 
 
 // 등록버튼 클릭이벤트

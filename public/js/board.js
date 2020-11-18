@@ -39,31 +39,41 @@
 
 
 $selectOption.onchange = async (e) => {
-  console.log(e.target.value)
   // if(최근 날짜순을 클릭했다면)
   if(e.target.value === 'least-date'){
-          const res2 = await fetch('/board?_sort=id,views&_order=desc,asc');
-          const least = await res2.json();
-          console.log(least); // <- board db json (배열안에 객체)
-          render(least);
-        }
-        // // if(과거 날짜순을 클릭했다면)
-        else if(e.target.value === 'last-date') {
-          const res3 = await fetch('/board');
-          const last = await res3.json();
-          console.log(last); // <- board db json (배열안에 객체)
-          render(last);
+    const res2 = await fetch('/board?_sort=id,views&_order=desc,asc');
+    const least = await res2.json();
+    console.log(least); // <- board db json (배열안에 객체)
+    render(least);
   }
-
-
-
+  // // if(과거 날짜순을 클릭했다면)
+  else if(e.target.value === 'last-date') {
+    const res3 = await fetch('/board');
+    const last = await res3.json();
+    console.log(last); // <- board db json (배열안에 객체)
+    render(last);
+  }
+  else if(e.target.value === 'high') {
+    console.log(e.target.value)
+    const res4 = await fetch('/board/?_sort=clickcount&_order=desc');
+    const high = await res4.json();
+    console.log(high); // <- board db json (배열안에 객체)
+    render(high);
+}
+else if(e.target.value === 'row') {
+  const res5 = await fetch('/board/?_sort=clickcount&_order=asc');
+  const row = await res5.json();
+  console.log(row); // <- board db json (배열안에 객체)
+  render(row);
+}
+else if(e.target.value === 'my-content') {
+  const res6 = await fetch('/board/nickname');
+  const myContent = await res6.json();
+  console.log(myContent); // <- board db json (배열안에 객체)
+  render(myContent);
+}
 }
 
-  // let copy = [...todo];
-    
-  // // targetId = 최근날짜 순이란 option least-date    
-  // const targetId = [...$selectOption.querySelectorAll('option')].map(item => item.id);
-  // console.log(targetId);
   
 
 

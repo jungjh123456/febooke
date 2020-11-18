@@ -105,3 +105,9 @@
 .comment-register{
 padding: 20px 20px;
 }
+
+.commenting{
+    margin-top: 10px;
+    height: 160px;
+    border: 1px solid;
+}

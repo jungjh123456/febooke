@@ -5,6 +5,8 @@
       "id": "cjy0019@gmail.com",
       "password": "jungj",
       "phone": "jsgsgj",
+      "title": "3l3l3",
+      "content": "welw"
       "content": {
         "content-id": 1
       }
@@ -14,8 +16,42 @@
       "id": "jungjh565",
       "password": "zz64112491",
       "nickname": "jungjh",
-      "phone": "01042288874"
+      "phone": "01042288874",
+      "title": "fff",
+      "content": "dddd"
     }
   ],
-  "posting": []
+  "board": [
+    {
+      "title": "fddd",
+      "content": "ssssdd",
+      "id": "jungjh565",
+      "nickname": "jungjh"
+    },
+    {
+      "title": "fdfff",
+      "content": "dff",
+      "id": "A-12dUL"
+    },
+    {
+      "title": "ddddr3k3;3k3l3",
+      "content": ";ke'qlke;lwkd;l",
+      "id": "U9-YgoE"
+    },
+    {
+      "title": "",
+      "content": "",
+      "id": "G2OrOjk"
+    },
+    {
+      "title": "",
+      "content": "",
+      "id": "rKCgIpv"
+    },
+    {
+      "title": "",
+      "content": "",
+      "id": "G9YZfr8"
+    }
+  ]
 }

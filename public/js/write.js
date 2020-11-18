@@ -51,7 +51,7 @@ const render = () => {
 }
 
 
-
+const maxId = () => arr.length ? Math.max(...arr.map(item => item.id)) : 1;
 
 
  // 등록버튼 클릭이벤트
@@ -63,12 +63,13 @@ const render = () => {
     console.log(arr);
     // const test = arr.map(ar => ar.id)
     // console.log(test);
+    
 
     const newList = {
         title: $titleWrite.value, 
         content: $editor.value,
-        id: arr.id,
-        nickname: arr.nickname
+        id: maxId(),
+        nickname: 'ddd'
     }
     // console.log(newList);
     

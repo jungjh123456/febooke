@@ -45,7 +45,7 @@
       [...todo].forEach(list => {
       html += `<li>
       <a href="#">${list.title}</a>
-      <span class="author">${list.name}</span>
+      <span class="author">${list.nickname}</span>
       <time class="time">
           <span class="year"></span>
           <span class="month"></span>

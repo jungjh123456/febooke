@@ -1,5 +1,6 @@
 let arr = [];
 let idArr = [];
+let nick = [];
 // -------------------- 로그인 -------------------------//
 
 
@@ -27,12 +28,17 @@ const logIn = async () => {
   idArr = arr.map((idArr) => idArr.id);
   passArr = arr.map((passArr) => passArr.password);
 
-  $btnLogin.onclick = (e) => {
+  $btnLogin.onclick = async (e) => {
     e.preventDefault();
+    
     if (idArr.filter((item, i, arr) => $loginInput.value === arr[i]).length) {
       for (let i = 0; i < passArr.length; i++) {
         if (passArr[i] === $passInput.value) {
           window.alert("성공했습니다.");
+          console.log(arr);
+          nick = arr.filter(nick => nick.id === $loginInput.value);
+          console.log(nick)
+          sessionStorage.setItem('login', JSON.stringify({id: $loginInput.value, nickname: nick.nickname}))
         }
       }
     } else window.alert("실패했습니다.");

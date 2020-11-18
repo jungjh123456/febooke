@@ -20,13 +20,20 @@ $signupBtn.onclick = async e => {
 
   const newUser = {name: $signupName.value, id: $signupId.value, password: $signupPass.value, nickname: $signupNick.value ,phone: $signupNumber.value}
 
-  
+  if ($input.value) {
+    state = 'true';
   const res = await fetch('/users', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newUser)
   });
   console.log(res)
+  location.assign('../signin.html')
+} else {
+  console.log('에러')
+}
+
+
 
 }
 
@@ -141,10 +148,54 @@ const idFilter = async () => {
 
 idFilter();
 
+$signupPass.onkeyup = e => {
+  if ($signupPass.value.length > 16) {
+    state = 'false';
+      redBorder(e); 
+  } else {
+    state = 'true';
+    clearBorder(e);
+  }
+
+  if (state === 'false') {
+    $signupBtn.style.opacity = '0.6';
+    $signupBtn.style.cursor = 'not-allowed';
+  } else if (state === 'true') {
+    $signupBtn.style.opacity = '1';
+    $signupBtn.style.cursor = 'pointer';
+  }
+}
+
 $signupPass2.onkeyup = e => {
   if ($signupPass2.value !== $signupPass.value) {
+    state = 'false';
     redBorder(e);
   } else {
-    
+    state = 'true';
+    clearBorder(e);
   }
+  if (state === 'false') {
+    $signupBtn.style.opacity = '0.6';
+    $signupBtn.style.cursor = 'not-allowed';
+  } else if (state === 'true') {
+    $signupBtn.style.opacity = '1';
+    $signupBtn.style.cursor = 'pointer';
+  }
+}
+
+
+
+$signupNumber.onkeyup = e => {
+  console.log($signupNumber.value.replace(/\-/g,''));
+   $signupNumber.value = $signupNumber.value.replace(/\-/g,'');
+   state = 'true';
+   clearBorder(e);
+}
+
+if (state === 'false') {
+  $signupBtn.style.opacity = '0.6';
+  $signupBtn.style.cursor = 'not-allowed';
+} else if (state === 'true') {
+  $signupBtn.style.opacity = '1';
+  $signupBtn.style.cursor = 'pointer';
 }

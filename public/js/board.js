@@ -83,8 +83,9 @@ $selectOption.onchange = async (e) => {
 
     let html = '';
 
-    [...todo].forEach(list => {
-      html += `<li id = "${list.id}">
+
+      [...todo].forEach(list => {
+      html += `<li id="${list.id}">
       <a href="#">${list.title}</a>
       <span class="author">${list.nickname}</span>
       <time class="time">
@@ -99,25 +100,29 @@ $selectOption.onchange = async (e) => {
       $boardList.innerHTML = html;
   }
 
-  // 카운터
-  const counter = (function () {
-
-    let num = 0;
   
-    return {
-      increase() {
-        return ++num;
-      }
-    };
-  }());
-
 
 
 $boardList.onclick = async e => {
-  
-  fetch('')
+e.preventDefault();
+let counter = 1;
 
-  console.log(counter.increase());
+const res = await fetch('/board');
+arr = await res.json();
 
+const clickcounter = arr.find(item => item.id === +e.target.parentNode.id);
+
+console.log(clickcounter)
+console.log(e.target.parentNode)
+ await fetch(`/board/${e.target.parentNode.id}`,{
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json'
+  },
+   body: JSON.stringify({clickcount: clickcounter.clickcount + counter})
+  })
+
+  console.log(counter)
+  render(arr);
 
 }

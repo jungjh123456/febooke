@@ -7,6 +7,7 @@ let nick = [];
 const $loginInput = document.querySelector(".login-input");
 const $passInput = document.querySelector(".pass-input");
 const $btnLogin = document.querySelector(".btn-login");
+const $btnSignup = document.querySelector('.btn-signup');
 
 const debounce = (callback, delay) => {
   let timerId;
@@ -41,7 +42,7 @@ const logIn = async () => {
         }
       }
     } else {
-      
+
     }
   };
 };
@@ -57,6 +58,12 @@ logIn();
 },300);
 
 logIn();
+
+
+$btnSignup.onclick = e => {
+  e.preventDefault();
+  location.assign('../signup.html')
+}
 
 
 

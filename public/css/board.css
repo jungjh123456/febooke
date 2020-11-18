@@ -1,8 +1,33 @@
+
+
+.container {
+  /* width: 100%;
+  height:100%; */
+  /* background-image: url(../image/starry-sky-1654074_1920.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+
+
+}
+.a11y-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 1px;
+}
+.header {
+  
+}
+
+.logo a img{
+  width: 100px;
+  height: 100px;
+}
 .board {
-  margin-top: 18vh;
-  margin-left: 30px;
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   border: 1px solid #A593E0;
 }
 
@@ -13,14 +38,14 @@
   margin-top: 10px;
   font-size: 25px;
   margin-bottom: 5px;
-  color: #566270;
+  color: #eee;
 }
 
 /* Tech 게시판 설명 */
 .caption {
   display: inline-block;
   margin-left: 10px;
-  color: #566270;
+  color: #eee;
 }
 
 /* 내글, 글쓰기 그룹*/
@@ -71,7 +96,7 @@ select {
   font-size: 0;
   border-top: 1px solid #A593E0;
   padding-top: 10px;
-  color: #566270;
+  color: #eee;
 }
 
 
@@ -85,6 +110,7 @@ select {
   /* font-weight: normal; */
   width: 79%;
   text-align: center;
+  
 }
 
 /* .board-header > .nick-name */
@@ -94,6 +120,7 @@ select {
   font-weight: 800;
   text-align: center;
   width: 5%;
+  
 }
 
 /* .board-header > .heading-date */
@@ -121,7 +148,7 @@ select {
 .board-list {
   padding: 0;
   min-height: 130px;
-  color: #566270;
+  color: #eee;
 }
 
 /* ul.board-list > li */
@@ -133,13 +160,14 @@ select {
 
 /* ul.board-list > li > a */
 .board-list>li>a {
-  width: 78%;
+  /* width: 78%; */
   font-size: 14px;
   margin-left: 1%;
   display: inline-block;
-  color: black;
+  color: #eee;
   text-decoration: none;
   padding-bottom: 10px;
+  width: 70%;
 }
 
 /* ul.board-list > author*/
@@ -147,7 +175,7 @@ select {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  width: 5%;
+  /* width: 5%; */
 }
 
 
@@ -156,7 +184,8 @@ select {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  width: 9%;
+  /* width: 9%; */
+  margin-top: 10px;
 }
 
 
@@ -165,7 +194,7 @@ select {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  width: 7%;
+  /* width: 7%; */
 }
 
 .fas{
@@ -176,16 +205,18 @@ select {
 .page-nation {
   display: flex;
   justify-content: center;
+  min-height: 300px;
 }
 
 .page-item {
   list-style: none;
+  margin-top: 10px;
 }
 
 .page-item > a {
   margin: 0 10px;
   padding: 0 20px;
-  color: black;
+  color: #eee;
   text-decoration: none;
 }
 

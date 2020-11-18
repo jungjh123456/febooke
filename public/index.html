@@ -6,6 +6,7 @@
     <title>FEbook</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css"/>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/board.css">
   </head>
   <body>
     <div class="container">
@@ -40,6 +41,13 @@
                 <a class="link-box" href="">TECH Board-Newest</a></h3>
               <ul class="tech-new-list">
                 <li class="tech-new-item"></li>
+              </ul>
+            </div>
+            <div class="tech-news">
+              <h3 class="Hot-heading">
+                <a class="link-box" href="">TECH Board-HOT</a></h3>
+              <ul class="tech-hot-list">
+                <li class="tech-hot-item"></li>
               </ul>
             </div>
             <ul class="tech-list">
@@ -92,8 +100,80 @@
           </section>
         </div>
       </div>
-      <a class="signup" href="#">회원가입</a>
+     
+      <!--    <div class="board">
+        <h2 class="tech-heading">Tech 게시판</h2>
+        <span class="caption">프론트엔드 개발자들의 기술개발 게시판</span>
+        <div class="filter-write">
+            <select name="조건 검색" class="select-option">
+                <option value="my-content">내글</option>
+                <optgroup label="조회수">
+                    <option id="high" value="high">높은 순</option>
+                    <option id="row" value="row">낮은 순</option>
+                </optgroup>
+                <optgroup label="날짜 순">
+                    <option id="least-date" value="least-date">최근날짜 순</option>
+                    <option id="last-date" value="last-date">과거날짜 순</option>
+                </optgroup>
+            </select>
+            <button class="write-btn">글쓰기</button>
+            <div class="login-check">
+                로그인 하시겠습니까?
+                <div class="btn-group">
+                <button class="btn-yes">네</button>
+                <button class="btn-no">아니오</button>
+               </div>
+            </div>
+        </div>
+        <div class="board-header">
+            <h3 class="title">제목</h3>
+            <span class="nick-name">닉네임</span>
+            <span class="heading-date">날짜</span>
+            <span class="heading-click">조회수</span>
+        </div>
+        <ul class="board-list">
+               <li class = "to-list">
+                <a href="#">웹 접근성에 대한 고찰</a>
+                <span class="author">주혀늬</span>
+                <time class="time">
+                    <span class="year"></span>
+                    <span class="month"></span>
+                    <span class="date"></span>
+                </time>
+                <span class="click">38</span>
+            </li> -->
+            <!-- <li>
+                <a href="#">SEO관점에서의 접근</a>
+                <span class="author">주혀늬</span>
+                <time class="time">
+                    <span class="year"></span>
+                    <span class="month"></span>
+                    <span class="date"></span>
+                </time>
+                <span class="click">38</span>
+            </li> 
+        </ul>
+        <div class="page">
+        
+
+            <ul class="page-nation">
+                <li class="page-item"> 
+                    <i class="fas fa-angle-double-left"></i>   
+                    <a href="#">1</a>
+                </li>
+                <li class="page-item"> <a href="#">2</a></li>
+                <li class="page-item"> <a href="#">3</a></li>
+                <li class="page-item"> <a href="#">4</a></li>
+                <li class="page-item"> 
+                    <a href="#">5</a>
+                    <i class="fas fa-angle-double-right"></i>
+                </li>
+            </ul>
+     
+        </div>
+    </div> -->
     </div>
     <script src="./js/main.js"></script>
+    <!-- <script src="./js/board.js"></script> -->
   </body>
 </html>

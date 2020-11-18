@@ -12,7 +12,8 @@ let title = [`<span class="wT">W</span>`,`<span>e</span>`,
 
 let titleLength = title.length;
 const $logoImage = document.querySelector('.logo-image');
-
+const $headerSearch = document.querySelector('.header-search');
+const $header = document.querySelector('.header');
 (function printNow() {
   const now = new Date();
   let hour = now.getHours();
@@ -45,7 +46,7 @@ window.onload = e=>{
       $logoTitle.classList.add('midTime');
       setTimeout(()=>{
         const $firstT = document.querySelector('.firstT');
-        const $secondT = document.querySelector('.seondT');
+        const $secondT = document.querySelector('.secondT');
         $logoTitle.classList.add('lastTime');
         $firstT.style.transition = '2s';
         $secondT.style.transition = '2s';
@@ -53,6 +54,9 @@ window.onload = e=>{
       },2000)
       setTimeout(()=> {
         $logoImage.classList.add('showImage');
+        $headerSearch.classList.add('showSearch');
+        $logoTitle.classList.add('downT');
+        $header.classList.add('showColor');
       },4000)
     };
     ++titleCount;

@@ -1,31 +1,16 @@
  let arr = [];
 
-  const $years = document.querySelectorAll('.year'); // <- 유사배열객체인 NodeList 가 반환된다.
-  // console.log($years); // NodeList
-  // console.log(typeof $years); // object
-  // console.log(Array.isArray($years)); // false <- 유사배열객체
 
-
-  const $months = document.querySelectorAll('.month');
-  const $dates = document.querySelectorAll('.date');
 
   //글쓰기 버튼
   const $writeBtn = document.querySelector('.write-btn');
- const $boardList = document.querySelector('.board-list');
+  const $boardList = document.querySelector('.board-list');
 
  // login check
-const $loginCheck = document.querySelector('.login-check');
-const $btnGroup = document.querySelector('.btn-group');
+  const $loginCheck = document.querySelector('.login-check');
+  const $btnGroup = document.querySelector('.btn-group');
+  const $selectOption = document.querySelector('.select-option');
 
-  const date = new Date();
-  const yearText = date.getFullYear();
-  const monthText = date.getMonth() + 1;
-  const dateText = date.getDate();
-
-
-  $years.forEach(year => { year.textContent =   `${yearText} /` } )
-  $months.forEach(month => { month.textContent =   `${monthText} /` } )
-  $dates.forEach(date => { date.textContent =   dateText } )
 
 
 
@@ -33,6 +18,10 @@ const $btnGroup = document.querySelector('.btn-group');
     if(!sessionStorage.getItem('login')){
       console.log('login이 필요합니다.')
       $loginCheck.classList.add('on');
+      $btnGroup.onclick = e => {
+        if (e.target.matches('.btn-yes')) location.assign('../signin.html');
+        else if(e.target.matches('.btn-no')) $loginCheck.classList.remove('on');
+      }
     } else {
       window.location.href = './write.html'
     }
@@ -42,27 +31,108 @@ const $btnGroup = document.querySelector('.btn-group');
   window.onload = async e => {
     const res = await fetch('/board');
     arr = await res.json();
-    console.log(arr);
+    console.log(arr); // <- 배열안에 객체
 
     render(arr);
 
   }
 
-  const render = (todo) => {
+
+$selectOption.onchange = async (e) => {
+  // if(최근 날짜순을 클릭했다면)
+  if(e.target.value === 'least-date'){
+    const res2 = await fetch('/board?_sort=id,views&_order=desc,asc');
+    const least = await res2.json();
+    console.log(least); // <- board db json (배열안에 객체)
+    render(least);
+  }
+  // // if(과거 날짜순을 클릭했다면)
+  else if(e.target.value === 'last-date') {
+    const res3 = await fetch('/board');
+    const last = await res3.json();
+    console.log(last); // <- board db json (배열안에 객체)
+    render(last);
+  }
+  else if(e.target.value === 'high') {
+    console.log(e.target.value)
+    const res4 = await fetch('/board/?_sort=clickcount&_order=desc');
+    const high = await res4.json();
+    console.log(high); // <- board db json (배열안에 객체)
+    render(high);
+}
+else if(e.target.value === 'row') {
+  const res5 = await fetch('/board/?_sort=clickcount&_order=asc');
+  const row = await res5.json();
+  console.log(row); // <- board db json (배열안에 객체)
+  render(row);
+}
+else if(e.target.value === 'my-content') {
+  const res6 = await fetch('/board/nickname');
+  const myContent = await res6.json();
+  console.log(myContent); // <- board db json (배열안에 객체)
+  render(myContent);
+}
+}
+
+  
+
+
+
+
+
+
+
+
+  const render = async (todo) => {
+
+    
+
+    
+
+
 
     let html = '';
 
+
       [...todo].forEach(list => {
-      html += `<li>
+      html += `<li id="${list.id}">
       <a href="#">${list.title}</a>
       <span class="author">${list.nickname}</span>
       <time class="time">
+        ${list.time}
           <span class="year"></span>
           <span class="month"></span>
           <span class="date"></span>
       </time>
-      <span class="click">38</span>
+      <span class="click">${list.clickcount}</span>
   </li>`}
       )
       $boardList.innerHTML = html;
   }
+
+  
+
+
+$boardList.onclick = async e => {
+e.preventDefault();
+let counter = 1;
+
+const res = await fetch('/board');
+arr = await res.json();
+
+const clickcounter = arr.find(item => item.id === +e.target.parentNode.id);
+
+console.log(clickcounter)
+console.log(e.target.parentNode)
+ await fetch(`/board/${e.target.parentNode.id}`,{
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json'
+  },
+   body: JSON.stringify({clickcount: clickcounter.clickcount + counter})
+  })
+
+  console.log(counter)
+  render(arr);
+
+}

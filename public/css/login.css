@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Noto+Sans+KR');
-@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Noto+Sans+KR");
+@import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
 
 * {
   box-sizing: border-box;
@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
   font-size: 0.9em;
   color: #58666e;
   background-color: #f0f3f4;
@@ -35,16 +35,12 @@ body {
 
 .container {
   display: flex;
+  position: relative;
   justify-content: center;
   margin: 0 auto;
 }
 
-
-
-
 /* 로그인 */
-
-
 
 .login-popup {
   width: 100vw;
@@ -87,8 +83,8 @@ body {
   text-align: center;
   font-size: 1.4rem;
   font-weight: 800;
-  color: #E0E3DA;
-  text-shadow: 0 1px 2px #A593E0;
+  color: #e0e3da;
+  text-shadow: 0 1px 2px #a593e0;
 }
 
 .pass-input,
@@ -98,26 +94,23 @@ body {
   height: 50px;
   margin-bottom: 20px;
   border: none;
-  border-bottom: 1px solid #E0E3DA;
+  border-bottom: 1px solid #e0e3da;
   background: none;
   color: #eee;
 }
 
 .login-input::-webkit-input-placeholder,
 .pass-input::-webkit-input-placeholder {
-  color: #E0E3DA;
+  color: #e0e3da;
 }
-
 
 .pass-input:focus,
 .login-input:focus {
   outline: 0;
   border-width: 0 0 2px;
   border: 0;
-  border-bottom: 1px solid #E0E3DA;
+  border-bottom: 1px solid #e0e3da;
 }
-
-
 
 .pass-input {
   margin-bottom: 15px;
@@ -130,16 +123,72 @@ body {
   margin-bottom: 10px;
   color: #566270;
   outline: 0;
-  border:0;
-  /* border: 1px solid #566270; */
+  border: 0;
   border-radius: 5px;
   transition: 1s;
   background: rgb(255, 255, 255);
 }
 
+.check-sign.on {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 250px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #423986;
+  border-radius: 40px;
+  opacity: 0.8;
+}
+
+.check-sign {
+  display: none;
+}
+
+.check-text {
+  font-size: 20px;
+  color: rgb(248, 248, 248);
+  margin-bottom: 60px;
+  margin-top: 50px;
+}
+
+.fa-times-circle {
+  position: absolute;
+  font-size: 25px;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-join {
+  box-sizing: border-box;
+  padding: 4px 0;
+  font-size: 13px;
+  width: 150px;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: transparent;
+}
+
+.btn-join:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 0.8s;
+}
+
 .btn-login:hover {
   cursor: pointer;
-  background-color: rgb(101,91,159);
+  background-color: rgb(101, 91, 159);
   border-radius: 5px;
   color: #eee;
 }
@@ -158,12 +207,12 @@ body {
   padding: 5px;
   text-decoration: none;
   transition: 1s;
-  color: #E0E3DA;
+  color: #e0e3da;
   cursor: pointer;
 }
 
 fieldset a:hover {
-  background-color: #A593E0;
+  background-color: #a593e0;
   border-radius: 10px;
   color: #eee;
 }
@@ -174,14 +223,14 @@ fieldset a:hover {
   display: none;
 }
 
-#loginForm fieldset input[type="checkbox"]+label {
+#loginForm fieldset input[type="checkbox"] + label {
   cursor: pointer;
   font-size: 0.7rem;
-  color:#E0E3DA;
+  color: #e0e3da;
   line-height: 1.9;
 }
 
-#loginForm fieldset input[type="checkbox"]+label::after {
+#loginForm fieldset input[type="checkbox"] + label::after {
   content: "";
   float: left;
   margin-right: 5px;
@@ -193,8 +242,7 @@ fieldset a:hover {
   border-radius: 3px;
 }
 
-#loginForm fieldset input[type="checkbox"]:checked+label::after {
+#loginForm fieldset input[type="checkbox"]:checked + label::after {
   background-color: rgb(200, 199, 170);
   background: url(../image/checked.png) no-repeat center/20px 20px;
-  ;
 }

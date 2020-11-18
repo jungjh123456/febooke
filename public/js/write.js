@@ -58,6 +58,7 @@ const render = () => {
 const maxId = () => arr.length ? Math.max(...arr.map(item => item.id)) : 1;
 
 
+
 // 등록버튼 클릭이벤트
 $registerBtn.onclick = async (e) => {
 

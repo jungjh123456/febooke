@@ -57,7 +57,7 @@ const $btnGroup = document.querySelector('.btn-group');
     let html = '';
 
       [...todo].forEach(list => {
-      html += `<li>
+      html += `<li id = "${list.id}">
       <a href="#">${list.title}</a>
       <span class="author">${list.nickname}</span>
       <time class="time">
@@ -71,3 +71,26 @@ const $btnGroup = document.querySelector('.btn-group');
       )
       $boardList.innerHTML = html;
   }
+
+  // 카운터
+  const counter = (function () {
+
+    let num = 0;
+  
+    return {
+      increase() {
+        return ++num;
+      }
+    };
+  }());
+
+
+
+$boardList.onclick = async e => {
+  
+  fetch('')
+
+  console.log(counter.increase());
+
+
+}

@@ -24,6 +24,20 @@
       "password": "wjdwlgns1474@",
       "nickname": "jungjh565",
       "phone": "01042288874"
+    },
+    {
+      "name": "정훈",
+      "id": "wjdwlgns12345@naver.com",
+      "password": "wjdwlgns14@",
+      "nickname": "jungjh123",
+      "phone": "010422874"
+    },
+    {
+      "name": "정재훈",
+      "id": "jungjh123456@naver.com",
+      "password": "wjdwlgns1474",
+      "nickname": "jungjh12",
+      "phone": "01042288874"
     }
   ],
   "board": [
@@ -49,7 +63,7 @@
       "id": 3,
       "nickname": "jungjh565",
       "time": "2020-11-18 12:36:17",
-      "clickcount": 32
+      "clickcount": 36
     },
     {
       "title": "sdgdsgsd",
@@ -58,6 +72,61 @@
       "nickname": "jungjh565",
       "time": "2020-11-18 13:07:25",
       "clickcount": 26
+    },
+    {
+      "title": "oksdfsd",
+      "content": "hedsfsdfsllo",
+      "id": 3,
+      "nickname": "jungjh123",
+      "time": "2020-11-18 12:36:17",
+      "clickcount": 32
+    },
+    {
+      "title": "gsdg",
+      "content": "sdgsg",
+      "id": 5,
+      "nickname": "jungjh565",
+      "time": "2020-11-18 18:22:03",
+      "clickcount": 0
+    },
+    {
+      "title": "hello",
+      "content": "ok!",
+      "id": 6,
+      "nickname": "jungjh565",
+      "time": "2020-11-18 18:29:15",
+      "clickcount": 0
+    },
+    {
+      "title": "sgsgsg",
+      "content": "sdgsgsgsgsdg",
+      "id": 7,
+      "nickname": "jungjh565",
+      "time": "2020-11-18 19:23:11",
+      "clickcount": 0
+    }
+  ],
+  "comment": [
+    {
+      "commented": "  \n  ㄴㅇㅎㄴㅇㅎ\nㅁㄴㄹㅁㄹㅁㄴㄹ\n        ",
+      "nickname": "jungjh565",
+      "id": 1
+    },
+    {
+      "commented": "  \n  \n        ㅁㄴㄹㅁㄹㅁㄹㅁㄹ",
+      "nickname": "jungjh565",
+      "id": 2
+    },
+    {
+      "commented": "  \n  sdgdsg\n        ",
+      "nickname": "jungjh565",
+      "id": 3
+    },
+    {
+      "commented": "  \n  sdgsgs\n        ",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-18 22:01:16",
+      "id": 4
     }
   ]
 }

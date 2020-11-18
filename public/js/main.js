@@ -1,3 +1,5 @@
+let arr = [];
+
 // --------------------------header 시계 -------------------------
 const $headerTimer = document.querySelector(".header-timer");
 const $logoTitle = document.querySelector('.logo-title');
@@ -88,10 +90,244 @@ setTimeout(()=>{setInterval(()=>{
 
 
 
-const $signup = document.querySelector('.signup');
 
-$signup.onclick = e => {
+const $leftContainer = document.querySelector('.left-container')
+
+// 렌더링
+
+$techBoard.onclick = async e => {
   e.preventDefault();
-  location.assign('../../signup.html');
+  if (!e.target.matches('.link-box')) return
+  let html = ''
+
+  $leftContainer.innerHTML =  `<div class="board">
+  <h2 class="tech-heading">Tech 게시판</h2>
+  <span class="caption">프론트엔드 개발자들의 기술개발 게시판</span>
+  <div class="filter-write">
+      <select name="조건 검색" class="select-option">
+          <option value="my-content">내글</option>
+          <optgroup label="조회수">
+              <option id="high" value="high">높은 순</option>
+              <option id="row" value="row">낮은 순</option>
+          </optgroup>
+          <optgroup label="날짜 순">
+              <option id="least-date" value="least-date">최근날짜 순</option>
+              <option id="last-date" value="last-date">과거날짜 순</option>
+          </optgroup>
+      </select>
+      <button class="write-btn">글쓰기</button>
+      <div class="login-check">
+          로그인 하시겠습니까?
+          <div class="btn-group">
+          <button class="btn-yes">네</button>
+          <button class="btn-no">아니오</button>
+         </div>
+      </div>
+  </div>
+  <div class="board-header">
+      <h3 class="title">제목</h3>
+      <span class="nick-name">닉네임</span>
+      <span class="heading-date">날짜</span>
+      <span class="heading-click">조회수</span>
+  </div>
+  <ul class="board-list">
+    
+  </ul>
+  <div class="page">
+  
+
+      <ul class="page-nation">
+          <li class="page-item"> 
+              <i class="fas fa-angle-double-left"></i>   
+              <a href="#">1</a>
+          </li>
+          <li class="page-item"> <a href="#">2</a></li>
+          <li class="page-item"> <a href="#">3</a></li>
+          <li class="page-item"> <a href="#">4</a></li>
+          <li class="page-item"> 
+              <a href="#">5</a>
+              <i class="fas fa-angle-double-right"></i>
+          </li>
+      </ul>
+
+  </div>
+</div>`
+  const res = await fetch('/board');
+  arr = await res.json();
+  render(arr);
 }
 
+
+
+
+const render = async (todo) => {
+  const $boardList = document.querySelector('.board-list');
+
+  //글쓰기 버튼
+  const $writeBtn = document.querySelector('.write-btn');
+
+ // login check
+  const $loginCheck = document.querySelector('.login-check');
+  const $btnGroup = document.querySelector('.btn-group');
+  const $selectOption = document.querySelector('.select-option');
+
+
+  let html = '';
+
+    [...todo].forEach(list => {
+    html += `<li id="${list.id}">
+    <a href="#">${list.title}</a>
+    <span class="author">${list.nickname}</span>
+    <time class="time">
+      ${list.time}
+        <span class="year"></span>
+        <span class="month"></span>
+        <span class="date"></span>
+    </time>
+    <span class="click">${list.clickcount}</span>
+</li>`}
+    )
+    $boardList.innerHTML = html;
+
+  // 컨텐트 보기
+  $boardList.onclick = async e => {
+    e.preventDefault();
+    if (!e.target.matches('.board-list > li > a')) return;
+
+    console.log(e.target.parentNode.id)
+
+
+    const res = await fetch(`/board/${e.target.parentNode.id}`);
+    arr = await res.json();
+    console.log(arr)
+
+
+
+    sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id, nickname: arr.nickname}))
+    location.assign('../../content.html')
+  }
+
+  $writeBtn.onclick = () => {
+    if(!sessionStorage.getItem('login')){
+      console.log('login이 필요합니다.')
+      $loginCheck.classList.add('on');
+      $btnGroup.onclick = e => {
+        if (e.target.matches('.btn-yes')) location.assign('../signin.html');
+        else if(e.target.matches('.btn-no')) $loginCheck.classList.remove('on');
+      }
+    } else {
+      window.location.href = './write.html'
+    }
+    
+  }
+
+
+$selectOption.onchange = async (e) => {
+  // if(최근 날짜순을 클릭했다면)
+  if(e.target.value === 'least-date'){
+    const res2 = await fetch('/board?_sort=id,views&_order=desc,asc');
+    const least = await res2.json();
+    console.log(least); // <- board db json (배열안에 객체)
+    render(least);
+  }
+  // // if(과거 날짜순을 클릭했다면)
+  else if(e.target.value === 'last-date') {
+    const res3 = await fetch('/board');
+    const last = await res3.json();
+    console.log(last); // <- board db json (배열안에 객체)
+    render(last);
+  }
+  else if(e.target.value === 'high') {
+    console.log(e.target.value)
+    const res4 = await fetch('/board/?_sort=clickcount&_order=desc');
+    const high = await res4.json();
+    console.log(high); // <- board db json (배열안에 객체)
+    render(high);
+}
+else if(e.target.value === 'row') {
+  const res5 = await fetch('/board/?_sort=clickcount&_order=asc');
+  const row = await res5.json();
+  console.log(row); // <- board db json (배열안에 객체)
+  render(row);
+}
+else if(e.target.value === 'my-content') {
+  const res6 = await fetch('/board/');
+  arr= await res6.json();
+
+  const LoginUser = JSON.parse(sessionStorage.getItem('login'));
+  arr = arr.filter(item => item.nickname === LoginUser.nickname)
+
+  console.log(arr)
+  render(arr)
+  // console.log(myContent); // <- board db json (배열안에 객체)
+  // render(myContent);
+}
+}
+
+}
+
+
+// 메인으로 가기
+
+
+
+$header.onclick = e => {
+  e.preventDefault();
+  location.assign('../../index.html')
+}
+
+const $techNewList = document.querySelector('.tech-new-list');
+
+// tech-list
+const render2 = todo => {
+  let html = '';
+
+  [...todo].forEach(list => {
+  html += `<li id="${list.id}">
+  <a href="#">${list.title}</a>
+  <span class="author">${list.nickname}</span>
+  <time class="time">
+    ${list.time}
+      <span class="year"></span>
+      <span class="month"></span>
+      <span class="date"></span>
+  </time>
+  <span class="click">${list.clickcount}</span>
+</li>`}
+  )
+  $techNewList.innerHTML = html;
+}
+
+// hot -list
+const $techHotList = document.querySelector('.tech-hot-list')
+const render3 = todo => {
+  let html = '';
+
+  [...todo].forEach(list => {
+  html += `<li id="${list.id}">
+  <a href="#">${list.title}</a>
+  <span class="author">${list.nickname}</span>
+  <time class="time">
+    ${list.time}
+      <span class="year"></span>
+      <span class="month"></span>
+      <span class="date"></span>
+  </time>
+  <span class="click">${list.clickcount}</span>
+</li>`}
+  )
+  $techHotList.innerHTML = html;
+}
+
+
+const list = async e => {
+  const res = await fetch('/board/?_sort=id,views&_order=desc,asc&_page=1&_limit=4');
+  arr = await res.json();
+  render2(arr);
+
+  const res1 = await fetch('/board/?_sort=clickcount&_order=desc&_page=1&_limit=4')
+  arr = await res1.json();
+  render3(arr);
+}
+
+list();

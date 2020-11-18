@@ -67,32 +67,24 @@ else if(e.target.value === 'row') {
   render(row);
 }
 else if(e.target.value === 'my-content') {
-  const res6 = await fetch('/board/nickname');
-  const myContent = await res6.json();
-  console.log(myContent); // <- board db json (배열안에 객체)
-  render(myContent);
+  const res6 = await fetch('/board/');
+  arr= await res6.json();
+
+  const LoginUser = JSON.parse(sessionStorage.getItem('login'));
+  arr = arr.filter(item => item.nickname === LoginUser.nickname)
+
+  console.log(arr)
+  render(arr)
+  // console.log(myContent); // <- board db json (배열안에 객체)
+  // render(myContent);
 }
 }
 
   
 
-
-
-
-
-
-
-
   const render = async (todo) => {
 
-    
-
-    
-
-
-
     let html = '';
-
 
       [...todo].forEach(list => {
       html += `<li id="${list.id}">

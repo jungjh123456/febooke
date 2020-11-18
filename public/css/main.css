@@ -55,7 +55,7 @@ body::before {
   /* background-color: rgba(0,0,0,0.2); */
 }
 .container {
-  width: 80vw;
+  width: 90vw;
   margin: 0 auto;
   background-color: rgba(0,0,0,0.3);
   box-shadow: 40px 40px 4rem 4rem rgba(0,0,0,0.3),

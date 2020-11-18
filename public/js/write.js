@@ -101,5 +101,5 @@ $registerBtn.onclick = async (e) => {
     });
     // console.log(res);
 
-    location.assign('../board.html')
+    location.assign('../index.html')
 }

@@ -13,6 +13,9 @@
   const $writeBtn = document.querySelector('.write-btn');
  const $boardList = document.querySelector('.board-list');
 
+ // login check
+const $loginCheck = document.querySelector('.login-check');
+
   const date = new Date();
   const yearText = date.getFullYear();
   const monthText = date.getMonth() + 1;
@@ -26,7 +29,13 @@
 
 
   $writeBtn.onclick = () => {
-    window.location.href = './write.html'
+    if(!sessionStorage.getItem('login')){
+      console.log('login이 필요합니다.')
+      $loginCheck.classList.add('on');
+    } else {
+      window.location.href = './write.html'
+    }
+    
   }
 
   window.onload = async e => {

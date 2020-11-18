@@ -34,14 +34,15 @@ const logIn = async () => {
     if (idArr.filter((item, i, arr) => $loginInput.value === arr[i]).length) {
       for (let i = 0; i < passArr.length; i++) {
         if (passArr[i] === $passInput.value) {
-          window.alert("성공했습니다.");
-          console.log(arr);
-          nick = arr.filter(nick => nick.id === $loginInput.value);
-          console.log(nick)
+          nick = arr.find(nick => nick.id === $loginInput.value);
+          console.log(nick.nickname)
           sessionStorage.setItem('login', JSON.stringify({id: $loginInput.value, nickname: nick.nickname}))
+          location.assign('../index.html')
         }
       }
-    } else window.alert("실패했습니다.");
+    } else {
+      
+    }
   };
 };
 

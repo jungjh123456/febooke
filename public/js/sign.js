@@ -140,3 +140,11 @@ const idFilter = async () => {
 }
 
 idFilter();
+
+$signupPass2.onkeyup = e => {
+  if ($signupPass2.value !== $signupPass.value) {
+    redBorder(e);
+  } else {
+    
+  }
+}

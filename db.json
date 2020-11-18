@@ -4,7 +4,10 @@
       "name": "정지훈",
       "id": "cjy0019@gmail.com",
       "password": "jungj",
-      "phone": "jsgsgj"
+      "phone": "jsgsgj",
+      "content": {
+        "content-id": 1
+      }
     },
     {
       "name": "정지훈",

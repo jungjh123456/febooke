@@ -28,6 +28,29 @@ window.onload = async () => {
    
     
     $commentBtn.onclick = async e => {
+        const padLeft = date => {
+            if (date < 10) {
+                return '0' + date;
+            } else {
+                return date + '';
+            }
+        }
+    
+        const format = a => {
+            let yyyy = a.getFullYear();
+            let month = padLeft(a.getMonth() + 1);
+            let dd = padLeft(a.getDate());
+            let HH = padLeft(a.getHours());
+            let mm = padLeft(a.getMinutes());
+            let ss = padLeft(a.getSeconds());
+    
+            let format1 = `${[yyyy, month, dd].join('-')} ${[HH, mm, ss].join(':')}`;
+    
+            return format1;
+        }
+    
+        let dateTime = new Date();
+
         const $commenting = document.querySelector('.commenting');
 
         const contentId = JSON.parse(sessionStorage.getItem('content'));
@@ -39,7 +62,8 @@ window.onload = async () => {
             },
             body: JSON.stringify({
                 commented: $commenting.value,
-                nickname: contentId.nickname
+                nickname: contentId.nickname,
+                commentDate: format(dateTime)
             })
         })
         console.log(await res.json())

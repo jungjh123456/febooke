@@ -189,7 +189,23 @@ const render = async (todo) => {
     )
     $boardList.innerHTML = html;
 
+  // 컨텐트 보기
+  $boardList.onclick = async e => {
+    e.preventDefault();
+    if (!e.target.matches('.board-list > li > a')) return;
 
+    console.log(e.target.parentNode.id)
+
+
+    const res = await fetch(`/board/${e.target.parentNode.id}`);
+    arr = await res.json();
+    console.log(arr)
+
+
+
+    sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id, nickname: arr.nickname}))
+    location.assign('../../content.html')
+  }
 
   $writeBtn.onclick = () => {
     if(!sessionStorage.getItem('login')){

@@ -92,7 +92,6 @@
 }
 
 .comment-register{
-    height: 200px;
     border: 1px solid;
 }
 
@@ -108,6 +107,15 @@ padding: 20px 20px;
 
 .commenting{
     margin-top: 10px;
+    width: 100%;
     height: 160px;
     border: 1px solid;
+    resize: none;
+}
+
+.comment-btn {
+   display: block;
+   width: 100px;
+   height: 50px;
+   
 }

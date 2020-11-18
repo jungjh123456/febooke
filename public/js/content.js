@@ -1,4 +1,3 @@
-
 const $container = document.querySelector('.container');
 
 
@@ -6,10 +5,39 @@ const $container = document.querySelector('.container');
 let arr = [];
 
 window.onload = async () => {
-    const res = await fetch('/board');
+
+    const contentId = JSON.parse(sessionStorage.getItem('content'));
+    const res = await fetch(`/board/${contentId.id}`);
     arr = await res.json();
-    console.log(arr);
     render(arr);
+
+    // const res1 = await fetch(`/comment`, {
+    //     method: "POST",
+    //     headers: {'Content-Type': 'application/json' },
+    //     body: 
+    // })
+    render3(arr);
+    const $commentBtn = document.querySelector('.comment-btn');
+    $commentBtn.onclick = async e => {
+        const $commenting = document.querySelector('.commenting');
+
+        const contentId = JSON.parse(sessionStorage.getItem('content'));
+        console.log(contentId);
+        const res = await fetch('/comment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                commented: $commenting.value,
+                nickname: contentId.nickname
+            })
+        })
+        console.log(await res.json())
+
+    }
+
+
 }
 
 
@@ -17,9 +45,10 @@ const render = (content) => {
 
     let html = '';
 
-    content.forEach(item => {
+    [content].forEach(item => {
 
-        html += `<h2 class="content-heading">${item.title}</h2>
+        html += `<span class="board-name">TECH Board</span>
+        <h2 class="content-heading">${item.title}</h2>
     <div class="member-info">
       <span class="profile">프사</span>
       <div class="content-info">
@@ -32,6 +61,24 @@ const render = (content) => {
 
     })
 
-    $container.innerHTML += html;
+    $container.innerHTML = html;
 }
 
+const render3 = content => {
+
+    let html = '';
+
+    [content].forEach(item => {
+        html += `<div class="comment-register">
+        <span class="member">${item.nickname}</span>
+        <textarea class="commenting">
+  
+  
+        </textarea>
+        <button class="comment-btn">등록</button>
+      </div>`
+    })
+    $container.innerHTML += html;
+
+
+}

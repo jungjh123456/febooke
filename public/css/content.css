@@ -69,9 +69,7 @@
 
 .comment {
     margin-top: 10px;
-    height: 200px;
-    border: 1px solid;
-    padding: 20px 20px;
+    /* padding: 20px 20px; */
     margin-bottom: 10px;
 }
 
@@ -96,9 +94,10 @@
 }
 
 .comment-list{
-    border: 1px solid;
-    height: 160px;
+
+    height: 30px;
     margin-top: 10px;
+    border-bottom: 1px solid;
 }
 
 .comment-register{

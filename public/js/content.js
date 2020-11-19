@@ -27,16 +27,30 @@ window.onload = async () => {
     const $commentBtn = document.querySelector('.comment-btn');
     const $commentEnrollment = document.querySelector('.comment-enrollment');
     const $commentLeast = document.querySelector('.comment-least');
-    const $commentModifyBtn = document.querySelector('.comment-modify-btn');
+    const $commentModifyBtn = document.querySelectorAll('.comment-modify-btn');
     const $commentDeleteBtn = document.querySelectorAll('.comment-delete-btn');
-    const $written = document.querySelector('.written')
-
+    const $written = document.querySelector('.written');
+    const $modifyBtn = document.querySelectorAll('.modify-btn');
+    const $span = document.querySelectorAll('.group span');
 
     if (loginNickname) {
         $written.classList.add('on')
     } else {
         $written.classList.remove('on')
     }
+    console.log($span.innerHTML)
+    // 댓글 수정
+
+    const res4 = await fetch('/comment');
+    arr = await res4.json();
+    console.log(arr);
+    arr = arr.filter(item => loginNickname.nickname === item.nickname)
+    console.log(arr);
+    arr.filter(item => )
+    console.log($modifyBtn)
+    arr.forEach((item,i) => {
+       
+    })
 
     $commentBtn.onclick = async e => {
 
@@ -168,8 +182,12 @@ window.onload = async () => {
         //     method: 'DELETE'
         // });
         // sessionStorage.clear('comment')
-    })
+    });
 
+    [...$commentModifyBtn].forEach(item => item.onclick = async e => {
+        e.preventDefault();
+        console.log('sdgs')
+    });
     /* 삭제 구현 */
 
     const $Delete = document.querySelector('.delete');
@@ -247,10 +265,15 @@ const render2 = (content) => {
     [...content].forEach(item => {
         html +=
             `<div class="comment">
+                <div class = "group">
                 <span>${item.nickname}</span>
+                <div class = "modify-btn">
                 <button  class="comment-modify-btn">수정</button>
                 <button id="${item.id}" class="comment-delete-btn">삭제</button>
-            <div class="comment-list">
+                <textarea class ="comment-text"></textarea>
+                </div> 
+                </div>
+                <div class="comment-list">
                 ${item.commented}
             </div>
             <div class="comment-date-info"> 

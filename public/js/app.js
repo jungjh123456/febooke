@@ -39,6 +39,18 @@ const logIn = async () => {
     e.preventDefault();
 
     // 아이디 성공
+    if(!$loginInput.value){
+      $checkSign.classList.toggle("on");
+    // $checkText.style.display = "block";
+    $checkText.textContent = "아이디를 입력해주세요";
+    return;
+    }
+    if(!$passInput.value){
+      console.log('입력안댐')
+      $checkSign2.classList.toggle("no-pass");
+      $checkText2.textContent = "패스워드를 입력해주세요."
+      return;
+    }
     if (idArr.filter((item, i, arr) => $loginInput.value === arr[i]).length) {
       for (let i = 0; i < passArr.length; i++) {
         if (passArr[i] === $passInput.value) {
@@ -52,13 +64,17 @@ const logIn = async () => {
             JSON.stringify({ id: $loginInput.value, nickname: nick.nickname })
           );
           localStorage.setItem("remember", $checkId.checked);
+          $loginInput.setAttribute('value','');
+          $passInput.setAttribute('value','');
           location.assign("../index.html");
-        } else {
+          break;
+        } else{
           if ($checkSign2.classList.contains("no-pass")) {
             $checkSign2.classList.remove("no-pass");
           }
           $checkSign2.classList.toggle("no-pass");
           $checkText2.textContent = "패스워드가 틀렸습니다.";
+          return;
         }
       }
     } else {

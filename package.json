@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jungjh123456/febooke#readme",
   "dependencies": {
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "nodemon": "^2.0.6"
   }
 }

@@ -5,6 +5,7 @@ const $registerBtn = document.querySelector('.register-btn');
 const $editor = document.querySelector('.editor');
 const $titleWrite = document.querySelector('.title-write');
 const $languageBox = document.querySelector('.language-box');
+const $Editor = document.querySelector('.editor')
 
 // ul
 const $boardList = document.querySelector('.board-list');
@@ -17,7 +18,7 @@ const maxId = () => arr.length ? Math.max(...arr.map(item => item.id)) : 1;
 
 // 등록버튼 클릭이벤트
 $registerBtn.onclick = async (e) => {
-
+ if($Editor.value === '') return;
     const padLeft = date => {
         if (date < 10) {
             return '0' + date;

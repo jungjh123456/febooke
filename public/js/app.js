@@ -37,6 +37,7 @@ const logIn = async () => {
 
   $btnLogin.onclick = async (e) => {
     e.preventDefault();
+
     // 아이디 성공
     if(!$loginInput.value){
       $checkSign.classList.toggle("on");

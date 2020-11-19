@@ -2,7 +2,6 @@ let arr = [];
 let idArr = [];
 let nick = [];
 // -------------------- 로그인 -------------------------//
-
 const $loginInput = document.querySelector(".login-input");
 const $passInput = document.querySelector(".pass-input");
 const $btnLogin = document.querySelector(".btn-login");
@@ -16,7 +15,6 @@ const $btnJoin = document.querySelector(".btn-join");
 const $btnSignup = document.querySelector(".btn-signup");
 const $checkSign2 = document.querySelector(".check-sign2");
 const $checkId = document.getElementById("checkId");
-
 const debounce = (callback, delay) => {
   let timerId;
   // debounce 함수는 timerId를 기억하는 클로저를 반환한다.
@@ -27,17 +25,13 @@ const debounce = (callback, delay) => {
     timerId = setTimeout(callback, delay, event);
   };
 };
-
 const logIn = async () => {
   const res = await fetch("/users");
   arr = await res.json();
-
   idArr = arr.map((idArr) => idArr.id);
   passArr = arr.map((passArr) => passArr.password);
-
   $btnLogin.onclick = async (e) => {
     e.preventDefault();
-
     // 아이디 성공
     if (!$loginInput.value) {
       $checkSign.classList.toggle("on");
@@ -68,10 +62,11 @@ const logIn = async () => {
           $passInput.setAttribute("value", "");
           location.assign("../index.html");
           break;
-        } else {
-          if ($checkSign2.classList.contains("no-pass")) {
+
+        } else if ($checkSign2.classList.contains("no-pass")) {
+          
             $checkSign2.classList.remove("no-pass");
-          }
+          
           $checkSign2.classList.toggle("no-pass");
           $checkText2.textContent = "패스워드가 틀렸습니다.";
           return;
@@ -85,42 +80,32 @@ const logIn = async () => {
     }
   };
 };
-
 $btnClose.onclick = (e) => {
   $checkSign.classList.remove("on");
 };
-
 $btnClose2.onclick = (e) => {
   $checkSign2.classList.remove("no-pass");
 };
-
 window.onkeyup = (e) => {
   if (e.keyCode === 27) {
     $checkSign.classList.remove("on");
     $checkSign2.classList.remove("no-pass");
   }
 };
-
 $btnJoin.onclick = (e) => {
   location.assign("../signup.html");
 };
-
 logIn();
-
 $loginInput.onkeyup = debounce((e) => {}, 300);
-
 $btnSignup.onclick = (e) => {
   e.preventDefault();
   location.assign("../signup.html");
 };
-
 logIn();
-
 window.onload = (e) => {
   let remember = localStorage.getItem("remember");
   let rememberParse = JSON.parse(remember);
   let obj = JSON.parse(localStorage.getItem("login"));
-
   // 만약 체크 되어있으면
   if (rememberParse) {
     $loginInput.value = obj.id;
@@ -132,8 +117,8 @@ window.onload = (e) => {
 };
 
 const $search = document.querySelector(".search-id");
-
 $search.onclick = (e) => {
   e.preventDefault();
   location.href = "../find.html";
 };
+

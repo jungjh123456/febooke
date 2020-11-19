@@ -59,7 +59,11 @@
     background-color: steelblue;
     margin-left: 5px;
 }
+
 /* 수정 */
+
+/* 수정&삭제 버튼 */
+
 
 
 /* 삭제 */
@@ -110,9 +114,28 @@
     /* background-color: red; */
     border-bottom: 1px solid;
     padding-bottom: 10px;
+}
+
+.modify-btn {
+    vertical-align: middle;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    background-color: red;
 
 }
 
+.comment-text {
+    resize: none;
+}
+.modify-btn {
+    display: none;
+}
+.modify-btn.on{
+    display: block;
+}
 .comment-header {
     display: inline-block;
     /* background-color: red; */

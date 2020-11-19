@@ -9,8 +9,8 @@ const $Editor = document.querySelector('.editor')
 
 // ul
 const $boardList = document.querySelector('.board-list');
-
-
+const reWirte = JSON.parse(sessionStorage.getItem('rewrite'));
+console.log(reWirte)
 
 const maxId = () => arr.length ? Math.max(...arr.map(item => item.id)) : 1;
 
@@ -41,12 +41,10 @@ $registerBtn.onclick = async (e) => {
     }
 
     let dateTime = new Date();
-
+if (!reWirte){
     const res2 = await fetch('/users');
     arr = await res2.json();
-    console.log(arr);
-    // const test = arr.map(ar => ar.id)
-    // console.log(test);
+ 
     console.log(sessionStorage.getItem('login'));
     let nickArr = JSON.parse(sessionStorage.getItem('login'));
     console.log(nickArr)
@@ -71,4 +69,29 @@ $registerBtn.onclick = async (e) => {
     // console.log(res);
 
     location.assign('../index.html')
+} else {
+    console.log('sdgds')
+    const res = await fetch(`/board/${reWirte.id}`,{
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({title: $titleWrite.value, content: $editor.value})
+    })
+    sessionStorage.setItem('content',JSON.stringify({id: reWirte.id, nickname: reWirte.nickname}));
+    location.assign('../../content.html');
+    sessionStorage.removeItem('rewrite')
+}
+}
+
+
+window.onload = () => {
+    const writeName = JSON.parse(sessionStorage.getItem('rewrite'));
+    if (writeName) {
+        $titleWrite.value = writeName.title;
+        $editor.value = writeName.content;
+    } else {
+        $titleWrite.value = '';
+        $editor.value = '';
+    }
 }

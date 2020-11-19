@@ -15,6 +15,7 @@ const $container = document.querySelector(".container");
 const $btnJoin = document.querySelector(".btn-join");
 const $btnSignup = document.querySelector(".btn-signup");
 const $checkSign2 = document.querySelector(".check-sign2");
+const $checkId = document.getElementById("checkId");
 
 const debounce = (callback, delay) => {
   let timerId;
@@ -41,10 +42,11 @@ const logIn = async () => {
       for (let i = 0; i < passArr.length; i++) {
         if (passArr[i] === $passInput.value) {
           nick = arr.find((nick) => nick.id === $loginInput.value);
-          sessionStorage.setItem(
+          localStorage.setItem(
             "login",
             JSON.stringify({ id: $loginInput.value, nickname: nick.nickname })
           );
+          localStorage.setItem("remember", $checkId.checked);
           location.assign("../index.html");
         } else {
           if ($checkSign2.classList.contains("no-pass")) {
@@ -84,9 +86,7 @@ $btnJoin.onclick = (e) => {
 
 logIn();
 
-$loginInput.onkeyup = debounce((e) => {
-  console.log(e.target);
-}, 300);
+$loginInput.onkeyup = debounce((e) => {}, 300);
 
 $btnSignup.onclick = (e) => {
   e.preventDefault();
@@ -94,3 +94,18 @@ $btnSignup.onclick = (e) => {
 };
 
 logIn();
+
+window.onload = (e) => {
+  let remember = localStorage.getItem("remember");
+  let rememberParse = JSON.parse(remember);
+  let obj = JSON.parse(localStorage.getItem("login"));
+
+  // 만약 체크 되어있으면
+  if (rememberParse) {
+    $loginInput.value = obj.id;
+    $checkId.checked = rememberParse;
+  } else {
+    $loginInput.value = "";
+    $checkId.checked = false;
+  }
+};

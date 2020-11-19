@@ -385,7 +385,7 @@ const render2 = todo => {
   
   [...todo].forEach(list => {
     headings+= `<li id ="${list.id}" class="top-tech-new-item">
-  <a class="top-new-title">${list.title}</a>
+  <a href="#" class="top-new-title">${list.title}</a>
   <span class="top-author">${list.nickname}</span>
 
   <time class="top-time">

@@ -42,6 +42,10 @@ const logIn = async () => {
       for (let i = 0; i < passArr.length; i++) {
         if (passArr[i] === $passInput.value) {
           nick = arr.find((nick) => nick.id === $loginInput.value);
+          sessionStorage.setItem(
+            "login",
+            JSON.stringify({ id: $loginInput.value, nickname: nick.nickname })
+          );
           localStorage.setItem(
             "login",
             JSON.stringify({ id: $loginInput.value, nickname: nick.nickname })

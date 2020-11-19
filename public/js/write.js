@@ -1,45 +1,14 @@
-//  import {$boardList} from './board.mjs';
-//  console.log($boardList);
-
-
 // 게시판의 ul 이라고 생각하자
-// let todos = [];
 let arr = [];
 
 const $registerBtn = document.querySelector('.register-btn');
 const $editor = document.querySelector('.editor');
 const $titleWrite = document.querySelector('.title-write');
 const $languageBox = document.querySelector('.language-box');
+const $Editor = document.querySelector('.editor')
 
 // ul
 const $boardList = document.querySelector('.board-list');
-
-
-
-// const fetchTodo = () => {
-// todos = [ {id: 1, title: 'SEO관점으로서의 접근', completed: true}]
-// render();
-// }
-
-//  const render = () => {
-
-//      let listItem = '';
-//      $boardList.forEach(element => {
-
-//      });
-
-//      listItem += 
-//      `    <li> <a href="#">${titleWrite.value}</a>
-//            <span class="author">주혀늬</span>
-//            <time class="time">
-//                <span class="year"></span>
-//                <span class="month"></span>
-//                <span class="date"></span>
-//            </time>
-//            <span class="click">38</span>
-//        </li>`
-
-//  }
 
 
 
@@ -49,7 +18,7 @@ const maxId = () => arr.length ? Math.max(...arr.map(item => item.id)) : 1;
 
 // 등록버튼 클릭이벤트
 $registerBtn.onclick = async (e) => {
-
+ if($Editor.value === '') return;
     const padLeft = date => {
         if (date < 10) {
             return '0' + date;
@@ -89,7 +58,6 @@ $registerBtn.onclick = async (e) => {
         nickname: nickArr.nickname,
         time: format(dateTime),
         clickcount: 0,
-        comment: []
     }
     // console.log(newList);
 

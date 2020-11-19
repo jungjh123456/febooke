@@ -1,5 +1,4 @@
 let arr = [];
-
 // --------------------------header 시계 -------------------------
 const $headerTimer = document.querySelector(".header-timer");
 const $logoTitle = document.querySelector('.logo-title');
@@ -11,27 +10,21 @@ let title = [`<span class="wT">W</span>`,`<span>e</span>`,
 `<span>n</span>`,`<span>d</span>`,`<span></span>`,
 `<span>D</span>`,`<span>e</span>`,`<span>v</span>`,`<span>e</span>`,`<span>l</span>`,`<span>o</span>`,
 `<span>p</span>`,`<span>e</span>`,`<span>r</span>`,`<span>s</span>`];
-
 let titleLength = title.length;
 const $logoImage = document.querySelector('.logo-image');
 const $headerSearch = document.querySelector('.header-search');
 const $header = document.querySelector('.header');
-
 //헤더 함수, 이벤트
 (function printNow() {
   const now = new Date();
   let hour = now.getHours();
   let min = now.getMinutes();
   let sec = now.getSeconds();
-
   $headerTimer.textContent = `${hour < 10 ? "0" + hour : hour} : ${
     min < 10 ? "0" + min : min
   } : ${sec < 10 ? "0" + sec : sec}`;
-
   setTimeout(printNow, 1000);
 })();
-
-
 // 첫로딩 이벤트
 let titleCount = 0;
 window.onload = e=>{
@@ -39,11 +32,8 @@ window.onload = e=>{
     $logoTitle.innerHTML +=title[titleCount];
     const $newT = $logoTitle.lastElementChild;
     $newT.style.left = `${titleCount*($newT.textContent===''||4)}%`;
-
     if(titleCount === titleLength-1) {
-
       clearInterval(key)
-
       $logoTitle.style.transition = '2s';
       $logoTitle.classList.add('midTime');
       setTimeout(()=>{
@@ -52,7 +42,6 @@ window.onload = e=>{
         $logoTitle.classList.add('lastTime');
         $firstT.style.transition = '2s';
         $secondT.style.transition = '2s';
-
       },2000)
       setTimeout(()=> {
         $logoImage.classList.add('showImage');
@@ -63,13 +52,12 @@ window.onload = e=>{
     };
     ++titleCount;
   },120);
+  
 }
-
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement
 const $techBoard = document.querySelector('.tech-board');
 const $techStatement = document.querySelector('.tech-statement');
-
 let stateCount = 0;
 let stateColor = 0;
 setInterval(()=>{
@@ -87,19 +75,96 @@ setTimeout(()=>{setInterval(()=>{
   })
   stateColor===2 ? stateColor=0 : stateColor++;
 },1500)},5000)
-
-
-
-
 const $leftContainer = document.querySelector('.left-container')
 
-// 렌더링
+// 캐러셀 코드 건들지 마세요
+// class Carousel {
+// 	constructor() {
+// 		this.carousel = document.querySelector('.carousel');
+//     this.container = this.carousel.querySelector('.carousel-item-container');
+//     this.item = this.carousel.querySelector('.carousel-item');
+//     console.log(this.item);
+    
+//     this.prev = this.carousel.querySelector('.prev');
+//     this.next = this.carousel.querySelector('.next');
+    
+//     this.itemWidth = this.item.offsetWidth;
+    
+//     this.itemHeight = this.item.offsetHeight;
+    
+//     this.itemLength = this.carousel.querySelectorAll('.carousel-item').length;
+    
+//     this.offset = 0;
+    
+//     this.currentItem = 1;
+//     this.config = {
+//         duration: 200,
+//         easing:'ease-out'
+//     };
+//     this.init();
+//     this.attachEvent();
+// 	}
+    
+//     init() {
+//         this.carousel.style.width = this.item.itemWidth + 'px';
+//         this.carousel.style.heigth = this.item.itemHeight + 'px';
+//         this.carousel.style.opacity = 1;
+        
+//         this.checkMovable();
+//     }
+//     attachEvent() {
+//         this.prev.addEventListener('click', this.moveToPrev.bind(this));
+//         this.next.addEventListener('click', this.moveToNext.bind(this));
+//     }
+    
+//     moveToPrev() {
+//         this.offset += this.itemWidth;
+        
+//         this.move();
+        
+//         this.currentItem--;
+//         this.checkMovable();
+        
+        
+//     }
+//     moveToNext() {
+//             this.offset -= this.itemWidth;
+            
+//             this.move();
+//             this.currentItem++;
+//             this.checkMovable();
+//     }
+//     move() {
+//         this.container.style.transition = `transform${this.config.duration}ms ${this.config.easing}`;
+//         this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
+//     }
+//     checkMovable() {
+//         if(this.currentItem === 1){
+//             this.prev.disabled = true;
+//             this.prev.classList.add('disabled');
+//         } else{
+//             this.prev.disabled = false;
+//             this.prev.classList.remove('disabled');
+//         }
+        
+//         if(this.currentItem === this.itemLength) {
+//             this.next.disabled = true;
+//             this.next.classList.add('disabled');
+//         } else{
+//             this.next.disabled = false;
+//             this.next.classList.remove('disabled');
+//         }
+//     }
+    
+// }
+// 여기까지 캐러셀 코드
 
+
+// 렌더링
 $techBoard.onclick = async e => {
   e.preventDefault();
   if (!e.target.matches('.link-box')) return
   let html = ''
-
   $leftContainer.innerHTML =  `<div class="board">
   <h2 class="tech-heading">Tech 게시판</h2>
   <span class="caption">프론트엔드 개발자들의 기술개발 게시판</span>
@@ -131,11 +196,8 @@ $techBoard.onclick = async e => {
       <span class="heading-click">조회수</span>
   </div>
   <ul class="board-list">
-    
   </ul>
   <div class="page">
-  
-
       <ul class="page-nation">
           <li class="page-item"> 
               <i class="fas fa-angle-double-left"></i>   
@@ -149,31 +211,21 @@ $techBoard.onclick = async e => {
               <i class="fas fa-angle-double-right"></i>
           </li>
       </ul>
-
   </div>
 </div>`
   const res = await fetch('/board');
   arr = await res.json();
   render(arr);
 }
-
-
-
-
 const render = async (todo) => {
   const $boardList = document.querySelector('.board-list');
-
   //글쓰기 버튼
   const $writeBtn = document.querySelector('.write-btn');
-
  // login check
   const $loginCheck = document.querySelector('.login-check');
   const $btnGroup = document.querySelector('.btn-group');
   const $selectOption = document.querySelector('.select-option');
-
-
   let html = '';
-
     [...todo].forEach(list => {
     html += `<li id="${list.id}">
     <a href="#">${list.title}</a>
@@ -188,25 +240,34 @@ const render = async (todo) => {
 </li>`}
     )
     $boardList.innerHTML = html;
-
   // 컨텐트 보기
   $boardList.onclick = async e => {
     e.preventDefault();
     if (!e.target.matches('.board-list > li > a')) return;
-
+    let counter = 1;
     console.log(e.target.parentNode.id)
-
-
     const res = await fetch(`/board/${e.target.parentNode.id}`);
     arr = await res.json();
     console.log(arr)
+
+    const clickcounter = [arr].find((item) => item.id === +e.target.parentNode.id)
+
+
+    await fetch(`/board/${e.target.parentNode.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ clickcount: clickcounter.clickcount + counter }),
+        });
+        render(arr);
+
 
 
 
     sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id, nickname: arr.nickname}))
     location.assign('../../content.html')
   }
-
   $writeBtn.onclick = () => {
     if(!sessionStorage.getItem('login')){
       console.log('login이 필요합니다.')
@@ -218,10 +279,7 @@ const render = async (todo) => {
     } else {
       window.location.href = './write.html'
     }
-    
   }
-
-
 $selectOption.onchange = async (e) => {
   // if(최근 날짜순을 클릭했다면)
   if(e.target.value === 'least-date'){
@@ -253,48 +311,46 @@ else if(e.target.value === 'row') {
 else if(e.target.value === 'my-content') {
   const res6 = await fetch('/board/');
   arr= await res6.json();
-
   const LoginUser = JSON.parse(sessionStorage.getItem('login'));
   arr = arr.filter(item => item.nickname === LoginUser.nickname)
-
   console.log(arr)
   render(arr)
   // console.log(myContent); // <- board db json (배열안에 객체)
   // render(myContent);
 }
 }
-
 }
-
-
 // 메인으로 가기
-
-
-
 $header.onclick = e => {
   e.preventDefault();
   location.assign('../../index.html')
 }
-
 const $techNewList = document.querySelector('.tech-new-list');
+
+const $techNewHeadings = document.querySelector('.tech-new-headings');
 
 // tech-list
 const render2 = todo => {
+  let headings='';
   let html = '';
 
+ 
   [...todo].forEach(list => {
-  html += `<li id="${list.id}">
-  <a href="#">${list.title}</a>
-  <span class="author">${list.nickname}</span>
-  <time class="time">
+    headings+= `<li id ="${list.id}" class="top-tech-new-item">
+  <a href="#" class="top-new-title">${list.title}</a>
+  <span class="top-author">${list.nickname}</span>
+
+  <time class="top-time">
     ${list.time}
       <span class="year"></span>
       <span class="month"></span>
       <span class="date"></span>
   </time>
+
   <span class="click">${list.clickcount}</span>
 </li>`}
   )
+  $techNewHeadings.innerHTML = headings;
   $techNewList.innerHTML = html;
 }
 
@@ -304,9 +360,10 @@ const render3 = todo => {
   let html = '';
 
   [...todo].forEach(list => {
-  html += `<li id="${list.id}">
-  <a href="#">${list.title}</a>
+  html += `<li id ="${list.id}" class="tech-new-item carousel-item">
+  <a class="new-item-heading">${list.title}</a>
   <span class="author">${list.nickname}</span>
+
   <time class="time">
     ${list.time}
       <span class="year"></span>
@@ -319,15 +376,14 @@ const render3 = todo => {
   $techHotList.innerHTML = html;
 }
 
-
 const list = async e => {
   const res = await fetch('/board/?_sort=id,views&_order=desc,asc&_page=1&_limit=4');
   arr = await res.json();
   render2(arr);
-
   const res1 = await fetch('/board/?_sort=clickcount&_order=desc&_page=1&_limit=4')
   arr = await res1.json();
   render3(arr);
+  // const carousel = new Carousel();
 }
 
 list();

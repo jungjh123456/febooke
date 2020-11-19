@@ -200,7 +200,7 @@ body::before {
 }
 .small-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 /* 헤더 검색 */
 .header-search{
@@ -258,8 +258,11 @@ body::before {
 /* --------------------------left-container-------------------------- */
 .left-container {
   /* background-color: lightblue; */
-  width: 50vw;
+  width: 70vw;
   height: 100vh;
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
 }
 
 /* 기술 게시판 */
@@ -410,7 +413,7 @@ body::before {
 .tech-news{
   /* background-color: skyblue; */
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   justify-content: center;
 }
 
@@ -418,12 +421,25 @@ body::before {
 .news-heading{
   font-size:3vw;
 }
+.item-figures{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: 2rem;
+  justify-content: space-between;
+}
+.item-firures li:nth-child(1){
+  flex-grow: 2;
+}
+.item-firures li:nth-child(2){
+  flex-grow: 0.5;
+}
 /* new 게시글 제목 목록 */
 .tech-new-headings{
 
   width:700px;
   height: 30vh;
-  background-color: rgba(101, 91, 160, 0.5);
+  background-color: rgba(101, 91, 160, 0.2);
   overflow-y: scroll;
   padding: 2rem;
   box-sizing: border-box;
@@ -432,7 +448,7 @@ body::before {
   justify-content: start;
 }
 .top-tech-new-item{
-  border: 1px solid rgba(101,91,160,1);
+  border: 1px solid rgba(101,91,160,0.5);
   height: 5vh;
   display: flex;
   flex-flow: row nowrap;

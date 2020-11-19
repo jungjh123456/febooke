@@ -262,7 +262,7 @@ body::before {
   height: 100vh;
   display:flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* 기술 게시판 */

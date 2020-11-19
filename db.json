@@ -45,6 +45,7 @@
       "password": "whwodus",
       "nickname": "눈물",
       "phone": "01098073270"
+
     }
   ],
   "board": [
@@ -55,61 +56,58 @@
       "nickname": "jungjh",
       "time": "2020-11-19 11:35:31",
       "clickcount": 0
+    },
+    {
+      "title": "sdgs",
+      "content": "sdgsg",
+      "id": 2,
+      "nickname": "jungjh",
+      "time": "2020-11-19 13:53:33",
+      "clickcount": 0
     }
   ],
   "comment": [
     {
-      "commented": "  \n  \n        dsgsg",
-      "nickname": "협주",
-      "commentDate": "2020-11-19 12:54:27",
+      "commented": "  \n  dsgsdgs\n        ",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 15:18:32",
+      "commentId": 1,
       "id": 1
     },
     {
-      "commented": "  \n  \n        ㅇㅇㅇㅇㅇ",
-      "nickname": "협주",
-      "commentDate": "2020-11-18 22:11:59",
+      "commented": "  \n  sdgsdg\n        ",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 15:18:37",
+      "commentId": 1,
       "id": 2
     },
     {
-      "commented": "  \n  sdgdsg\n        ",
-      "nickname": "jungjh565",
+      "commented": "  \n  \n        sdgsg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 15:18:59",
+      "commentId": 1,
       "id": 3
     },
     {
-      "commented": "  \n  sdgsgs\n        ",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-18 22:01:16",
+      "commented": "  \n  \n        sdgsg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 15:19:14",
+      "commentId": 1,
       "id": 4
     },
     {
-      "commented": "  \n  sdfdff\n        ",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:15:54",
+      "commented": "  \n  \n        sdgsg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 15:19:14",
+      "commentId": 1,
       "id": 5
     },
     {
-      "commented": "  \n  \n        dsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:18:52",
+      "commented": "  \n  sdgsgsd\n        ",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 15:19:28",
+      "commentId": 1,
       "id": 6
-    },
-    {
-      "commented": "  \n  \n        dsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:18:54",
-      "id": 7
-    },
-    {
-      "commented": "  \n  \n        dsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:18:56",
-      "id": 8
-    },
-    {
-      "commented": "  \n  \n        sdfsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:19:59",
-      "id": 9
     }
   ]
 }

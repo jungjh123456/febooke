@@ -8,114 +8,55 @@
       "nickname": "jungjh",
       "title": "3l3l3",
       "content": "welw"
-    },
-    {
-      "name": "정지훈",
-      "id": "jungjh565",
-      "password": "zz64112491",
-      "nickname": "jungjh",
-      "phone": "01042288874",
-      "title": "fff",
-      "content": "dddd"
-    },
-    {
-      "name": "정지훈",
-      "id": "wjdwlgns1474@naver.com",
-      "password": "wjdwlgns1474@",
-      "nickname": "jungjh565",
-      "phone": "01042288874"
-    },
-    {
-      "name": "정훈",
-      "id": "wjdwlgns12345@naver.com",
-      "password": "wjdwlgns14@",
-      "nickname": "jungjh123",
-      "phone": "010422874"
-    },
-    {
-      "name": "정재훈",
-      "id": "jungjh123456@naver.com",
-      "password": "wjdwlgns1474",
-      "nickname": "jungjh12",
-      "phone": "01042288874"
     }
   ],
   "board": [
     {
-      "title": "dsgsdg",
-      "content": "sdgssdgsg",
+      "title": "웹접근성에 대한 고찰",
+      "content": "웹접근성.. 어렵다",
       "id": 1,
-      "nickname": "jungjh565",
-      "time": "2020-11-18 11:52:59",
-      "clickcount": 38
+      "nickname": "협주",
+      "time": "2020-11-18 22:06:59",
+      "clickcount": 0
     },
     {
-      "title": "hello",
-      "content": "ok",
+      "title": "SEO관점으로의 접근",
+      "content": "어렵다",
       "id": 2,
-      "nickname": "jungjh565",
-      "time": "2020-11-18 12:33:57",
-      "clickcount": 34
+      "nickname": "협주",
+      "time": "2020-11-18 22:08:49",
+      "clickcount": 5
     },
     {
-      "title": "ok",
-      "content": "hello",
+      "title": "SEO관점으로의 접근",
+      "content": "어렵다",
       "id": 3,
-      "nickname": "jungjh565",
-      "time": "2020-11-18 12:36:17",
-      "clickcount": 36
+      "nickname": "협주",
+      "time": "2020-11-18 22:09:20",
+      "clickcount": 1
     },
     {
-      "title": "sdgdsgsd",
-      "content": "sdgsgsdgsdgs",
+      "title": "SEO관점으로의 접근",
+      "content": "어렵다",
       "id": 4,
-      "nickname": "jungjh565",
-      "time": "2020-11-18 13:07:25",
-      "clickcount": 26
-    },
-    {
-      "title": "oksdfsd",
-      "content": "hedsfsdfsllo",
-      "id": 3,
-      "nickname": "jungjh123",
-      "time": "2020-11-18 12:36:17",
-      "clickcount": 32
-    },
-    {
-      "title": "gsdg",
-      "content": "sdgsg",
-      "id": 5,
-      "nickname": "jungjh565",
-      "time": "2020-11-18 18:22:03",
-      "clickcount": 0
-    },
-    {
-      "title": "hello",
-      "content": "ok!",
-      "id": 6,
-      "nickname": "jungjh565",
-      "time": "2020-11-18 18:29:15",
-      "clickcount": 0
-    },
-    {
-      "title": "sgsgsg",
-      "content": "sdgsgsgsgsdg",
-      "id": 7,
-      "nickname": "jungjh565",
-      "time": "2020-11-18 19:23:11",
+      "nickname": "협주",
+      "time": "2020-11-18 22:09:32",
       "clickcount": 0
     }
   ],
   "comment": [
     {
-      "commented": "  \n  ㄴㅇㅎㄴㅇㅎ\nㅁㄴㄹㅁㄹㅁㄴㄹ\n        ",
-      "nickname": "jungjh565",
+      "commented": "  \n  \n        오호호호",
+      "nickname": "협주",
+      "commentDate": "2020-11-18 22:10:18",
       "id": 1
     },
     {
-      "commented": "  \n  \n        ㅁㄴㄹㅁㄹㅁㄹㅁㄹ",
-      "nickname": "jungjh565",
+      "commented": "  \n  \n        ㅇㅇㅇㅇㅇ",
+      "nickname": "협주",
+      "commentDate": "2020-11-18 22:11:59",
       "id": 2
+
     },
     {
       "commented": "  \n  sdgdsg\n        ",
@@ -127,6 +68,37 @@
       "nickname": "jungjh565",
       "commentDate": "2020-11-18 22:01:16",
       "id": 4
+    },
+    {
+      "commented": "  \n  sdfdff\n        ",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:15:54",
+      "id": 5
+    },
+    {
+      "commented": "  \n  \n        dsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:18:52",
+      "id": 6
+    },
+    {
+      "commented": "  \n  \n        dsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:18:54",
+      "id": 7
+    },
+    {
+      "commented": "  \n  \n        dsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:18:56",
+      "id": 8
+    },
+    {
+      "commented": "  \n  \n        sdfsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:19:59",
+      "id": 9
+
     }
   ]
 }

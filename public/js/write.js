@@ -44,9 +44,7 @@ $registerBtn.onclick = async (e) => {
 
     const res2 = await fetch('/users');
     arr = await res2.json();
-    console.log(arr);
-    // const test = arr.map(ar => ar.id)
-    // console.log(test);
+ 
     console.log(sessionStorage.getItem('login'));
     let nickArr = JSON.parse(sessionStorage.getItem('login'));
     console.log(nickArr)

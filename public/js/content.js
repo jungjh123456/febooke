@@ -193,11 +193,12 @@ window.onload = async () => {
     $modify.onclick = async e => {
         e.preventDefault();
         console.log(e.target)
-        if (loginNickname.nickname !== contentId.nickname) return;
-        const res = await fetch(`/board/${contentId}`);
+        if (loginNickname.nickname !== contentId.nickname)  return;
+        const res = await fetch(`/board/${contentId.id}`);
         arr = await res.json();
         console.log(arr);
-        sessionStorage.setItem('rewrite', JSON.stringify(...arr))
+        sessionStorage.setItem('rewrite', JSON.stringify(arr))
+        location.href = '../write.html';
     }
 }
 

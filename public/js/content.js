@@ -10,6 +10,8 @@ window.onload = async () => {
     const loginNickname = JSON.parse(sessionStorage.getItem('login'));
     const res = await fetch(`/board/${contentId.id}`);
 
+    
+
     arr = await res.json();
     
     render(arr);
@@ -27,6 +29,14 @@ window.onload = async () => {
     const $commentLeast = document.querySelector('.comment-least');
     const $commentModifyBtn = document.querySelector('.comment-modify-btn');
     const $commentDeleteBtn = document.querySelectorAll('.comment-delete-btn');
+    const $written =  document.querySelector('.written')
+
+
+    if (loginNickname) {
+        $written.classList.add('on')
+    } else {
+        $written.classList.remove('on')
+    }
 
     $commentBtn.onclick = async e => {
 
@@ -148,18 +158,17 @@ window.onload = async () => {
                 console.log(arr)
 
         const removeId = arr.find(item => item.id === +e.target.id);
-
+        if (loginNickname.nickname !== contentId.nickname) return;
         await fetch(`/comment/${removeId.id}`,{
             method: 'DELETE'
         });
-
         
 //개시글에 달린 id 댓글의 id  코멘트의 id
         // const res1 = await fetch(`/comment/${contentId.id}`, {
         //     method: 'DELETE'
         // });
         // sessionStorage.clear('comment')
-    })
+})
 
     /* 삭제 구현 */
 

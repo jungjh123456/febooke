@@ -61,7 +61,7 @@
       "id": 4,
       "nickname": "jungjh",
       "time": "2020-11-19 16:43:20",
-      "clickcount": 10
+      "clickcount": 12
     }
   ],
   "comment": [
@@ -245,13 +245,6 @@
       "commentDate": "2020-11-19 19:54:44",
       "commentId": 4,
       "id": 26
-    },
-    {
-      "commented": "            dsgsdgsdgsd",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 19:55:39",
-      "commentId": 4,
-      "id": 27
     }
   ]
 }

@@ -34,6 +34,7 @@
     margin-top: 10px;
     padding-bottom: 20px;
     border-bottom: 1px solid #A593E0;
+    position: relative;
 }
 
 .content-info {
@@ -57,6 +58,28 @@
 .click-count {
     background-color: steelblue;
     margin-left: 5px;
+}
+
+.written {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.written button {
+   display: inline-block;
+   width: 80px;
+   height: 30px;
+   background-color: #fff;
+   border: 0;
+   background-color: #A593E0;
+   border-radius: 15px;
+   cursor: pointer;
+   transition: 1s;
+}
+
+.written button:hover {
+    background-color: #aa33ff;
 }
 
 .content {

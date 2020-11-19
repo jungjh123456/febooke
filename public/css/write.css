@@ -1,10 +1,20 @@
-.write-board {
+body{
+  background-image: url(../image/3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   /* margin: 0 auto; */
-  margin-top: 18vh;
-  margin-left: 30px;
-  width: 80%;
-  height: 100%;
+  padding: 0px 130px;
+}
+.write-board {
+
+  margin: 0 auto;
+  /* margin-top: 18vh;
+  margin-left: 30px; */
+  /* width: 80%;
+  height: 100%; */
   border: 1px solid #A593E0;
+  margin-top: 120px;
+  padding: 0 20px;
 }
 
 /* 글쓰기 타이틀 */
@@ -13,10 +23,12 @@
   margin-left: 10px;
   margin-top: 10px;
   font-size: 25px;
-  margin-bottom: 85px;
   color: #566270;
 }
+.caption{
+  margin-bottom: 85px;
 
+}
 .writer {
   padding: 0 30px;
   padding-bottom: 20px;

@@ -2,14 +2,34 @@ let arr = [];
 // --------------------------header 시계 -------------------------
 const $headerTimer = document.querySelector(".header-timer");
 const $logoTitle = document.querySelector('.logo-title');
-let title = [`<span class="wT">W</span>`,`<span>e</span>`,
-`<span> </span>`,`<span>a</span>`,`<span>r</span>`,
-`<span>e</span>`, `<span> </span>`,
-`<span class="logoT firstT">F</span>`,`<span>r</span>`,`<span>o</span>`,`<span>n</span>`,`<span>t</span>`, 
-`<span></span>`,`<span class="logoT secondT">E</span>`,
-`<span>n</span>`,`<span>d</span>`,`<span></span>`,
-`<span>D</span>`,`<span>e</span>`,`<span>v</span>`,`<span>e</span>`,`<span>l</span>`,`<span>o</span>`,
-`<span>p</span>`,`<span>e</span>`,`<span>r</span>`,`<span>s</span>`];
+let title = [
+`<span class="wT">W</span>`,
+`<span>e</span>`,
+`<span> </span>`,
+`<span>a</span>`,
+`<span>r</span>`,
+`<span>e</span>`,
+ `<span> </span>`,
+`<span class="logoT firstT">F</span>`,
+`<span>r</span>`,
+`<span>o</span>`,
+`<span>n</span>`,
+`<span>t</span>`, 
+`<span></span>`,
+`<span class="logoT secondT">E</span>`,
+`<span>n</span>`,
+`<span>d</span>`,
+`<span></span>`,
+`<span>D</span>`,
+`<span>e</span>`,
+`<span>v</span>`,
+`<span>e</span>`,
+`<span>l</span>`,
+`<span>o</span>`,
+`<span>p</span>`,
+`<span>e</span>`,
+`<span>r</span>`,
+`<span>s</span>`];
 let titleLength = title.length;
 const $logoImage = document.querySelector('.logo-image');
 const $headerSearch = document.querySelector('.header-search');
@@ -26,34 +46,34 @@ const $header = document.querySelector('.header');
   setTimeout(printNow, 1000);
 })();
 // 첫로딩 이벤트
-let titleCount = 0;
-window.onload = e=>{
-  const key = setInterval(()=> {
-    $logoTitle.innerHTML +=title[titleCount];
-    const $newT = $logoTitle.lastElementChild;
-    $newT.style.left = `${titleCount*($newT.textContent===''||4)}%`;
-    if(titleCount === titleLength-1) {
-      clearInterval(key)
-      $logoTitle.style.transition = '2s';
-      $logoTitle.classList.add('midTime');
-      setTimeout(()=>{
-        const $firstT = document.querySelector('.firstT');
-        const $secondT = document.querySelector('.secondT');
-        $logoTitle.classList.add('lastTime');
-        $firstT.style.transition = '2s';
-        $secondT.style.transition = '2s';
-      },2000)
-      setTimeout(()=> {
-        $logoImage.classList.add('showImage');
-        $headerSearch.classList.add('showSearch');
-        $logoTitle.classList.add('downT');
-        $header.classList.add('showColor');
-      },4000)
-    };
-    ++titleCount;
-  },120);
+// let titleCount = 0;
+// window.onload = e=>{
+//   const key = setInterval(()=> {
+//     $logoTitle.innerHTML +=title[titleCount];
+//     const $newT = $logoTitle.lastElementChild;
+//     $newT.style.left = `${titleCount*($newT.textContent===''||4)}%`;
+//     if(titleCount === titleLength-1) {
+//       clearInterval(key)
+//       $logoTitle.style.transition = '2s';
+//       $logoTitle.classList.add('midTime');
+//       setTimeout(()=>{
+//         const $firstT = document.querySelector('.firstT');
+//         const $secondT = document.querySelector('.secondT');
+//         $logoTitle.classList.add('lastTime');
+//         $firstT.style.transition = '2s';
+//         $secondT.style.transition = '2s';
+//       },2000)
+//       setTimeout(()=> {
+//         $logoImage.classList.add('showImage');
+//         $headerSearch.classList.add('showSearch');
+//         $logoTitle.classList.add('downT');
+//         $header.classList.add('showColor');
+//       },4000)
+//     };
+//     ++titleCount;
+//   },120);
   
-}
+// }
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement
 const $techBoard = document.querySelector('.tech-board');
@@ -163,11 +183,13 @@ const $leftContainer = document.querySelector('.left-container')
 // 렌더링
 $techBoard.onclick = async e => {
   e.preventDefault();
-  if (!e.target.matches('.link-box')) return
+  if (!e.target.matches('.tech-title-btn')) return
   let html = ''
   $leftContainer.innerHTML =  `<div class="board">
-  <h2 class="tech-heading">Tech 게시판</h2>
-  <span class="caption">프론트엔드 개발자들의 기술개발 게시판</span>
+  <div class="box2">
+  <h2 class="tech-heading">TECH Board</h2>
+  <span class="caption">Hello World! 프론트엔드 개발자들의 기술개발 게시판</span>
+  </div>
   <div class="filter-write">
       <select name="조건 검색" class="select-option">
           <option value="my-content">내글</option>

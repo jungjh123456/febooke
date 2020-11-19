@@ -1,12 +1,11 @@
 
-
 .container {
   /* width: 100%;
   height:100%; */
-  /* background-image: url(../image/starry-sky-1654074_1920.jpg);
+  /* background-image: url(../image/plant-731424_1920.png);
   background-repeat: no-repeat;
-  background-size: cover; */
-
+  background-size: auto; */
+/* background-color: red; */
 
 }
 .a11y-hidden {
@@ -17,35 +16,56 @@
   white-space: nowrap;
   width: 1px;
 }
+
 .header {
   
 }
-
+/* 
 .logo a img{
   width: 100px;
   height: 100px;
-}
-.board {
-  width: 100%;
-  height: 100vh;
-  border: 1px solid #A593E0;
-}
+} */
 
+.board {
+  /* width: 100%;
+  height: 100vh; */
+  margin: 0 auto;
+  /* border: 1px solid #A593E0; */
+  /* margin: 0 100px; */
+  /* background-color: skyblue; */
+  /* padding: 0 80px; */
+  /* margin: 100px 100px; */
+  margin-top: 120px;
+}
+.box2{
+  /* background-color: skyblue; */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+  /* margin: 0 auto; */
+}
 /* Tech 게시판 타이틀*/
 .tech-heading {
-  margin: 0;
-  margin-left: 10px;
-  margin-top: 10px;
-  font-size: 25px;
-  margin-bottom: 5px;
+  /* margin: 0; */
+  /* margin-left: 10px; */
+  margin-top: 90px;
+  font-size: 60px;
+  margin: 0 auto;
+  /* font-size: 20px; */
+  margin-bottom: 20px;
   color: #eee;
+  /* background-color: green; */
 }
 
 /* Tech 게시판 설명 */
 .caption {
-  display: inline-block;
-  margin-left: 10px;
+  /* display: block; */
+  margin: 0 auto;
+  /* margin-left: 10px; */
+  margin-top: 10px;
   color: #eee;
+  font-size: 18px;
+  /* background-color: red; */
 }
 
 /* 내글, 글쓰기 그룹*/
@@ -54,6 +74,8 @@
   justify-content: flex-end;
   margin: 15px 0;
   margin-right: 15px;
+  margin-top: 80px;
+  /* background-color: green; */
   position: relative;
 }
 
@@ -74,7 +96,7 @@ select {
 .write-btn {
   border: 1px solid transparent;;
   background-color: transparent;
-  font-size: 14px;
+  font-size: 16px;
   padding: 4px 7px;
   cursor: pointer;
   outline: none;
@@ -103,44 +125,50 @@ select {
 /* .board-header > .title */
 .board-header .title {
 
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
   margin: 0;
   display: inline-block;
   /* font-weight: normal; */
-  width: 79%;
+  width: 800px;
   text-align: center;
-  
+  /* background-color: sienna; */
 }
 
 /* .board-header > .nick-name */
 .board-header .nick-name {
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   text-align: center;
-  width: 5%;
-  
+  width: 50px;
+  padding: 0 25px;
+  margin-left: 10px;
+  /* background-color: seagreen; */
 }
 
 /* .board-header > .heading-date */
 .board-header .heading-date {
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   text-align: center;
-  width: 9%;
+  width: 100px;
+  padding: 0 20px;
   /* background-color: red; */
+  margin-left: 10px;
 
 }
 
 /* .board-header > .heading-click */
 .board-header .heading-click {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   display: inline-block;
   text-align: center;
-  width: 7%;
+  width: 80px;
+  margin-left: 10px;
+  /* background-color: sienna; */
 }
 
 
@@ -149,25 +177,37 @@ select {
   padding: 0;
   min-height: 130px;
   color: #eee;
+  /* background-color: green; */
+  padding-top: 40px;
 }
 
 /* ul.board-list > li */
 .board-list>li {
   font-size: 0;
   list-style: none;
-  border-bottom: 1px solid #f2f2f2;
+  /* padding-bottom: 10px; */
+  border-bottom: 1px solid #aaaaaaad;
+  /* background-color: sienna; */
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 /* ul.board-list > li > a */
 .board-list>li>a {
   /* width: 78%; */
   font-size: 14px;
-  margin-left: 1%;
+  width: 790px;
+  margin-left: 10px;
   display: inline-block;
   color: #eee;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+overflow: hidden;
   text-decoration: none;
-  padding-bottom: 10px;
-  width: 70%;
+
+/* line-height: 1; */
+
+  /* background-color: green; */
 }
 
 /* ul.board-list > author*/
@@ -175,7 +215,13 @@ select {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  /* width: 5%; */
+  /* background-color: salmon; */
+
+
+
+  width: 50px;
+  padding: 0 25px;
+  margin-left: 10px;
 }
 
 
@@ -184,8 +230,10 @@ select {
   display: inline-block;
   text-align: center;
   font-size: 14px;
-  /* width: 9%; */
+  width: 140px;
+  margin-left: 10px;
   margin-top: 10px;
+  /* background-color: sienna; */
 }
 
 
@@ -194,15 +242,21 @@ select {
   display: inline-block;
   text-align: center;
   font-size: 14px;
+  width: 80px;
+  margin-left: 10px;
+  /* background-color: sienna; */
   /* width: 7%; */
 }
 
 .fas{
   color: #566270;
   font-size: 15px;
+  width: 10px;
+  height: 10px;
 }
 
 .page-nation {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   min-height: 300px;

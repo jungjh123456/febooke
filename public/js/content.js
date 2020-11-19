@@ -116,12 +116,18 @@ const render2 = (content) => {
 
     [...content].forEach(item => {
 
-        html += `<div class="comment">
-        <span>${item.nickname}</span>
-        <div class="comment-list">
-        ${item.commented}
-        </div>
-      </div>`
+        html += 
+        `<div class="comment">
+                <span>${item.nickname}</span>
+                <button class="comment-modify-btn">수정</button>
+                <button class="comment-delete-btn">삭제</button>
+            <div class="comment-list">${item.commented}
+                <div class="flex"> 
+                    <span class="comment-date">${item.commentDate}</span>
+                    <button class="comment-add-btn">답글쓰기</button>
+                </div>
+            </div>
+        </div>`
 
     })
 
@@ -148,3 +154,5 @@ const render3 = content => {
 
 
 }
+
+

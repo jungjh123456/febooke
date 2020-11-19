@@ -62,6 +62,7 @@ const logIn = async () => {
           $passInput.setAttribute("value", "");
           location.assign("../index.html");
           break;
+
         } else if ($checkSign2.classList.contains("no-pass")) {
           
             $checkSign2.classList.remove("no-pass");
@@ -114,8 +115,10 @@ window.onload = (e) => {
     $checkId.checked = false;
   }
 };
+
 const $search = document.querySelector(".search-id");
 $search.onclick = (e) => {
   e.preventDefault();
   location.href = "../find.html";
 };
+

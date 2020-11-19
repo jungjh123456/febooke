@@ -29,9 +29,11 @@ window.onload = async () => {
     const $commentLeast = document.querySelector('.comment-least');
     const $commentModifyBtn = document.querySelectorAll('.comment-modify-btn');
     const $commentDeleteBtn = document.querySelectorAll('.comment-delete-btn');
+
     const $written = document.querySelector('.written');
     const $modifyBtn = document.querySelectorAll('.modify-btn');
     const $span = document.querySelectorAll('.group span');
+
 
     if (loginNickname) {
         $written.classList.add('on')
@@ -182,7 +184,9 @@ window.onload = async () => {
         //     method: 'DELETE'
         // });
         // sessionStorage.clear('comment')
+
     });
+
 
     [...$commentModifyBtn].forEach(item => item.onclick = async e => {
         e.preventDefault();
@@ -211,12 +215,14 @@ window.onload = async () => {
     $modify.onclick = async e => {
         e.preventDefault();
         console.log(e.target)
+
         if (loginNickname.nickname !== contentId.nickname)  return;
         const res = await fetch(`/board/${contentId.id}`);
         arr = await res.json();
         console.log(arr);
         sessionStorage.setItem('rewrite', JSON.stringify(arr))
         location.href = '../write.html';
+
     }
 }
 

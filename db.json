@@ -45,24 +45,23 @@
       "password": "whwodus",
       "nickname": "눈물",
       "phone": "01098073270"
+    },
+    {
+      "name": "주현",
+      "id": "noonssub1004@naver.com",
+      "password": "123456",
+      "nickname": "주현",
+      "phone": "01092742066"
     }
   ],
   "board": [
-    {
-      "title": "sdfsdfds",
-      "content": "sdfsdfsf",
-      "id": 1,
-      "nickname": "jungjh",
-      "time": "2020-11-19 11:35:31",
-      "clickcount": 0
-    },
     {
       "title": "sdgs",
       "content": "sdgsg",
       "id": 2,
       "nickname": "jungjh",
       "time": "2020-11-19 13:53:33",
-      "clickcount": 0
+      "clickcount": 2
     }
   ],
   "comment": [
@@ -72,55 +71,6 @@
       "commentDate": "2020-11-19 15:18:32",
       "commentId": 1,
       "id": 1
-    },
-    {
-      "commented": "  \n  sdgsdg\n        ",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 15:18:37",
-      "commentId": 1,
-      "id": 2
-    },
-    {
-      "commented": "  \n  \n        sdgsg",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 15:18:59",
-      "commentId": 1,
-      "id": 3
-    },
-    {
-      "commented": "  \n  \n        sdgsg",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 15:19:14",
-      "commentId": 1,
-      "id": 4
-    },
-    {
-      "commented": "  \n  \n        sdgsg",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 15:19:14",
-      "commentId": 1,
-      "id": 5
-    },
-    {
-      "commented": "  \n  sdgsgsd\n        ",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 15:19:28",
-      "commentId": 1,
-      "id": 6
-    },
-    {
-      "commented": "  \n  dsgsg\n            ",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 15:44:20",
-      "commentId": 1,
-      "id": 7
-    },
-    {
-      "commented": "  \n  dsgsg\n            ",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 15:44:21",
-      "commentId": 1,
-      "id": 8
     }
   ]
 }

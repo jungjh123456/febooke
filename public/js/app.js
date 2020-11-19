@@ -7,12 +7,14 @@ const $loginInput = document.querySelector(".login-input");
 const $passInput = document.querySelector(".pass-input");
 const $btnLogin = document.querySelector(".btn-login");
 const $btnClose = document.querySelector(".fa-times-circle");
+const $btnClose2 = document.querySelector(".close");
 const $checkSign = document.querySelector(".check-sign");
 const $checkText = document.querySelector(".check-text");
+const $checkText2 = document.querySelector(".check-text2");
 const $container = document.querySelector(".container");
 const $btnJoin = document.querySelector(".btn-join");
-const $btnSignup = document.querySelector('.btn-signup');
-
+const $btnSignup = document.querySelector(".btn-signup");
+const $checkSign2 = document.querySelector(".check-sign2");
 
 const debounce = (callback, delay) => {
   let timerId;
@@ -45,8 +47,11 @@ const logIn = async () => {
           );
           location.assign("../index.html");
         } else {
-          $checkSign.classList.toggle("on");
-          $checkText.textContent = "패스워드를 확인해주세요.";
+          if ($checkSign2.classList.contains("no-pass")) {
+            $checkSign2.classList.remove("no-pass");
+          }
+          $checkSign2.classList.toggle("no-pass");
+          $checkText2.textContent = "패스워드가 틀렸습니다.";
         }
       }
     } else {
@@ -54,7 +59,6 @@ const logIn = async () => {
       $checkSign.classList.toggle("on");
       // $checkText.style.display = "block";
       $checkText.textContent = "등록된 아이디가 없습니다";
-
     }
   };
 };
@@ -63,47 +67,30 @@ $btnClose.onclick = (e) => {
   $checkSign.classList.remove("on");
 };
 
+$btnClose2.onclick = (e) => {
+  $checkSign2.classList.remove("no-pass");
+};
+
 window.onkeyup = (e) => {
   if (e.keyCode === 27) {
     $checkSign.classList.remove("on");
+    $checkSign2.classList.remove("no-pass");
   }
 };
 
 $btnJoin.onclick = (e) => {
-  e.preventDefault();
   location.assign("../signup.html");
 };
 
 logIn();
 
-console.log(arr);
-
 $loginInput.onkeyup = debounce((e) => {
   console.log(e.target);
 }, 300);
 
-$btnSignup.onclick = e => {
+$btnSignup.onclick = (e) => {
   e.preventDefault();
-  location.assign('../signup.html')
-}
-
+  location.assign("../signup.html");
+};
 
 logIn();
-
-// $btnSignup.onclick = e => {
-
-//   location.assign('../../signup.html');
-// }
-
-// db
-
-// // storage
-
-// let defaultStorage = firebase.storage();
-// let storageRef = firebase.storage().ref().child('/images/');
-
-// var file = '../image/ok.png'
-// storageRef.put(file).then(function(snapshot){
-//   console.log(snapshot)
-
-// })

@@ -63,6 +63,7 @@ window.onload = e=>{
     };
     ++titleCount;
   },120);
+  
 }
 
 // 기술 게시판 변수, 함수, 이벤트
@@ -92,6 +93,95 @@ setTimeout(()=>{setInterval(()=>{
 
 
 const $leftContainer = document.querySelector('.left-container')
+
+// 캐러셀 코드 건들지 마세요
+class Carousel {
+	constructor() {
+		this.carousel = document.querySelector('.carousel');
+    this.container = this.carousel.querySelector('.carousel-item-container');
+    this.item = this.carousel.querySelector('.carousel-item');
+    console.log(this.item);
+    
+    this.prev = this.carousel.querySelector('.prev');
+    this.next = this.carousel.querySelector('.next');
+    
+    this.itemWidth = this.item.offsetWidth;
+    
+    this.itemHeight = this.item.offsetHeight;
+    
+    this.itemLength = this.carousel.querySelectorAll('.carousel-item').length;
+    
+    this.offset = 0;
+    
+    this.currentItem = 1;
+    this.config = {
+        duration: 200,
+        easing:'ease-out'
+    };
+    this.init();
+    this.attachEvent();
+	}
+    
+    init() {
+        this.carousel.style.width = this.item.itemWidth + 'px';
+        this.carousel.style.heigth = this.item.itemHeight + 'px';
+        this.carousel.style.opacity = 1;
+        
+        this.checkMovable();
+    }
+    attachEvent() {
+        this.prev.addEventListener('click', this.moveToPrev.bind(this));
+        this.next.addEventListener('click', this.moveToNext.bind(this));
+    }
+    
+    moveToPrev() {
+        this.offset += this.itemWidth;
+        
+        this.move();
+        
+        this.currentItem--;
+        this.checkMovable();
+        
+        
+    }
+    moveToNext() {
+            this.offset -= this.itemWidth;
+            
+            this.move();
+            this.currentItem++;
+            this.checkMovable();
+    }
+    move() {
+        this.container.style.transition = `transform${this.config.duration}ms ${this.config.easing}`;
+        this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
+    }
+    checkMovable() {
+        if(this.currentItem === 1){
+            this.prev.disabled = true;
+            this.prev.classList.add('disabled');
+        } else{
+            this.prev.disabled = false;
+            this.prev.classList.remove('disabled');
+        }
+        
+        if(this.currentItem === this.itemLength) {
+            this.next.disabled = true;
+            this.next.classList.add('disabled');
+        } else{
+            this.next.disabled = false;
+            this.next.classList.remove('disabled');
+        }
+    }
+    
+}
+// 여기까지 캐러셀 코드
+
+
+
+
+
+
+
 
 // 렌더링
 
@@ -286,15 +376,31 @@ $header.onclick = e => {
 }
 
 const $techNewList = document.querySelector('.tech-new-list');
-
+const $techNewHeadings = document.querySelector('.tech-new-headings');
 // tech-list
 const render2 = todo => {
+  let headings='';
   let html = '';
 
+  
   [...todo].forEach(list => {
-  html += `<li id="${list.id}">
-  <a href="#">${list.title}</a>
+    headings+= `<li id ="${list.id}" class="top-tech-new-item">
+  <a class="top-new-title">${list.title}</a>
+  <span class="top-author">${list.nickname}</span>
+
+  <time class="top-time">
+    ${list.time}
+      <span class="year"></span>
+      <span class="month"></span>
+      <span class="date"></span>
+  </time>
+  <span class="top-click">${list.clickcount}</span>
+</li>`});
+[...todo].forEach(list => {
+  html += `<li id ="${list.id}" class="tech-new-item carousel-item">
+  <a class="new-item-heading">${list.title}</a>
   <span class="author">${list.nickname}</span>
+
   <time class="time">
     ${list.time}
       <span class="year"></span>
@@ -302,31 +408,33 @@ const render2 = todo => {
       <span class="date"></span>
   </time>
   <span class="click">${list.clickcount}</span>
-</li>`}
-  )
+</li>`});
+  
   $techNewList.innerHTML = html;
+  $techNewHeadings.innerHTML= headings;
 }
 
 // hot -list
 const $techHotList = document.querySelector('.tech-hot-list')
-const render3 = todo => {
-  let html = '';
+// const render3 = todo => {
+//   let html = '';
 
-  [...todo].forEach(list => {
-  html += `<li id="${list.id}">
-  <a href="#">${list.title}</a>
-  <span class="author">${list.nickname}</span>
-  <time class="time">
-    ${list.time}
-      <span class="year"></span>
-      <span class="month"></span>
-      <span class="date"></span>
-  </time>
-  <span class="click">${list.clickcount}</span>
-</li>`}
-  )
-  $techHotList.innerHTML = html;
-}
+//   [...todo].forEach(list => {
+//   html += `<li id ="${list.id}" class="tech-new-item carousel-item">
+//   <a class="new-item-heading">${list.title}</a>
+//   <span class="author">${list.nickname}</span>
+
+//   <time class="time">
+//     ${list.time}
+//       <span class="year"></span>
+//       <span class="month"></span>
+//       <span class="date"></span>
+//   </time>
+//   <span class="click">${list.clickcount}</span>
+// </li>`}
+//   )
+//   $techHotList.innerHTML = html;
+// }
 
 
 const list = async e => {
@@ -336,7 +444,11 @@ const list = async e => {
 
   const res1 = await fetch('/board/?_sort=clickcount&_order=desc&_page=1&_limit=4')
   arr = await res1.json();
-  render3(arr);
+  // render3(arr);
+  const carousel = new Carousel();
 }
+window.resize = e=>{
+  const carousel = new Carousel();
 
+}
 list();

@@ -11,7 +11,7 @@
     },
     {
       "name": "정지훈",
-      "id": "jungjh565",
+      "id": "jungjh565@naver.com",
       "password": "zz64112491",
       "nickname": "jungjh",
       "phone": "01042288874",
@@ -21,43 +21,22 @@
     {
       "name": "정지훈",
       "id": "wjdwlgns1474@naver.com",
-      "password": "wjdwlgns1474@",
-      "nickname": "jungjh565",
+      "password": "zz64112491",
+      "nickname": "jusss",
       "phone": "01042288874"
     },
     {
-      "name": "",
-      "id": "ddd@gaadf.com",
-      "password": "",
-      "nickname": "",
-      "phone": "d"
-    },
-    {
-      "name": "조재연",
-      "id": "cjy0029@naver.com",
-      "password": "whwodus",
-      "nickname": "파워전사",
-      "phone": "01098063260"
-    },
-    {
-      "name": "조재연",
-      "id": "cjy0019@naver.com",
-      "password": "whwodus",
-      "nickname": "눈물",
-      "phone": "01098073270"
-    },
-    {
-      "name": "주현",
-      "id": "noonssub1004@naver.com",
-      "password": "123456",
-      "nickname": "주현",
-      "phone": "01092742066"
+      "name": "정지훈",
+      "id": "jungjh5651@naver.com",
+      "password": "zz64112491",
+      "nickname": "jungjh1",
+      "phone": "01042288874"
     }
   ],
   "board": [
     {
-      "title": "sdgsdgsdsg",
-      "content": "sdgsgsdgsdgsdgsgs",
+      "title": "aaaa",
+      "content": "aaaasfsfsf",
       "id": 4,
       "nickname": "jungjh",
       "time": "2020-11-19 16:43:20",
@@ -77,6 +56,14 @@
       "id": 6,
       "nickname": "주현",
       "time": "2020-11-19 22:03:30",
+      "clickcount": 17
+    },
+    {
+      "title": "asfafs",
+      "content": "asfasfasfas",
+      "id": 5,
+      "nickname": "jungjh",
+      "time": "2020-11-19 22:44:06",
       "clickcount": 0
     }
   ],
@@ -261,6 +248,48 @@
       "commentDate": "2020-11-19 19:54:44",
       "commentId": 4,
       "id": 26
+    },
+    {
+      "commented": "            gsdgdsg",
+      "nickname": "jusss",
+      "commentDate": "2020-11-20 00:03:35",
+      "commentId": 5,
+      "id": 28
+    },
+    {
+      "commented": "aasad",
+      "nickname": "jusss",
+      "commentDate": "2020-11-20 00:03:48",
+      "commentId": 5,
+      "id": 29
+    },
+    {
+      "commented": " asfsafa     ",
+      "nickname": "jusss",
+      "commentDate": "2020-11-20 00:03:57",
+      "commentId": 5,
+      "id": 30
+    },
+    {
+      "commented": "            dsgsg",
+      "nickname": "jusss",
+      "commentDate": "2020-11-20 00:52:29",
+      "commentId": 5,
+      "id": 31
+    },
+    {
+      "commented": "            dsgsgdsgdg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-20 01:28:30",
+      "commentId": 4,
+      "id": 32
+    },
+    {
+      "commented": "ㄴㅇㅎㅇㄴㅎㄴㅎ",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-20 03:40:49",
+      "commentId": 4,
+      "id": 33
     }
   ]
 }

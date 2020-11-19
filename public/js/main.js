@@ -46,34 +46,49 @@ const $header = document.querySelector('.header');
   setTimeout(printNow, 1000);
 })();
 // 첫로딩 이벤트
-// let titleCount = 0;
-// window.onload = e=>{
-//   const key = setInterval(()=> {
-//     $logoTitle.innerHTML +=title[titleCount];
-//     const $newT = $logoTitle.lastElementChild;
-//     $newT.style.left = `${titleCount*($newT.textContent===''||4)}%`;
-//     if(titleCount === titleLength-1) {
-//       clearInterval(key)
-//       $logoTitle.style.transition = '2s';
-//       $logoTitle.classList.add('midTime');
-//       setTimeout(()=>{
-//         const $firstT = document.querySelector('.firstT');
-//         const $secondT = document.querySelector('.secondT');
-//         $logoTitle.classList.add('lastTime');
-//         $firstT.style.transition = '2s';
-//         $secondT.style.transition = '2s';
-//       },2000)
-//       setTimeout(()=> {
-//         $logoImage.classList.add('showImage');
-//         $headerSearch.classList.add('showSearch');
-//         $logoTitle.classList.add('downT');
-//         $header.classList.add('showColor');
-//       },4000)
-//     };
-//     ++titleCount;
-//   },120);
-  
-// }
+
+let titleCount = 0;
+window.onload = e=>{
+  const key = setInterval(()=> {
+    $logoTitle.innerHTML +=title[titleCount];
+    const $newT = $logoTitle.lastElementChild;
+    $newT.style.left = `${titleCount*($newT.textContent===''||4)}%`;
+    if(titleCount === titleLength-1) {
+      clearInterval(key)
+      $logoTitle.style.transition = '2s';
+      $logoTitle.classList.add('midTime');
+      setTimeout(()=>{
+        const $firstT = document.querySelector('.firstT');
+        const $secondT = document.querySelector('.secondT');
+        $logoTitle.classList.add('lastTime');
+        $firstT.style.transition = '2s';
+        $secondT.style.transition = '2s';
+      },2000)
+      setTimeout(()=> {
+        $logoImage.classList.add('showImage');
+        $headerSearch.classList.add('showSearch');
+        $logoTitle.classList.add('downT');
+        $header.classList.add('showColor');
+      },4000)
+    };
+    ++titleCount;
+  },120);
+// TECH-Newest
+const $techNewHeadings = document.querySelector('.tech-new-headings');
+console.log($techNewHeadings)
+$techNewHeadings.onclick = async e => {
+  e.preventDefault();
+  if (!e.target.matches('.tech-new-headings > li > a')) return;
+  const res = await fetch(`/board/${e.target.parentNode.id}`);
+  arr = await res.json();
+  console.log(arr)
+  console.log(e.target.parentNode.id)
+  sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id,nickname: arr.nickname}))
+  location.assign('../../content.html')
+}
+
+}
+
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement
 const $techBoard = document.querySelector('.tech-board');
@@ -96,88 +111,6 @@ setTimeout(()=>{setInterval(()=>{
   stateColor===2 ? stateColor=0 : stateColor++;
 },1500)},5000)
 const $leftContainer = document.querySelector('.left-container')
-
-// 캐러셀 코드 건들지 마세요
-// class Carousel {
-// 	constructor() {
-// 		this.carousel = document.querySelector('.carousel');
-//     this.container = this.carousel.querySelector('.carousel-item-container');
-//     this.item = this.carousel.querySelector('.carousel-item');
-//     console.log(this.item);
-    
-//     this.prev = this.carousel.querySelector('.prev');
-//     this.next = this.carousel.querySelector('.next');
-    
-//     this.itemWidth = this.item.offsetWidth;
-    
-//     this.itemHeight = this.item.offsetHeight;
-    
-//     this.itemLength = this.carousel.querySelectorAll('.carousel-item').length;
-    
-//     this.offset = 0;
-    
-//     this.currentItem = 1;
-//     this.config = {
-//         duration: 200,
-//         easing:'ease-out'
-//     };
-//     this.init();
-//     this.attachEvent();
-// 	}
-    
-//     init() {
-//         this.carousel.style.width = this.item.itemWidth + 'px';
-//         this.carousel.style.heigth = this.item.itemHeight + 'px';
-//         this.carousel.style.opacity = 1;
-        
-//         this.checkMovable();
-//     }
-//     attachEvent() {
-//         this.prev.addEventListener('click', this.moveToPrev.bind(this));
-//         this.next.addEventListener('click', this.moveToNext.bind(this));
-//     }
-    
-//     moveToPrev() {
-//         this.offset += this.itemWidth;
-        
-//         this.move();
-        
-//         this.currentItem--;
-//         this.checkMovable();
-        
-        
-//     }
-//     moveToNext() {
-//             this.offset -= this.itemWidth;
-            
-//             this.move();
-//             this.currentItem++;
-//             this.checkMovable();
-//     }
-//     move() {
-//         this.container.style.transition = `transform${this.config.duration}ms ${this.config.easing}`;
-//         this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
-//     }
-//     checkMovable() {
-//         if(this.currentItem === 1){
-//             this.prev.disabled = true;
-//             this.prev.classList.add('disabled');
-//         } else{
-//             this.prev.disabled = false;
-//             this.prev.classList.remove('disabled');
-//         }
-        
-//         if(this.currentItem === this.itemLength) {
-//             this.next.disabled = true;
-//             this.next.classList.add('disabled');
-//         } else{
-//             this.next.disabled = false;
-//             this.next.classList.remove('disabled');
-//         }
-//     }
-    
-// }
-// 여기까지 캐러셀 코드
 
 
 // 렌더링
@@ -284,9 +217,6 @@ const render = async (todo) => {
         });
         render(arr);
 
-
-
-
     sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id, nickname: arr.nickname}))
     location.assign('../../content.html')
   }
@@ -347,6 +277,8 @@ $header.onclick = e => {
   e.preventDefault();
   location.assign('../../index.html')
 }
+
+
 const $techNewList = document.querySelector('.tech-new-list');
 
 const $techNewHeadings = document.querySelector('.tech-new-headings');
@@ -409,3 +341,6 @@ const list = async e => {
 }
 
 list();
+
+// li go write
+

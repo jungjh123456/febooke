@@ -60,6 +60,13 @@
     margin-left: 5px;
 }
 
+/* 수정 */
+
+/* 수정&삭제 버튼 */
+
+
+
+/* 삭제 */
 .written {
     position: absolute;
     top: 0;
@@ -107,7 +114,39 @@
     /* background-color: red; */
     border-bottom: 1px solid;
     padding-bottom: 10px;
+}
 
+.modify-btn {
+    vertical-align: middle;
+    position: relative;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+
+
+}
+
+.comment-text {
+    resize: none;
+    display: none;
+}
+.comment-remake {
+    display: none;
+}
+.comment-text.on {
+    display: block;
+    /* position: absolute; */
+}
+.comment-remake.on {
+    display: inline-block;
+
+}
+
+.modify-btn {
+    display: block;
+    margin-left: 10px;
 }
 
 .comment-header {

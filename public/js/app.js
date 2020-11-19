@@ -11,6 +11,8 @@ const $checkSign = document.querySelector(".check-sign");
 const $checkText = document.querySelector(".check-text");
 const $container = document.querySelector(".container");
 const $btnJoin = document.querySelector(".btn-join");
+const $btnSignup = document.querySelector('.btn-signup');
+
 
 const debounce = (callback, delay) => {
   let timerId;
@@ -52,6 +54,7 @@ const logIn = async () => {
       $checkSign.classList.toggle("on");
       // $checkText.style.display = "block";
       $checkText.textContent = "등록된 아이디가 없습니다";
+
     }
   };
 };
@@ -78,6 +81,12 @@ console.log(arr);
 $loginInput.onkeyup = debounce((e) => {
   console.log(e.target);
 }, 300);
+
+$btnSignup.onclick = e => {
+  e.preventDefault();
+  location.assign('../signup.html')
+}
+
 
 logIn();
 

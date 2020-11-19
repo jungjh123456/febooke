@@ -9,7 +9,7 @@ const $signupNick = document.querySelector(".signup-nick");
 const $signupBtn = document.querySelector(".signup-btn");
 const $signupId = document.querySelector(".signup-id");
 const $signupPass = document.querySelector(".signup-pass");
-const $input = document.querySelector("input");
+const $input = document.querySelectorAll("input");
 const $signupPass2 = document.querySelector(".signup-pass2");
 const $signupNumber = document.querySelector(".signup-number");
 const $checkPhone = document.querySelector(".check-phone");
@@ -36,7 +36,14 @@ $signupBtn.onclick = async (e) => {
     phone: $signupNumber.value,
   };
 
-  if ($input.value) {
+  if (
+    $signupName.value &&
+    $signupNick.value &&
+    $signupNumber.value &&
+    $signupId.value &&
+    $signupPass.value &&
+    $signupPass2.value
+  ) {
     state = "true";
     const res = await fetch("/users", {
       method: "POST",
@@ -47,6 +54,7 @@ $signupBtn.onclick = async (e) => {
     location.assign("../signin.html");
   } else {
     console.log("에러");
+    console.log("$btnSignup");
   }
 };
 
@@ -60,6 +68,16 @@ const clearBorder = (e) => {
 
 // 유저 이름
 
+const filterBorder = () => {
+  if (state === "false") {
+    $signupBtn.style.opacity = "0.6";
+    $signupBtn.style.cursor = "not-allowed";
+  } else if (state === "true") {
+    $signupBtn.style.opacity = "1";
+    $signupBtn.style.cursor = "pointer";
+  }
+};
+
 $signupName.onkeyup = (e) => {
   if (+$signupName.value || !$signupName.value.trim()) {
     state = "false";
@@ -68,17 +86,9 @@ $signupName.onkeyup = (e) => {
     state = "false";
     redBorder(e);
   } else {
-    state = "true";
     clearBorder(e);
   }
-
-  if (state === "false") {
-    $signupBtn.style.opacity = "0.6";
-    $signupBtn.style.cursor = "not-allowed";
-  } else if (state === "true") {
-    $signupBtn.style.opacity = "1";
-    $signupBtn.style.cursor = "pointer";
-  }
+  filterBorder();
 };
 
 // 닉네임
@@ -95,17 +105,10 @@ const nickfilter = async () => {
       state = "false";
       redBorder(e);
     } else {
-      state = "true";
       clearBorder(e);
     }
 
-    if (state === "false") {
-      $signupBtn.style.opacity = "0.6";
-      $signupBtn.style.cursor = "not-allowed";
-    } else if (state === "true") {
-      $signupBtn.style.opacity = "1";
-      $signupBtn.style.cursor = "pointer";
-    }
+    filterBorder();
   };
 };
 
@@ -148,13 +151,7 @@ const idFilter = async () => {
       clearBorder(e);
     }
 
-    if (state === "false") {
-      $signupBtn.style.opacity = "0.6";
-      $signupBtn.style.cursor = "not-allowed";
-    } else if (state === "true") {
-      $signupBtn.style.opacity = "1";
-      $signupBtn.style.cursor = "pointer";
-    }
+    filterBorder();
   };
 };
 
@@ -179,17 +176,10 @@ $signupPass.onkeyup = (e) => {
     state = "false";
     redBorder(e);
   } else {
-    state = "true";
     clearBorder(e);
   }
 
-  if (state === "false") {
-    $signupBtn.style.opacity = "0.6";
-    $signupBtn.style.cursor = "not-allowed";
-  } else if (state === "true") {
-    $signupBtn.style.opacity = "1";
-    $signupBtn.style.cursor = "pointer";
-  }
+  filterBorder();
 };
 
 $signupPass2.onkeyup = (e) => {
@@ -200,27 +190,23 @@ $signupPass2.onkeyup = (e) => {
     state = "false";
     redBorder(e);
   } else {
-    state = "true";
     clearBorder(e);
   }
-  if (state === "false") {
-    $signupBtn.style.opacity = "0.6";
-    $signupBtn.style.cursor = "not-allowed";
-  } else if (state === "true") {
-    $signupBtn.style.opacity = "1";
-    $signupBtn.style.cursor = "pointer";
-  }
+  filterBorder();
 };
 
 $signupNumber.onkeyup = (e) => {
   $signupNumber.value = $signupNumber.value.replace(/\-/g, "");
-  state = "true";
-  clearBorder(e);
-  if (isNaN(+$signupNumber.value || $signupNumber.value)) {
+  if (isNaN(+$signupNumber.value) || !$signupNumber.value) {
+    state = "false";
     $checkPhone.classList.add("phone-on");
     redBorder(e);
+    filterBorder();
   } else {
+    state = "true";
+    clearBorder(e);
     $checkPhone.classList.remove("phone-on");
+    filterBorder();
   }
 };
 

@@ -16,12 +16,19 @@
 body {
   font-family: "Roboto";
   color: #fff;
-  background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/59/purple-690724_960_720.jpg);
+  /* background-color: rgba(0,0,0,0.1); */
+  overflow: auto;
+}
+body::after{
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height:100%;
+  background-image: url(../image/starry-sky-1654074_1920.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-}
-body {
-  overflow: auto;
+  z-index: -8;
 }
 body::-webkit-scrollbar {
   width: 12px;
@@ -37,15 +44,33 @@ body::-webkit-scrollbar-track {
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px white;
 }
+body::before {
+  content:"";
+  display:block;
+  position: absolute;
+  z-index:-5;
+  height:100%;
+  left:0;
+  right:0;
+  /* background-color: rgba(0,0,0,0.2); */
+}
 .container {
-  width: 80vw;
+  width: 90vw;
   margin: 0 auto;
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 40px 40px 4rem 4rem rgba(0,0,0,0.3),
+  -40px -40px 4rem 4rem rgba(0,0,0,0.3);
+  /* border: 3vw solid rgba(0,0,0,0.2); */
 }
 /* --------------------------header-------------------------- */
 .header {
   padding-top: 2vh;
   height: 20vh;
   position: relative;
+}
+.header.showColor{
+  background-color:rgba(0,0,0,0.4);
+  transition: 1s;
 }
 .logo {
   margin: 0;
@@ -69,8 +94,9 @@ body::-webkit-scrollbar-track {
   font-size: 4rem;
   line-height: 6rem;
   margin: 0;
-  margin-top: -1%;
+  /* margin-top: -1%; */
   transition: 2s;
+  /* display:none; */
 }
 .logo-title span{
   position: absolute;
@@ -115,13 +141,16 @@ body::-webkit-scrollbar-track {
      font-size: 0.3rem;
     } 
     
-    100%{
+    90%{
       /* position: absolute; */
       font-size: 3.5rem;
       top: 24%;
       left: 1.5%;
       color: #ff0;
-      opacity:0.5;
+      opacity:0.3;
+    }100%{
+      left:1%;
+      opacity:0.2;
     }
   }
   @keyframes moveE{
@@ -134,13 +163,16 @@ body::-webkit-scrollbar-track {
       color: #ff0;
       font-size: 0.3rem;
     }
-    100%{
+    90%{
       /* position: absolute; */
       font-size: 3.5rem;
       top: 24%;
       left: 5%;
       color: #ff0;
-      opacity:0.5;
+      opacity:0.4;
+    }100%{
+      opacity:0.3;
+      left: 4%;
    }
 }
 
@@ -148,13 +180,17 @@ body::-webkit-scrollbar-track {
   animation: moveF 2s forwards;
 }
 .lastTime .secondT{
-  animation: moveE 3s forwards;
+  animation: moveE 2s forwards;
 }
+.logo-title.downT span{
+  z-index: -10;
+}
+/* 타이머 */
 .header-timer {
   font-size: 18px;
   font-weight: 300;
   align-self: flex-end;
-
+  text-align: right;
 }
 .second {
   font-size: 13px;
@@ -166,15 +202,170 @@ body::-webkit-scrollbar-track {
   display: flex;
   justify-content: space-between;
 }
+/* 헤더 검색 */
+.header-search{
+  opacity: 0;
+  /* background-color: skyblue; */
+  height:10vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  /* vertical-align: center; */
+}
+
+.header-search.showSearch{
+  opacity:0.8;
+  transition:1s;
+}
+
+
+
+.search-input{
+  height: 50%;
+  border: 2px solid #eee;
+  border-radius: 45px;
+  width: 40vw;
+  background-color: rgba(0,0,0,0);
+  line-height: 100%;
+  color: rgba(240,240,240,0.8);
+  font-size: 1.5rem;
+  text-indent: 1rem;
+}
+
+.search-input::-webkit-input-placeholder {
+  line-height: 100%;
+  text-indent: 1rem;
+  font-size: 1rem;
+}
+
+.btn-search{  
+  /* height: 100%; */
+  background-color: rgba(0,0,0,0);
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  /* background-color: #eee; */
+  background-image: url(http://ottogi.okitchen.co.kr/images/common/top_sch.png);
+  background-repeat: no-repeat;
+  background-size: 30%,30%;
+  background-position: center;
+  margin-left: -5.5vw;
+  text-indent:-9999px;  
+  overflow: hidden;
+  width: 5vw;
+  height: 5vh;
+  
+}
 /* --------------------------left-container-------------------------- */
 .left-container {
+  /* background-color: lightblue; */
   width: 70%;
   height: 100vh;
-  border: 1px solid purple;
+}
+
+/* 기술 게시판 */
+.tech-board{
+  padding-top: 3rem;
+}
+
+.tech-statement{
+  width: 110%;
+  line-height: 6rem;
+  display: block;
+  /* background-color: lightblue; */
+  font-size: 4vw;
+  opacity: 0.5;
+  transition: 1s;
+  letter-spacing: 0.2rem;
+}
+.tech-statement span:nth-child(1){
+  display:inline-block;
+  width: 12vw;
+}
+.tech-statement span:nth-child(2){
+  display:inline-block;
+  width: 15vw;
+}
+.tech-statement span:nth-child(3){
+  display:inline-block;
+  margin-left: -5vw;
+  width: 10vw;
+}
+.tech-statement::before{
+  content:" ";
+  display:inline-block;
+  line-height: 6rem;
+}
+.transStatement .tech-statement{
+  opacity: 1;
+  transition: 1s;
+}
+@keyframes colorToggle{
+  0%{
+
+  }50%{
+    color: #655ba0;
+    font-size: 5vw;
+    
+  }100%{
+    font-size: 4vw;
+  }
+}
+.tech-statement .stateColor{
+  transition:1.5s;
+  vertical-align: bottom;
+  animation: colorToggle 1.5s;
+}
+
+/* 기술 게시판 전체 헤딩 */
+.link-box{
+  display:inline-block;
+  text-align: center;
+  color: rgba(240,240,240,0.7);
+  border-radius: 2rem;
+  text-decoration: none;
+  width:100%;
+  height: 100%;
+
+}
+.link-box:hover{
+  color: rgba(240,240,240,1);
+  background-color: #655ba0;
+  transition:1s;
+  
 }
 .tech-title {
+  margin-top: 7vh;
+  font-size: 4vw;
+  width: 25vw;
   display: block;
-  text-align: center;
+  font-style: none;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 5vh;
+}
+
+/* 기술게시판 new 게시판 */
+.tech-news{
+  background-color: skyblue;
+  height: 50vh;
+}
+.news-heading{
+  font-size:3vw;
+  width: 25vw;
+}
+.news-heading a{
+  color: rgba(240,240,240,0.7);
+  text-decoration: none;
+
+}
+
+.tech-new-list{
+background-color: pink;
+}
+/* 타이틀 닉네임 날짜 조회수 */
+.tech-new-item{
+
 }
 .tech-list {
   padding: 0;
@@ -189,10 +380,6 @@ body::-webkit-scrollbar-track {
   margin-left: 20px;
   margin-top: 20px;
 }
-.tech-title {
-  font-weight: 400;
-  margin: 30px;
-}
 .chat-title {
   font-weight: 400;
   text-align: center;
@@ -206,7 +393,7 @@ body::-webkit-scrollbar-track {
 .right-container {
   width: 30%;
   height: 100vh;
-  border: 1px solid darkblue;
+  background-color: rgba(0,0,0,0.1);
 }
 .profile-title {
   text-align: center;

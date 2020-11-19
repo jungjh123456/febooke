@@ -26,37 +26,145 @@
       "phone": "01042288874"
     },
     {
+<<<<<<< HEAD
       "name": "",
       "id": "ddd@gaadf.com",
       "password": "",
       "nickname": "",
       "phone": "d"
+=======
+      "name": "정훈",
+      "id": "wjdwlgns12345@naver.com",
+      "password": "wjdwlgns14@",
+      "nickname": "jungjh123",
+      "phone": "010422874"
+    },
+    {
+      "name": "정재훈",
+      "id": "jungjh123456@naver.com",
+      "password": "wjdwlgns1474",
+      "nickname": "jungjh12",
+      "phone": "01042288874"
+>>>>>>> 3c1470252eabb1ed2b161f5386dd5a0b50022350
     }
   ],
   "board": [
     {
-      "title": "sdfsf",
-      "content": "sdfsdf",
+      "title": "dsgsdg",
+      "content": "sdgssdgsg",
       "id": 1,
-      "nickname": "ddd"
+      "nickname": "jungjh565",
+      "time": "2020-11-18 11:52:59",
+      "clickcount": 38
     },
     {
-      "title": "sdfsf3252",
-      "content": "sdfsdf",
+      "title": "hello",
+      "content": "ok",
       "id": 2,
-      "nickname": "ddd"
+      "nickname": "jungjh565",
+      "time": "2020-11-18 12:33:57",
+      "clickcount": 34
     },
     {
-      "title": "sdfsf3252",
-      "content": "sdfsdf",
+      "title": "ok",
+      "content": "hello",
       "id": 3,
-      "nickname": "ddd"
+      "nickname": "jungjh565",
+      "time": "2020-11-18 12:36:17",
+      "clickcount": 36
     },
     {
-      "title": "sdfsf3252",
-      "content": "sdfsdf",
+      "title": "sdgdsgsd",
+      "content": "sdgsgsdgsdgs",
       "id": 4,
-      "nickname": "ddd"
+      "nickname": "jungjh565",
+      "time": "2020-11-18 13:07:25",
+      "clickcount": 26
+    },
+    {
+      "title": "oksdfsd",
+      "content": "hedsfsdfsllo",
+      "id": 3,
+      "nickname": "jungjh123",
+      "time": "2020-11-18 12:36:17",
+      "clickcount": 32
+    },
+    {
+      "title": "gsdg",
+      "content": "sdgsg",
+      "id": 5,
+      "nickname": "jungjh565",
+      "time": "2020-11-18 18:22:03",
+      "clickcount": 0
+    },
+    {
+      "title": "hello",
+      "content": "ok!",
+      "id": 6,
+      "nickname": "jungjh565",
+      "time": "2020-11-18 18:29:15",
+      "clickcount": 0
+    },
+    {
+      "title": "sgsgsg",
+      "content": "sdgsgsgsgsdg",
+      "id": 7,
+      "nickname": "jungjh565",
+      "time": "2020-11-18 19:23:11",
+      "clickcount": 0
+    }
+  ],
+  "comment": [
+    {
+      "commented": "  \n  ㄴㅇㅎㄴㅇㅎ\nㅁㄴㄹㅁㄹㅁㄴㄹ\n        ",
+      "nickname": "jungjh565",
+      "id": 1
+    },
+    {
+      "commented": "  \n  \n        ㅁㄴㄹㅁㄹㅁㄹㅁㄹ",
+      "nickname": "jungjh565",
+      "id": 2
+    },
+    {
+      "commented": "  \n  sdgdsg\n        ",
+      "nickname": "jungjh565",
+      "id": 3
+    },
+    {
+      "commented": "  \n  sdgsgs\n        ",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-18 22:01:16",
+      "id": 4
+    },
+    {
+      "commented": "  \n  sdfdff\n        ",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:15:54",
+      "id": 5
+    },
+    {
+      "commented": "  \n  \n        dsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:18:52",
+      "id": 6
+    },
+    {
+      "commented": "  \n  \n        dsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:18:54",
+      "id": 7
+    },
+    {
+      "commented": "  \n  \n        dsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:18:56",
+      "id": 8
+    },
+    {
+      "commented": "  \n  \n        sdfsf",
+      "nickname": "jungjh565",
+      "commentDate": "2020-11-19 10:19:59",
+      "id": 9
     }
   ]
 }

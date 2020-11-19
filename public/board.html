@@ -5,23 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>board</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
     <link rel="stylesheet" href="./css/board.css">
 </head>
-
 <body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">
+              <a href="#"><img src="./image/logo3.png"class="logo-image"alt="로고"/><span class="a11y-hidden">페북 로고</span></a>
+            </h1>
+          </header>
     <div class="board">
         <h2 class="tech-heading">Tech 게시판</h2>
         <span class="caption">프론트엔드 개발자들의 기술개발 게시판</span>
         <div class="filter-write">
-            <select name="조건 검색" id="">
-                <option value="조회수">내글</option>
+            <select name="조건 검색" class="select-option">
+                <option value="my-content">내글</option>
                 <optgroup label="조회수">
-                    <option value="높은 순">높은 순</option>
-                    <option value="낮은 순">낮은 순</option>
+                    <option id="high" value="high">높은 순</option>
+                    <option id="row" value="row">낮은 순</option>
                 </optgroup>
                 <optgroup label="날짜 순">
-                    <option value="조회수">최근날짜 순</option>
-                    <option value="조회수">과거날짜 순</option>
+                    <option id="least-date" value="least-date">최근날짜 순</option>
+                    <option id="last-date" value="last-date">과거날짜 순</option>
                 </optgroup>
             </select>
             <button class="write-btn">글쓰기</button>
@@ -40,7 +46,7 @@
             <span class="heading-click">조회수</span>
         </div>
         <ul class="board-list">
-            <!-- <li>
+            <!-- <li class = "to-list">
                 <a href="#">웹 접근성에 대한 고찰</a>
                 <span class="author">주혀늬</span>
                 <time class="time">
@@ -80,7 +86,7 @@
      
         </div>
     </div>
-    
+</div>
     <script src="./js/board.js"></script>
     <script src="https://kit.fontawesome.com/168c41ea51.js" crossorigin="anonymous"></script>
 </body>

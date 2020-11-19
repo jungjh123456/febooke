@@ -74,13 +74,11 @@ window.onload = async () => {
                     commentDate: format(dateTime)
                 })
             })
-            console.log(await res.json())
-        } else {
-            console.log('로그인이 필요합니다')
-            let $div = document.querySelector('div');
-            $div.classList.add('signup-go');
-        }
-
+        })
+        console.log(await res.json())
+    } else {
+        console.log('로그인이 필요합니다')
+        let $div = document.querySelector('div')
     }
     const $commentEnrollment = document.querySelector('.comment-enrollment');
     // console.log($commentEnrollment); // 등록순
@@ -165,6 +163,8 @@ const render2 = (content) => {
             </div>
         </div>`
 
+
+
     })
 
     $container.innerHTML += html;
@@ -196,6 +196,3 @@ const render3 = content => {
 
 
 }
-
-
-

@@ -73,7 +73,7 @@ $commentBtn.onclick = async e => {
     } else {
         console.log('로그인이 필요합니다')
         let $div = document.querySelector('div');
-        $div.
+        $div.classList.add('signup-go');
     }
 
     }

@@ -37,6 +37,7 @@ const logIn = async () => {
 
   $btnLogin.onclick = async (e) => {
     e.preventDefault();
+
     // 아이디 성공
     if (idArr.filter((item, i, arr) => $loginInput.value === arr[i]).length) {
       for (let i = 0; i < passArr.length; i++) {

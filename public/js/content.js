@@ -1,14 +1,13 @@
 const $container = document.querySelector('.container');
-
-
+const $containerMain = document.querySelector('.container-main');
+const $containerChat = document.querySelector('.container-chat');
+const $containerComment = document.querySelector('.container-comment');
 
 let arr = [];
 
 window.onload = async () => {
 
-
-
-
+    
     const contentId = JSON.parse(sessionStorage.getItem('content'));
 
 
@@ -34,6 +33,29 @@ window.onload = async () => {
 
 
     $commentBtn.onclick = async e => {
+
+    console.log(arr)
+    
+    // const res1 = await fetch(`/comment`, {
+        //     method: "POST",
+        //     headers: {'Content-Type': 'application/json' },
+        //     body: 
+        // })
+        
+        
+        const res2 = await fetch(`/comment`);
+        let arr1  = await res2.json();
+        console.log(arr1);
+        arr1 = arr1.filter(item => item.commentId === arr.id);
+        console.log(arr1)
+        render2(arr1);
+        
+        render3(arr);
+        
+const $commentBtn = document.querySelector('.comment-btn');
+    
+$commentBtn.onclick = async e => {
+    console.log(JSON.parse(sessionStorage.getItem('login')))
         /*--------------------------버튼 누른 시각 함수----------------------------------------*/
         const padLeft = date => {
             if (date < 10) {
@@ -73,6 +95,26 @@ window.onload = async () => {
                     nickname: contentId.nickname,
                     commentDate: format(dateTime)
                 })
+
+        if(JSON.parse(sessionStorage.getItem('login'))){ 
+
+        const $commenting = document.querySelector('.commenting');
+        console.log(contentId);
+        const redId = await fetch('/board');
+        let arr3 = await redId.json();
+        arr3 = arr3.map(item => item.id)
+        console.log(arr3.find(item => item === contentId.id))
+        const res = await fetch('/comment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                commented: $commenting.value,
+                nickname: contentId.nickname,
+                commentDate: format(dateTime),
+                commentId: arr3.find(item => item === contentId.id)
+
             })
             console.log(await res.json())
         } else {
@@ -150,7 +192,9 @@ window.onload = async () => {
     }
 
 
-
+    console.log(arr1)
+    render2(arr1);
+    }
 
 
 }
@@ -183,15 +227,17 @@ const render = (content) => {
 
     })
 
-    $container.innerHTML = html;
+    $containerMain.innerHTML = html;
 }
 
 /* 댓글창 */
 const render2 = (content) => {
 
     let html = '';
+    const contentId = JSON.parse(sessionStorage.getItem('content'));
 
     [...content].forEach(item => {
+
 
         html +=
             `<div class="comment">
@@ -209,7 +255,7 @@ const render2 = (content) => {
 
     })
 
-    $container.innerHTML += html;
+    $containerChat.innerHTML = html;
 }
 
 
@@ -233,7 +279,7 @@ const render3 = content => {
         </div>
             `
     })
-    $container.innerHTML += html;
+    $containerComment.innerHTML += html;
 
 
 }

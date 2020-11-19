@@ -89,7 +89,6 @@ $registerBtn.onclick = async (e) => {
         nickname: nickArr.nickname,
         time: format(dateTime),
         clickcount: 0,
-        comment: []
     }
     // console.log(newList);
 

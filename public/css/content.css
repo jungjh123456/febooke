@@ -118,24 +118,37 @@
 
 .modify-btn {
     vertical-align: middle;
+    position: relative;
 }
 
 .group {
     display: flex;
     align-items: center;
-    background-color: red;
+
 
 }
 
 .comment-text {
     resize: none;
-}
-.modify-btn {
     display: none;
 }
-.modify-btn.on{
-    display: block;
+.comment-remake {
+    display: none;
 }
+.comment-text.on {
+    display: block;
+    /* position: absolute; */
+}
+.comment-remake.on {
+    display: inline-block;
+
+}
+
+.modify-btn {
+    display: block;
+    margin-left: 10px;
+}
+
 .comment-header {
     display: inline-block;
     /* background-color: red; */

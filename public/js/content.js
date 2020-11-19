@@ -29,30 +29,44 @@ window.onload = async () => {
     const $commentLeast = document.querySelector('.comment-least');
     const $commentModifyBtn = document.querySelectorAll('.comment-modify-btn');
     const $commentDeleteBtn = document.querySelectorAll('.comment-delete-btn');
-
+    const $commentText = document.querySelectorAll('.comment-text');
     const $written = document.querySelector('.written');
-    const $modifyBtn = document.querySelectorAll('.modify-btn');
-    const $span = document.querySelectorAll('.group span');
-
+    const $commenting = document.querySelector('.commenting');
+    
+    // 텍스트에어리어 첫줄 버그 픽스
+    $commenting.onfocus = e => {
+        console.log(e.target)
+        $commenting.value = "";
+    }
+    $commentText.forEach(e => e.onfocus = e => {
+        e.target.value = '';
+    })
 
     if (loginNickname) {
         $written.classList.add('on')
     } else {
         $written.classList.remove('on')
     }
-    console.log($span.innerHTML)
+
     // 댓글 수정
 
-    const res4 = await fetch('/comment');
-    arr = await res4.json();
-    console.log(arr);
-    arr = arr.filter(item => loginNickname.nickname === item.nickname)
-    console.log(arr);
-    arr.filter(item => )
-    console.log($modifyBtn)
-    arr.forEach((item,i) => {
-       
-    })
+
+
+
+    // const res4 = await fetch('/comment');
+    // arr = await res4.json();
+    // // console.log(arr);
+    // arr = arr.filter(item => loginNickname.nickname === item.nickname)
+    // // console.log(arr);
+    // arr = arr.filter(item => item.commentId === contentId.id)
+    // console.log(arr)
+    // arr.forEach((item,i) => {
+    //    if (item.nickname === loginNickname.nickname) {
+    //     $modifyBtn.classList.add('on'); 
+    //    } else {
+    //     $modifyBtn.classList.remove('on')
+    //    }
+    // })
 
     $commentBtn.onclick = async e => {
 
@@ -79,7 +93,8 @@ window.onload = async () => {
         let dateTime = new Date();
         if (JSON.parse(sessionStorage.getItem('login'))) {
 
-            const $commenting = document.querySelector('.commenting');
+       
+
             const redId = await fetch('/board');
 
             let arr3 = await redId.json();
@@ -187,11 +202,47 @@ window.onload = async () => {
 
     });
 
+    // 수정하기
+    const $commentremake = document.querySelectorAll('.comment-remake');
 
-    [...$commentModifyBtn].forEach(item => item.onclick = async e => {
+    [...$commentModifyBtn].forEach((item, i) => item.onclick = async e => {
         e.preventDefault();
-        console.log('sdgs')
+        const res5 = await fetch('/comment');
+        arr = await res5.json();
+        arr = arr.filter(item => item.commentId === contentId.id);
+
+        if (arr[i].nickname !== loginNickname.nickname) return;
+
+
+        console.log(arr[i].nickname)
+        $commentText[i].classList.toggle('on');
+        $commentremake[i].classList.toggle('on');
+        $commentText[i].value = arr[i].commented.trim();
+        console.log(arr);
+
+
     });
+    console.log($commentremake);
+    [...$commentremake].forEach((item, i) => item.onclick = async e => {
+        e.preventDefault();
+        const res5 = await fetch('/comment');
+        arr = await res5.json();
+        arr = arr.filter(item => item.commentId === contentId.id);
+        console.log(arr)
+        console.log(e.target.previousElementSibling.previousElementSibling.id)
+        console.log($commentText[i].value)
+        await fetch(`/comment/${+e.target.previousElementSibling.previousElementSibling.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application-type'
+            },
+            body: JSON.stringify({
+                commented: $commentText[i].value
+            })
+        })
+
+    })
+
     /* 삭제 구현 */
 
     const $Delete = document.querySelector('.delete');
@@ -216,7 +267,7 @@ window.onload = async () => {
         e.preventDefault();
         console.log(e.target)
 
-        if (loginNickname.nickname !== contentId.nickname)  return;
+        if (loginNickname.nickname !== contentId.nickname) return;
         const res = await fetch(`/board/${contentId.id}`);
         arr = await res.json();
         console.log(arr);
@@ -272,11 +323,12 @@ const render2 = (content) => {
         html +=
             `<div class="comment">
                 <div class = "group">
-                <span>${item.nickname}</span>
+                <span class="${item.nickname}">${item.nickname}</span>
                 <div class = "modify-btn">
-                <button  class="comment-modify-btn">수정</button>
+                <button class="comment-modify-btn">수정</button>
                 <button id="${item.id}" class="comment-delete-btn">삭제</button>
                 <textarea class ="comment-text"></textarea>
+                <button class ="comment-remake">수정하기</button>
                 </div> 
                 </div>
                 <div class="comment-list">

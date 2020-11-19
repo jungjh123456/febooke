@@ -40,7 +40,7 @@
       "id": 4,
       "nickname": "jungjh",
       "time": "2020-11-19 16:43:20",
-      "clickcount": 16
+      "clickcount": 17
     },
     {
       "title": "asfafs",
@@ -234,13 +234,6 @@
       "id": 26
     },
     {
-      "commented": "            dfasfafaf",
-      "nickname": "jungjh",
-      "commentDate": "2020-11-19 22:48:16",
-      "commentId": 4,
-      "id": 27
-    },
-    {
       "commented": "            gsdgdsg",
       "nickname": "jusss",
       "commentDate": "2020-11-20 00:03:35",
@@ -267,6 +260,20 @@
       "commentDate": "2020-11-20 00:52:29",
       "commentId": 5,
       "id": 31
+    },
+    {
+      "commented": "            dsgsgdsgdg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-20 01:28:30",
+      "commentId": 4,
+      "id": 32
+    },
+    {
+      "commented": "ㄴㅇㅎㅇㄴㅎㄴㅎ",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-20 03:40:49",
+      "commentId": 4,
+      "id": 33
     }
   ]
 }

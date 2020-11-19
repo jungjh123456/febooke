@@ -2,23 +2,32 @@ const $container = document.querySelector('.container');
 const $containerMain = document.querySelector('.container-main');
 const $containerChat = document.querySelector('.container-chat');
 const $containerComment = document.querySelector('.container-comment');
+
 let arr = [];
+
 window.onload = async () => {
     const contentId = JSON.parse(sessionStorage.getItem('content'));
     const res = await fetch(`/board/${contentId.id}`);
+
     arr = await res.json();
     render(arr);
     const res2 = await fetch(`/comment`);
     let arr1 = await res2.json();
+
     arr1 = arr1.filter(item => item.commentId === arr.id);
+
     render2(arr1);
     render3(arr);
     const $commentBtn = document.querySelector('.comment-btn');
     const $commentEnrollment = document.querySelector('.comment-enrollment');
     const $commentLeast = document.querySelector('.comment-least');
     const $commentModifyBtn = document.querySelector('.comment-modify-btn');
+    const $commentDeleteBtn = document.querySelectorAll('.comment-delete-btn');
+
     $commentBtn.onclick = async e => {
-        console.log(JSON.parse(sessionStorage.getItem('login')))
+
+        // console.log(JSON.parse(sessionStorage.getItem('login')))
+
         /*--------------------------버튼 누른 시각 함수----------------------------------------*/
         const padLeft = date => {
             if (date < 10) {
@@ -39,11 +48,15 @@ window.onload = async () => {
         }
         let dateTime = new Date();
         if (JSON.parse(sessionStorage.getItem('login'))) {
+
             const $commenting = document.querySelector('.commenting');
             const redId = await fetch('/board');
+
             let arr3 = await redId.json();
             arr3 = arr3.map(item => item.id)
+
             const res = await fetch('/comment', {
+
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -55,12 +68,16 @@ window.onload = async () => {
                     commentId: arr3.find(item => item === contentId.id)
                 })
             })
+
         } else {
             console.log('로그인이 필요합니다')
             let $div = document.querySelector('div')
         }
         render2(arr1);
+
     }
+
+
     // 댓글 등록순을 클릭하면, 
     $commentEnrollment.onclick = async (e) => {
         e.preventDefault();
@@ -91,19 +108,51 @@ window.onload = async () => {
         //     render2(arr1)
         // }
     }
+
+
+
     // 댓글 최신순을 클릭하면, 
     $commentLeast.onclick = async (e) => {
+
         e.preventDefault();
+
         const res1 = await fetch(`/board/${contentId.id}`);
+
         const res2 = await fetch('/comment');
+
         let arr1 = await res2.json();
         arr = await res1.json()
+
         arr1 = arr1.filter(item => item.commentId === arr.id);
+
+        const result2 = arr1.sort(item => item.commentDate).reverse();
+        // console.log(result2); // <- 최신순
+        render2(result2)
+    }
+
+    // console.log($commentModifyBtn); // <- 얘한테 돌아가면서 이벤트 등록해야 함
+    console.log($commentDeleteBtn); // <- 얘한테 돌아가면서 이벤트 등록해야 함
+
+    [...$commentDeleteBtn].forEach(item => item.onclick = async () => {
+        console.log('클릭');
+
+
+        const res1 = await fetch(`/board/${contentId.id}`, {
+            method: 'DELETE'
+        });
+        sessionStorage.clear('comment')
+    })
+
+}
+
+
+
         const result2 = arr1.sort(item => item.commentDate).reverse();
         console.log(result2); // <- 최신순
          render2(result2)
     }
 }
+
 /* 작성글 */
 const render = (content) => {
     let html = '';
@@ -128,9 +177,13 @@ const render = (content) => {
     })
     $containerMain.innerHTML = html;
 }
+
+
+
 /* 댓글창 */
 const render2 = (content) => {
     let html = '';
+
     const contentId = JSON.parse(sessionStorage.getItem('content'));
     [...content].forEach(item => {
         html +=
@@ -148,11 +201,14 @@ const render2 = (content) => {
         </div>`
     })
     $containerChat.innerHTML = html;
+
 }
+
 /*---------------------작성자 댓글 쓰기(로그인 한 사람)----------------------------*/
 const render3 = content => {
     let html = '';
     [content].forEach(item => {
+
         html +=
             `<div class="comment-register">
             <span class="member">${item.nickname}</span>
@@ -165,5 +221,6 @@ const render3 = content => {
         </div>
             `
     })
+
     $containerComment.innerHTML += html;
 }

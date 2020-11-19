@@ -200,7 +200,7 @@ body::before {
 }
 .small-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 /* 헤더 검색 */
 .header-search{
@@ -258,7 +258,7 @@ body::before {
 /* --------------------------left-container-------------------------- */
 .left-container {
   /* background-color: lightblue; */
-  width: 70%;
+  width: 50vw;
   height: 100vh;
 }
 
@@ -345,8 +345,70 @@ body::before {
 }
 
 /* 기술게시판 new 게시판 */
+
+/* 캐러셀 슬라이더 ui 코드 건들지 마세요 */
+.carousel {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+   
+  border: 1px solid #000;
+  
+  /* opacity: 0; */
+}
+.carousel-item-container{
+  display: flex;
+}
+
+.carousel-item {
+  padding: 5px;
+}
+.carousel-item img{
+  vertical-align: bottom
+}
+/*prev next 버튼*/
+.carousel-control{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.carousel-control:focus{
+  outline:none;
+}
+
+.carousel-control.prev {
+  left: 0;
+}
+
+.carousel-control.next{
+  right: 0;
+}
+
+.carousel-control.disabled{
+  opacity: 0.5;
+}
+
+/* .carousel {
+  overflow: visible;
+}
+
+#overflow:checked + .carousel {
+  overflow:hidden;
+} */
+
+/* 여기까지 캐러셀 코드 */
+
+
+
 .tech-news{
-  background-color: skyblue;
+  /* background-color: skyblue; */
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -355,18 +417,55 @@ body::before {
 
 .news-heading{
   font-size:3vw;
-  background-color: pink;
+}
+/* new 게시글 제목 목록 */
+.tech-new-headings{
+
+  width:700px;
+  height: 30vh;
+  background-color: rgba(101, 91, 160, 0.5);
+  overflow-y: scroll;
+  padding: 2rem;
+  box-sizing: border-box;
+  display:flex;
+  flex-flow: column;
+  justify-content: start;
+}
+.top-tech-new-item{
+  border: 1px solid rgba(101,91,160,1);
+  height: 5vh;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.top-new-title{
+  flex-grow: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.top-author{
+  flex-grow: 0.5;
 }
 
+
 .tech-new-list{
-  width: 100%;
+  width:500px;
   background-color: orange;
+}
+.tech-new-item::before{
+  content: "";
+  display: block;
+  width: 500px;
+
 }
 /* 타이틀 닉네임 날짜 조회수 */
 .tech-new-item{
+  background-color: pink;
   height: 30vh;
-  width: 30vw;
-  background-color: lightblue;
+  /* width: 500px; */
+  border: 1px solid black;
 }
 
 
@@ -394,7 +493,7 @@ body::before {
 }
 /* --------------------------right-container-------------------------- */
 .right-container {
-  width: 30%;
+  width: 25vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.1);
 }

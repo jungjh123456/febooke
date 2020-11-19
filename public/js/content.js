@@ -18,7 +18,7 @@ window.onload = async () => {
     // })
  
 
-   const res2 = await fetch(`/comment`);
+   const res2 = await fetch(`/board/comment`);
     let arr1  = await res2.json();
     console.log(arr1)
     render2(arr1);
@@ -58,16 +58,16 @@ $commentBtn.onclick = async e => {
 
         const contentId = JSON.parse(sessionStorage.getItem('content'));
         console.log(contentId);
-        const res = await fetch('/comment', {
-            method: 'POST',
+        const res = await fetch(`/board/${contentId.id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
+            body: JSON.stringify({ comment: {
                 commented: $commenting.value,
                 nickname: contentId.nickname,
                 commentDate: format(dateTime)
-            })
+            }})
         })
         console.log(await res.json())
     } else {
@@ -114,7 +114,7 @@ const render2 = (content) => {
 
     let html = '';
 
-    [...content].forEach(item => {
+    [content].forEach(item => {
 
         html += 
         `<div class="comment">

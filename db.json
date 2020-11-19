@@ -17,88 +17,12 @@
       "id": 1,
       "nickname": "협주",
       "time": "2020-11-18 22:06:59",
-      "clickcount": 0
-    },
-    {
-      "title": "SEO관점으로의 접근",
-      "content": "어렵다",
-      "id": 2,
-      "nickname": "협주",
-      "time": "2020-11-18 22:08:49",
-      "clickcount": 5
-    },
-    {
-      "title": "SEO관점으로의 접근",
-      "content": "어렵다",
-      "id": 3,
-      "nickname": "협주",
-      "time": "2020-11-18 22:09:20",
-      "clickcount": 1
-    },
-    {
-      "title": "SEO관점으로의 접근",
-      "content": "어렵다",
-      "id": 4,
-      "nickname": "협주",
-      "time": "2020-11-18 22:09:32",
-      "clickcount": 0
-    }
-  ],
-  "comment": [
-    {
-      "commented": "  \n  \n        오호호호",
-      "nickname": "협주",
-      "commentDate": "2020-11-18 22:10:18",
-      "id": 1
-    },
-    {
-      "commented": "  \n  \n        ㅇㅇㅇㅇㅇ",
-      "nickname": "협주",
-      "commentDate": "2020-11-18 22:11:59",
-      "id": 2
-
-    },
-    {
-      "commented": "  \n  sdgdsg\n        ",
-      "nickname": "jungjh565",
-      "id": 3
-    },
-    {
-      "commented": "  \n  sdgsgs\n        ",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-18 22:01:16",
-      "id": 4
-    },
-    {
-      "commented": "  \n  sdfdff\n        ",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:15:54",
-      "id": 5
-    },
-    {
-      "commented": "  \n  \n        dsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:18:52",
-      "id": 6
-    },
-    {
-      "commented": "  \n  \n        dsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:18:54",
-      "id": 7
-    },
-    {
-      "commented": "  \n  \n        dsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:18:56",
-      "id": 8
-    },
-    {
-      "commented": "  \n  \n        sdfsf",
-      "nickname": "jungjh565",
-      "commentDate": "2020-11-19 10:19:59",
-      "id": 9
-
+      "clickcount": 0,
+      "comment": {
+        "commented": "  \n  \n        sdgsdg",
+        "nickname": "협주",
+        "commentDate": "2020-11-19 11:05:12"
+      }
     }
   ]
 }

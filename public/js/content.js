@@ -185,6 +185,20 @@ window.onload = async () => {
             console.log('아닙니다')
         }
     }
+
+    /* 수정하기 구현 */
+
+    const $modify = document.querySelector('.modify');
+
+    $modify.onclick = async e => {
+        e.preventDefault();
+        console.log(e.target)
+        if (loginNickname.nickname !== contentId.nickname) return;
+        const res = await fetch(`/board/${contentId}`);
+        arr = await res.json();
+        console.log(arr);
+        sessionStorage.setItem('rewrite', JSON.stringify(...arr))
+    }
 }
 
 
@@ -209,8 +223,7 @@ const render = (content) => {
     </div>
   </div>    
     <div class="content">${item.content}
-    <textarea class = "fix-text">
-    </textarea>
+    
     </div>
     <div class="comment-header">
     <span class="comment-heading">댓글</span>

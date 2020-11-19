@@ -73,8 +73,12 @@
 .comment {
     margin-top: 10px;
     /* padding: 20px 20px; */
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 0 10px;
+    /* background-color: red; */
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+
 }
 
 .comment-header {
@@ -89,7 +93,6 @@
     height: 100%;
     margin-top: 25px;
     padding-bottom: 10px;
-    border-bottom: 1px solid;
 }
 .comment-heading {
     font-weight: 600;
@@ -117,11 +120,12 @@
     /* border: 1px solid; */
     /* border-radius: 50px; */
     background-color: transparent;
-    border: none;
+    /* border: none; */
     border: 1px solid #aaaaaa;
     cursor: pointer;
     outline: none;
 }
+
 .comment-date-info {
     display: flex;
     /* background-color: red; */

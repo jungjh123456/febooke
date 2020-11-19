@@ -27,7 +27,9 @@ window.onload = async () => {
     const $commentBtn = document.querySelector('.comment-btn');
    
     
-    $commentBtn.onclick = async e => {
+$commentBtn.onclick = async e => {
+    console.log(JSON.parse(sessionStorage.getItem('login')))
+        /*--------------------------버튼 누른 시각 함수----------------------------------------*/
         const padLeft = date => {
             if (date < 10) {
                 return '0' + date;
@@ -51,6 +53,7 @@ window.onload = async () => {
     
         let dateTime = new Date();
 
+        if(JSON.parse(sessionStorage.getItem('login'))){ 
         const $commenting = document.querySelector('.commenting');
 
         const contentId = JSON.parse(sessionStorage.getItem('content'));
@@ -67,13 +70,18 @@ window.onload = async () => {
             })
         })
         console.log(await res.json())
+    } else {
+        console.log('로그인이 필요합니다')
+        let $div = document.querySelector('div');
+        $div.classList.add('signup-go');
+    }
 
     }
 
 
 }
 
-
+/* 작성글 */
 const render = (content) => {
 
     let html = '';
@@ -101,7 +109,7 @@ const render = (content) => {
     $container.innerHTML = html;
 }
 
-
+/* 댓글창 */
 const render2 = (content) => {
 
     let html = '';
@@ -127,7 +135,7 @@ const render2 = (content) => {
 }
 
 
-
+/*---------------------작성자 댓글 쓰기(로그인 한 사람)----------------------------*/
 const render3 = content => {
 
     let html = '';

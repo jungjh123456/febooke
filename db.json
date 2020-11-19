@@ -54,7 +54,7 @@
       "id": 1,
       "nickname": "jungjh",
       "time": "2020-11-19 11:35:31",
-      "clickcount": 0
+      "clickcount": 2
     },
     {
       "title": "sdgs",
@@ -62,6 +62,14 @@
       "id": 2,
       "nickname": "jungjh",
       "time": "2020-11-19 13:53:33",
+      "clickcount": 1
+    },
+    {
+      "title": "sdgsdg",
+      "content": "sdgsdgsgds",
+      "id": 3,
+      "nickname": "jungjh",
+      "time": "2020-11-19 16:20:58",
       "clickcount": 0
     }
   ],
@@ -121,6 +129,62 @@
       "commentDate": "2020-11-19 15:44:21",
       "commentId": 1,
       "id": 8
+    },
+    {
+      "commented": "            sdgsgg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:10",
+      "commentId": 1,
+      "id": 9
+    },
+    {
+      "commented": "            sdgsgg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:15",
+      "commentId": 1,
+      "id": 10
+    },
+    {
+      "commented": "            sdgsgg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:16",
+      "commentId": 1,
+      "id": 11
+    },
+    {
+      "commented": "            sdgsgg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:16",
+      "commentId": 1,
+      "id": 12
+    },
+    {
+      "commented": "            sdgsgg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:16",
+      "commentId": 1,
+      "id": 13
+    },
+    {
+      "commented": "            sdgsgg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:17",
+      "commentId": 1,
+      "id": 14
+    },
+    {
+      "commented": "            sdgsgg",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:17",
+      "commentId": 1,
+      "id": 15
+    },
+    {
+      "commented": "safsasfaf",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 16:03:28",
+      "commentId": 1,
+      "id": 16
     }
   ]
 }

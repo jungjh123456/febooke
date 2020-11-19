@@ -193,7 +193,7 @@ const render = async (todo) => {
   $boardList.onclick = async e => {
     e.preventDefault();
     if (!e.target.matches('.board-list > li > a')) return;
-
+    let counter = 1;
     console.log(e.target.parentNode.id)
 
 
@@ -201,7 +201,16 @@ const render = async (todo) => {
     arr = await res.json();
     console.log(arr)
 
+    const clickcounter = [arr].find((item) => item.id === +e.target.parentNode.id)
 
+    await fetch(`/board/${e.target.parentNode.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ clickcount: clickcounter.clickcount + counter }),
+        });
+        render(arr);
 
     sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id, nickname: arr.nickname}))
     location.assign('../../content.html')

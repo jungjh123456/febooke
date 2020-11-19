@@ -1,6 +1,4 @@
 let arr = [];
-let Idseeker = [];
-
 // 이메일로 아이디 찾기
 (function () {
   emailjs.init("user_XMylBXRXg6NjjmrTpanCz");
@@ -14,30 +12,27 @@ const $findPhoneNum = document.querySelector(".find-phone-number");
 const $findSubmitBtn = document.querySelector(".find-submit-btn");
 
 // 이메일로 보내기
-$findSubmitBtn.onclick = (e) => {
+$findSubmitBtn.onclick = async (e) => {
   e.preventDefault();
+  const res = await fetch("/users");
+  arr = await res.json();
+  let idSeeker = arr.find((user) => user.phone === $findPhoneNum.value);
+  findId(idSeeker);
+
   let templateParams = {
     name: `${$findName.value}`,
     phone: `${$findPhoneNum.value}`,
     email: `${$emailAdress.value}`,
-    // message: `${$message.value}`,
+    message: `당신의 아이디는 ${idSeeker.id} 입니다.`,
   };
 
-  findId();
-
-  // emailjs.send("service_sjq6dix", "template_fxenl3o", templateParams);
+  emailjs.send("service_sjq6dix", "template_fxenl3o", templateParams);
 };
 
 // 아이디 탐색
-const findId = async () => {
-  const res = await fetch("/users");
-  arr = await res.json();
-  idSeeker = arr.find((user) => user.phone === $findPhoneNum.value);
+const findId = async (idSeeker) => {
   if (!idSeeker) {
-    console.log("없음");
     return;
   }
-  console.log(`메일로 당신아이디${idSeeker.id}`);
+  console.log(idSeeker.id);
 };
-
-findId();

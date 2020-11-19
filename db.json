@@ -45,6 +45,13 @@
       "password": "whwodus",
       "nickname": "눈물",
       "phone": "01098073270"
+    },
+    {
+      "name": "주현",
+      "id": "noonssub1004@naver.com",
+      "password": "123456",
+      "nickname": "주현",
+      "phone": "01092742066"
     }
   ],
   "board": [
@@ -62,7 +69,7 @@
       "id": 2,
       "nickname": "jungjh",
       "time": "2020-11-19 13:53:33",
-      "clickcount": 1
+      "clickcount": 2
     },
     {
       "title": "sdgsdg",
@@ -241,6 +248,13 @@
       "commentDate": "2020-11-19 16:47:02",
       "commentId": 3,
       "id": 23
+    },
+    {
+      "commented": "            ㄴㅇㅎㄴㅎ",
+      "nickname": "jungjh",
+      "commentDate": "2020-11-19 17:17:55",
+      "commentId": 2,
+      "id": 24
     }
   ]
 }

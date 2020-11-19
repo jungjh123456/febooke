@@ -1,5 +1,10 @@
 const $container = document.querySelector('.container');
 
+// console.log($commentEnrollment);
+const $commentLeast = document.querySelector('.comment-least');
+const $commentModifyBtn = document.querySelector('.comment-modify-btn');
+const $commentAddBtn = document.querySelector('.comment-add-btn');
+
 
 
 let arr = [];
@@ -16,19 +21,19 @@ window.onload = async () => {
     //     headers: {'Content-Type': 'application/json' },
     //     body: 
     // })
- 
 
-   const res2 = await fetch(`/comment`);
-    let arr1  = await res2.json();
+
+    const res2 = await fetch(`/comment`);
+    let arr1 = await res2.json();
     console.log(arr1)
     render2(arr1);
 
     render3(arr);
     const $commentBtn = document.querySelector('.comment-btn');
-   
-    
-$commentBtn.onclick = async e => {
-    console.log(JSON.parse(sessionStorage.getItem('login')))
+
+
+    $commentBtn.onclick = async e => {
+        console.log(JSON.parse(sessionStorage.getItem('login')))
         /*--------------------------버튼 누른 시각 함수----------------------------------------*/
         const padLeft = date => {
             if (date < 10) {
@@ -37,7 +42,7 @@ $commentBtn.onclick = async e => {
                 return date + '';
             }
         }
-    
+
         const format = a => {
             let yyyy = a.getFullYear();
             let month = padLeft(a.getMonth() + 1);
@@ -45,28 +50,29 @@ $commentBtn.onclick = async e => {
             let HH = padLeft(a.getHours());
             let mm = padLeft(a.getMinutes());
             let ss = padLeft(a.getSeconds());
-    
+
             let format1 = `${[yyyy, month, dd].join('-')} ${[HH, mm, ss].join(':')}`;
-    
+
             return format1;
         }
-    
+
         let dateTime = new Date();
 
-        if(JSON.parse(sessionStorage.getItem('login'))){ 
-        const $commenting = document.querySelector('.commenting');
+        if (JSON.parse(sessionStorage.getItem('login'))) {
+            const $commenting = document.querySelector('.commenting');
 
-        const contentId = JSON.parse(sessionStorage.getItem('content'));
-        console.log(contentId);
-        const res = await fetch('/comment', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                commented: $commenting.value,
-                nickname: contentId.nickname,
-                commentDate: format(dateTime)
+            const contentId = JSON.parse(sessionStorage.getItem('content'));
+            console.log(contentId);
+            const res = await fetch('/comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    commented: $commenting.value,
+                    nickname: contentId.nickname,
+                    commentDate: format(dateTime)
+                })
             })
         })
         console.log(await res.json())
@@ -74,9 +80,32 @@ $commentBtn.onclick = async e => {
         console.log('로그인이 필요합니다')
         let $div = document.querySelector('div')
     }
+    const $commentEnrollment = document.querySelector('.comment-enrollment');
+    // console.log($commentEnrollment); // 등록순
+    
+    $commentEnrollment.onclick = async (e) => {
+        // e.preventDefault();
+        // console.log('클릭');
+        // console.log(e.target.classList)
+        if(e.target.classList === 'comment-enrollment') {
+
+        }
+        // console.log(e.target === ); // 등록순 버튼
+        // if(e.target)
 
     }
 
+    console.log($commentModifyBtn); // null
+
+$commentModifyBtn.onclick = () => {
+    console.log('클릭했습니다');
+}
+
+console.log($commentAddBtn);
+
+$commentAddBtn.onclick = () => {
+    console.log('클릭했습니다');
+}
 
 }
 
@@ -97,15 +126,21 @@ const render = (content) => {
       </div>
       <span class="click-count">${item.clickcount}</span>
     </div>
-    <div class="content">${item.content}</div>
+    <div class="content">
+    ${item.content}
+    </div>
+    <div class="comment-header">
     <span class="comment-heading">댓글</span>
     <button class="comment-enrollment">등록순</button>
     <button class="comment-least">최신순</button>
+    </div>
     `
 
     })
 
     $container.innerHTML = html;
+  
+
 }
 
 /* 댓글창 */
@@ -115,17 +150,29 @@ const render2 = (content) => {
 
     [...content].forEach(item => {
 
-        html += `<div class="comment">
-        <span>${item.nickname}</span>
-        <div class="comment-list">
-        ${item.commented}
-        </div>
-      </div>`
+        html +=
+            `<div class="comment">
+                <span>${item.nickname}</span>
+                <button class="comment-modify-btn">수정</button>
+                <button class="comment-delete-btn">삭제</button>
+            <div class="comment-list">${item.commented}
+                <div class="comment-date-info"> 
+                    <span class="comment-date">${item.commentDate}</span>
+                    <button class="comment-add-btn">답글쓰기</button>
+                </div>
+            </div>
+        </div>`
+
+
 
     })
 
     $container.innerHTML += html;
 }
+
+
+
+
 
 
 /*---------------------작성자 댓글 쓰기(로그인 한 사람)----------------------------*/
@@ -140,7 +187,9 @@ const render3 = content => {
   
   
         </textarea>
-        <button class="comment-btn">등록</button>
+        <div class="comment-btn">
+        <button class="comment-cancel-btn">취소</button>
+        <button class="comment-enrollment-btn">등록</button>
       </div>`
     })
     $container.innerHTML += html;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find your ID</title>
+    <link rel="stylesheet" href="./css/find.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css"
+    />
+  </head>
+  <body>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
+
+    <div class="container">
+      <h1 class="header">Find your ID</h1>
+      <form class="findId-form">
+        <fieldset class="findId-fieldset">
+          <input type="text" placeholder="name" class="find-email-name" />
+          <input
+            type="text"
+            placeholder="email-address"
+            class="find-email-address"
+          />
+          <input type="text" placeholder="nickname" class="find-nickname" />
+          <input
+            type="text"
+            placeholder="phone-number"
+            class="find-phone-number"
+          />
+          <button class="find-submit-btn">Submit to your Email</button>
+          <button class="find-cancel-btn">Login Page</button>
+        </fieldset>
+      </form>
+    </div>
+    <script src="./js/find.js"></script>
+  </body>
+</html>

@@ -18,7 +18,7 @@ window.onload = async () => {
     // })
  
 
-   const res2 = await fetch(`/board/comment`);
+   const res2 = await fetch(`/comment`);
     let arr1  = await res2.json();
     console.log(arr1)
     render2(arr1);
@@ -58,22 +58,21 @@ $commentBtn.onclick = async e => {
 
         const contentId = JSON.parse(sessionStorage.getItem('content'));
         console.log(contentId);
-        const res = await fetch(`/board/${contentId.id}`, {
-            method: 'PATCH',
+        const res = await fetch('/comment', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ comment: {
+            body: JSON.stringify({
                 commented: $commenting.value,
                 nickname: contentId.nickname,
                 commentDate: format(dateTime)
-            }})
+            })
         })
         console.log(await res.json())
     } else {
         console.log('로그인이 필요합니다')
-        let $div = document.querySelector('div');
-        $div.classList.add('signup-go');
+        let $div = document.querySelector('div')
     }
 
     }
@@ -114,20 +113,14 @@ const render2 = (content) => {
 
     let html = '';
 
-    [content].forEach(item => {
+    [...content].forEach(item => {
 
-        html += 
-        `<div class="comment">
-                <span>${item.nickname}</span>
-                <button class="comment-modify-btn">수정</button>
-                <button class="comment-delete-btn">삭제</button>
-            <div class="comment-list">${item.commented}
-                <div class="flex"> 
-                    <span class="comment-date">${item.commentDate}</span>
-                    <button class="comment-add-btn">답글쓰기</button>
-                </div>
-            </div>
-        </div>`
+        html += `<div class="comment">
+        <span>${item.nickname}</span>
+        <div class="comment-list">
+        ${item.commented}
+        </div>
+      </div>`
 
     })
 
@@ -154,5 +147,3 @@ const render3 = content => {
 
 
 }
-
-

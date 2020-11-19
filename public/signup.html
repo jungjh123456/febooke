@@ -16,74 +16,97 @@
 
   <body>
     <div class="container">
-      <div class="sign-popup">
-        <form id="signupform">
-          <legend class="signup-menu">Sign-Up</legend>
-          <fieldset class="signup-fieldset">
-            <label for="signupId" class="a11hidden">아이디</label>
-            <input
-              type="text"
-              id="signupId"
-              placeholder="ID"
-              class="signup-id"
-              autocomplete="off"
-            />
-            <button class="check-duplicated">Check</button>
-            <label for="signupPass" class="a11hidden">비밀번호</label>
-            <input
-              type="password"
-              id="signupPass"
-              placeholder="Password"
-              class="signup-pass"
-              maxlength="13"
-            />
-            <div class="check-pass"></div>
-            <label for="signupPass2" class="a11hidden">비밀번호 확인</label>
-            <input
-              type="password"
-              id="signupPass2"
-              placeholder="Confirm Password"
-              class="signup-pass2"
-              maxlength="13"
-            />
-            <label for="name" class="a11hidden">이름</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="name"
-              class="signup-name"
-              autocomplete="off"
-            />
-            <label for="signupNick" class="a11hidden">닉네임</label>
-            <input
-              type="text"
-              id="signupNick"
-              placeholder="nickname"
-              class="signup-nick"
-              autocomplete="off"
-            />
-            <div class="check-nick"></div>
-
-            <div class="check-pass2"></div>
-            <label for="phoneNumber" class="a11hidden">전화번호</label>
-            <input
-              type="text"
-              id="phoneNumber"
-              placeholder='phone number without "-"'
-              maxlength="11"
-              class="signup-number"
-              max="11"
-              autocomplete="off"
-            />
-            <div class="check-phone">
-              <i class="far fa-sad-tear">숫자만 입력해주세요</i>
-            </div>
-            <button class="signup-btn">Sign Up</button>
-            <div class="btn-signup"></div>
-            <button class="signup-cancel-btn">Cancel</button>
-          </fieldset>
-        </form>
+      <div class="overlay"></div>
+      <div class="check-alert">
+        <div class="success-checkmark">
+          <div class="check-icon">
+            <span class="icon-line line-tip"></span>
+            <span class="icon-line line-long"></span>
+            <div class="icon-circle"></div>
+            <div class="icon-fix"></div>
+          </div>
+          <div class="check-text"></div>
+          <button class="confirm-btn">OK</button>
+        </div>
       </div>
+      <div class="check-noid">
+        <div class="check-noid-text">Please Enter your ID</div>
+        <button class="confirm-btn confirm-btn-noid">OK</button>
+      </div>
+      <div class="check-fail">
+        <div class="check-noid-text">
+          이미 사용중인 아이디거나 이메일 형식이 아닙니다.
+        </div>
+        <button class="confirm-btn confirm-btn-fail">OK</button>
+      </div>
+      <!-- <div class="sign-popup"> -->
+      <form id="signupform">
+        <legend class="signup-menu">Sign-Up</legend>
+        <fieldset class="signup-fieldset">
+          <label for="signupId" class="a11hidden">아이디</label>
+          <input
+            type="text"
+            id="signupId"
+            placeholder="ID"
+            class="signup-id"
+            autocomplete="off"
+          />
+          <button class="check-duplicated">check</button>
+          <span class="check-email">이메일 형식이 아닙니다.</span>
+          <label for="signupPass" class="a11hidden">비밀번호</label>
+          <input
+            type="password"
+            id="signupPass"
+            placeholder="Password"
+            class="signup-pass"
+            maxlength="13"
+          />
+          <div class="check-pass"></div>
+          <label for="signupPass2" class="a11hidden">비밀번호 확인</label>
+          <input
+            type="password"
+            id="signupPass2"
+            placeholder="Confirm Password"
+            class="signup-pass2"
+            maxlength="13"
+          />
+          <label for="name" class="a11hidden">이름</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="name"
+            class="signup-name"
+            autocomplete="off"
+          />
+          <label for="signupNick" class="a11hidden">닉네임</label>
+          <input
+            type="text"
+            id="signupNick"
+            placeholder="nickname"
+            class="signup-nick"
+            autocomplete="off"
+          />
+          <div class="check-nick"></div>
+          <div class="check-pass2"></div>
+          <label for="phoneNumber" class="a11hidden">전화번호</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            placeholder='phone without "-"'
+            maxlength="11"
+            class="signup-number"
+            max="11"
+            autocomplete="off"
+          />
+          <div class="check-phone">
+            <i class="far fa-sad-tear">숫자만 입력해주세요</i>
+          </div>
+          <button class="signup-btn">Sign Up</button>
+          <div class="btn-signup"></div>
+          <button class="signup-cancel-btn">Cancel</button>
+        </fieldset>
+      </form>
     </div>
+    <!-- </div> -->
   </body>
 </html>

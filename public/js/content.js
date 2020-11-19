@@ -86,21 +86,21 @@ window.onload = async () => {
         // console.log(e.target.classList);
         // // 클릭한 요소가 갖고있는 class 이름이 comment-enrollment(등록순) 와 매치하는게 true라면
         // if (e.target.matches('.comment-enrollment')) {
-            // 게시글의 id를 세션스토리지에 저장했음.
-            // 세션스토리지에 저장한 게시글의 id를 가져옴
-            const res1 = await fetch(`/board/${contentId.id}`);
-            // comment DB를 가져옴
-            const res2 = await fetch('/comment');
-            // comment DB를 제이슨으로 변환한(배열)걸 arr1 이라는 변수에 할당하고, 
-            let arr1 = await res2.json();
-            // 세션스토리지에 저장한 게시글의 id를 제이슨으로 변환한(객체)걸, arr 이라는 빈 배열에 삽입하고, 
-            arr = await res1.json()
-            // comment DB를 제이슨으로 변환한(배열)걸 arr1 이라는 변수에 할당한(배열)것의
-            // id만 뽑아낸거랑 === 게시글의 id가 들어있는 객체의 프로퍼티키의 id의 값이 같은것만 뽑아내라
-            arr1 = arr1.filter(item => item.commentId === arr.id);
-            const result = arr1.sort(item => item.commentDate);
-            console.log(result); // <- 등록순
-             render2(result)
+        // 게시글의 id를 세션스토리지에 저장했음.
+        // 세션스토리지에 저장한 게시글의 id를 가져옴
+        const res1 = await fetch(`/board/${contentId.id}`);
+        // comment DB를 가져옴
+        const res2 = await fetch('/comment');
+        // comment DB를 제이슨으로 변환한(배열)걸 arr1 이라는 변수에 할당하고, 
+        let arr1 = await res2.json();
+        // 세션스토리지에 저장한 게시글의 id를 제이슨으로 변환한(객체)걸, arr 이라는 빈 배열에 삽입하고, 
+        arr = await res1.json()
+        // comment DB를 제이슨으로 변환한(배열)걸 arr1 이라는 변수에 할당한(배열)것의
+        // id만 뽑아낸거랑 === 게시글의 id가 들어있는 객체의 프로퍼티키의 id의 값이 같은것만 뽑아내라
+        arr1 = arr1.filter(item => item.commentId === arr.id);
+        const result = arr1.sort(item => item.commentDate);
+        console.log(result); // <- 등록순
+        render2(result)
         // } else{
         //     // 게시글 번호 1 과 매칭되어있는 댓글들을 가져와서
         //     // 그 댓글들을 그냥 보여줌
@@ -146,12 +146,6 @@ window.onload = async () => {
 }
 
 
-
-        const result2 = arr1.sort(item => item.commentDate).reverse();
-        console.log(result2); // <- 최신순
-         render2(result2)
-    }
-}
 
 /* 작성글 */
 const render = (content) => {

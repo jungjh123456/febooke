@@ -78,85 +78,85 @@ setTimeout(()=>{setInterval(()=>{
 const $leftContainer = document.querySelector('.left-container')
 
 // 캐러셀 코드 건들지 마세요
-class Carousel {
-	constructor() {
-		this.carousel = document.querySelector('.carousel');
-    this.container = this.carousel.querySelector('.carousel-item-container');
-    this.item = this.carousel.querySelector('.carousel-item');
-    console.log(this.item);
+// class Carousel {
+// 	constructor() {
+// 		this.carousel = document.querySelector('.carousel');
+//     this.container = this.carousel.querySelector('.carousel-item-container');
+//     this.item = this.carousel.querySelector('.carousel-item');
+//     console.log(this.item);
     
-    this.prev = this.carousel.querySelector('.prev');
-    this.next = this.carousel.querySelector('.next');
+//     this.prev = this.carousel.querySelector('.prev');
+//     this.next = this.carousel.querySelector('.next');
     
-    this.itemWidth = this.item.offsetWidth;
+//     this.itemWidth = this.item.offsetWidth;
     
-    this.itemHeight = this.item.offsetHeight;
+//     this.itemHeight = this.item.offsetHeight;
     
-    this.itemLength = this.carousel.querySelectorAll('.carousel-item').length;
+//     this.itemLength = this.carousel.querySelectorAll('.carousel-item').length;
     
-    this.offset = 0;
+//     this.offset = 0;
     
-    this.currentItem = 1;
-    this.config = {
-        duration: 200,
-        easing:'ease-out'
-    };
-    this.init();
-    this.attachEvent();
-	}
+//     this.currentItem = 1;
+//     this.config = {
+//         duration: 200,
+//         easing:'ease-out'
+//     };
+//     this.init();
+//     this.attachEvent();
+// 	}
     
-    init() {
-        this.carousel.style.width = this.item.itemWidth + 'px';
-        this.carousel.style.heigth = this.item.itemHeight + 'px';
-        this.carousel.style.opacity = 1;
+//     init() {
+//         this.carousel.style.width = this.item.itemWidth + 'px';
+//         this.carousel.style.heigth = this.item.itemHeight + 'px';
+//         this.carousel.style.opacity = 1;
         
-        this.checkMovable();
-    }
-    attachEvent() {
-        this.prev.addEventListener('click', this.moveToPrev.bind(this));
-        this.next.addEventListener('click', this.moveToNext.bind(this));
-    }
+//         this.checkMovable();
+//     }
+//     attachEvent() {
+//         this.prev.addEventListener('click', this.moveToPrev.bind(this));
+//         this.next.addEventListener('click', this.moveToNext.bind(this));
+//     }
     
-    moveToPrev() {
-        this.offset += this.itemWidth;
+//     moveToPrev() {
+//         this.offset += this.itemWidth;
         
-        this.move();
+//         this.move();
         
-        this.currentItem--;
-        this.checkMovable();
+//         this.currentItem--;
+//         this.checkMovable();
         
         
-    }
-    moveToNext() {
-            this.offset -= this.itemWidth;
+//     }
+//     moveToNext() {
+//             this.offset -= this.itemWidth;
             
-            this.move();
-            this.currentItem++;
-            this.checkMovable();
-    }
-    move() {
-        this.container.style.transition = `transform${this.config.duration}ms ${this.config.easing}`;
-        this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
-    }
-    checkMovable() {
-        if(this.currentItem === 1){
-            this.prev.disabled = true;
-            this.prev.classList.add('disabled');
-        } else{
-            this.prev.disabled = false;
-            this.prev.classList.remove('disabled');
-        }
+//             this.move();
+//             this.currentItem++;
+//             this.checkMovable();
+//     }
+//     move() {
+//         this.container.style.transition = `transform${this.config.duration}ms ${this.config.easing}`;
+//         this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
+//     }
+//     checkMovable() {
+//         if(this.currentItem === 1){
+//             this.prev.disabled = true;
+//             this.prev.classList.add('disabled');
+//         } else{
+//             this.prev.disabled = false;
+//             this.prev.classList.remove('disabled');
+//         }
         
-        if(this.currentItem === this.itemLength) {
-            this.next.disabled = true;
-            this.next.classList.add('disabled');
-        } else{
-            this.next.disabled = false;
-            this.next.classList.remove('disabled');
-        }
-    }
+//         if(this.currentItem === this.itemLength) {
+//             this.next.disabled = true;
+//             this.next.classList.add('disabled');
+//         } else{
+//             this.next.disabled = false;
+//             this.next.classList.remove('disabled');
+//         }
+//     }
     
-}
+// }
 // 여기까지 캐러셀 코드
 
 
@@ -350,6 +350,7 @@ const render2 = todo => {
   <span class="click">${list.clickcount}</span>
 </li>`}
   )
+  $techNewHeadings.innerHTML = headings;
   $techNewList.innerHTML = html;
 }
 
@@ -382,7 +383,7 @@ const list = async e => {
   const res1 = await fetch('/board/?_sort=clickcount&_order=desc&_page=1&_limit=4')
   arr = await res1.json();
   render3(arr);
-  const carousel = new Carousel();
+  // const carousel = new Carousel();
 }
 
 list();

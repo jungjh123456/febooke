@@ -105,7 +105,7 @@ body::before {
   height: 190px;
   position: absolute;
   z-index: 4;
-  opacity:0;
+  opacity: 0;
 }
 
 .logo-image.showImage {
@@ -314,15 +314,17 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .tech-statement {
   /* width: 100%; */
   line-height: 6rem;
-  display: inline-block;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  /* display: inline-block; */
+  /* display: block; */
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center;  */
   font-size: 4vw;
   opacity: 0.5;
   transition: 1s;
@@ -378,6 +380,22 @@ body::before {
   animation: colorToggle 1.5s;
 }
 
+.language{
+  font-size: 2vw;
+  position: absolute;
+  top: 60%;
+  bottom: 0;
+  left: 22%;
+  right: 0;
+  /* offset: ; */
+  /* margin: auto; */
+  /* display: ; */
+}
+
+.language > span{
+  /* display: inline-block; */
+ color:  rgba(240, 240, 240, 0.7);
+}
 /* 기술 게시판 전체 헤딩 */
 .link-box {
   display: inline-block;
@@ -427,6 +445,7 @@ body::before {
   color: rgba(240, 240, 240, 1);
   margin-top: 40px;
   padding: 10px;
+  cursor: pointer;
 }
 
 .tech-title-btn:hover {
@@ -743,6 +762,15 @@ body::before {
 }
 
 /* --------------------------signup,signin---------------------------------- */
+
+.signup{
+  margin-right: 10px;
+}
+
+.signup.on {
+  display: none;
+}
+
 
 .login {
   position: absolute;

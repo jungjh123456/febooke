@@ -2,8 +2,25 @@ const $container = document.querySelector('.container');
 const $containerMain = document.querySelector('.container-main');
 const $containerChat = document.querySelector('.container-chat');
 const $containerComment = document.querySelector('.container-comment');
+const $logo = document.querySelector('.logo');
+const $header = document.querySelector('.header');
+const $logoImage = document.querySelector('.logo-image');
+
+
+
 
 let arr = [];
+
+
+$header.onclick = (e) => {
+    console.log(e.target);
+    e.preventDefault();
+    // console.log('클릭');
+    if (!e.target.matches('.header > .logo > a > .logo-image' )) return;
+        location.href = '../index.html';
+}
+
+
 
 window.onload = async () => {
     const contentId = JSON.parse(sessionStorage.getItem('content'));
@@ -32,7 +49,7 @@ window.onload = async () => {
     const $commentText = document.querySelectorAll('.comment-text');
     const $written = document.querySelector('.written');
     const $commenting = document.querySelector('.commenting');
-    
+
     // 텍스트에어리어 첫줄 버그 픽스
     $commenting.onfocus = e => {
         console.log(e.target)
@@ -111,7 +128,7 @@ window.onload = async () => {
                     commentId: arr3.find(item => item === contentId.id)
                 })
             })
-            
+
 
         } else {
             console.log('로그인이 필요합니다')
@@ -187,7 +204,7 @@ window.onload = async () => {
         arr = await res.json();
         console.log(arr)
 
-        const removeId = arr.find(item => item.nickname === loginNickname.nickname );
+        const removeId = arr.find(item => item.nickname === loginNickname.nickname);
         if (loginNickname.nickname !== contentId.nickname) return;
         await fetch(`/comment/${removeId.id}`, {
             method: 'DELETE'
@@ -220,7 +237,7 @@ window.onload = async () => {
         $commentText[i].value = arr[i].commented.trim();
         console.log(arr);
 
-    
+
 
     });
     console.log($commentremake);
@@ -284,8 +301,8 @@ window.onload = async () => {
 const render = (content) => {
     let html = '';
     [content].forEach(item => {
-        html += 
-        `<span class="board-name">TECH Board</span>
+        html +=
+            `<span class="board-name">TECH Board</span>
         <h2 class="content-heading">${item.title}</h2>
     <div class="member-info">
       <div class="content-info">
@@ -293,7 +310,6 @@ const render = (content) => {
         <span class="date">${item.time}</span>
       </div>
       <span class="click-count">${item.clickcount}</span>
-      <button class="go-main">메인 페이지</button>
     <div class="written">
     <button class="modify">수정</button>
     <button class="delete">삭제</button>

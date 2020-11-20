@@ -73,9 +73,11 @@ window.onload = e => {
     };
     ++titleCount;
   }, 120);
+
   const $loginIn = document.querySelector('.login-in');
   const $logOut = document.querySelector('.logout');
   const $signup = document.querySelector('.signup');
+
   if (sessionStorage.getItem('login')) {
     $loginIn.classList.add('on');
     $logOut.classList.remove('on');
@@ -86,9 +88,12 @@ window.onload = e => {
     $signup.classList.remove('on');
   }
   const $searchInput = document.querySelector('.search-input');
+
+
   console.log($searchInput)
   $headerSearch.onsubmit = e => {
     e.preventDefault();
+
   }
   $headerSearch.onkeyup = async e => {
     e.preventDefault();
@@ -96,6 +101,7 @@ window.onload = e => {
     console.log(e.target.value)
     const res = await fetch('/board')
     arr = await res.json();
+
     arr = arr.filter(item => item.nickname === e.target.value)
     console.log(arr)
     let html = ''
@@ -161,24 +167,29 @@ const $HotHeading = document.querySelector('.Hot-heading');
 const $techNews = document.querySelector('.tech-news');
 const $creatorTitle = document.querySelector('.creator-title');
 const $creator = document.querySelector('.creator');
+
 const move = () => {
   // console.log('크릭');
   location.assign('http://localhost:8000');
 }
 $chatBoard.addEventListener('click', move)
+
 const hover1 = () => {
   // console.log('클릭');
   $chatTitle.style.display = 'block';
+
 }
 const hover2 = () => {
   $HotHeading.style.display = 'block';
 }
+
 const hover3 = () => {
   $creatorTitle.style.display = 'block';
 }
 $chatBoard.addEventListener('mouseover', hover1)
 $techNews.addEventListener('mouseover', hover2)
 $creator.addEventListener('mouseover', hover3)
+
 const hoverEnd1 = () => {
   // console.log('클릭');
   $chatTitle.style.display = 'none';
@@ -194,6 +205,7 @@ const hoverEnd3 = () => {
 $chatBoard.addEventListener('mouseout', hoverEnd1);
 $techNews.addEventListener('mouseout', hoverEnd2);
 $creator.addEventListener('mouseout', hoverEnd3);
+
 let stateCount = 0;
 let stateColor = 0;
 setInterval(() => {
@@ -215,6 +227,7 @@ setTimeout(() => {
 }, 5000)
 const $leftContainer = document.querySelector('.left-container')
 const $techTitle = document.querySelector('.tech-title')
+
 // 렌더링
 $techTitle.onclick = async e => {
   e.preventDefault();
@@ -444,7 +457,9 @@ $Login.onclick = e => {
     location.href = '../index.html';
   }
 }
+
 // $Login.addEventListener('click',  )
+
 // $Login.onclick = (e) => {
 //   // e.preventDefault();
 //   if (e.target.matches('.login > .signup')) {
@@ -453,4 +468,5 @@ $Login.onclick = e => {
 //     sessionStorage.clear();
 //     location.href = '../index.html';
 //   }
+
 // }

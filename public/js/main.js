@@ -205,6 +205,7 @@ const hoverEnd3 = () => {
 $chatBoard.addEventListener('mouseout', hoverEnd1);
 $techNews.addEventListener('mouseout', hoverEnd2);
 $creator.addEventListener('mouseout', hoverEnd3);
+const $techBoard = document.querySelector('.tech-board');
 
 let stateCount = 0;
 let stateColor = 0;

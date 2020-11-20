@@ -175,8 +175,13 @@ const $chatTitle = document.querySelector('.chat-title');
 const $techStatement = document.querySelector('.tech-statement');
 const $HotHeading = document.querySelector('.Hot-heading');
 const $techNews = document.querySelector('.tech-news');
+
+const $creatorTitle = document.querySelector('.creator-title');
+const $creator = document.querySelector('.creator');
+
 const $techBoard = document.querySelector('.tech-board');
 const $techTitle = document.querySelector('.tech-title');
+
 
 const move = () => {
     // console.log('크릭');
@@ -194,8 +199,13 @@ const move = () => {
     $HotHeading.style.display = 'block';
   }
 
+  const hover3 = () => {
+    $creatorTitle.style.display = 'block';
+  }
+  
   $chatBoard.addEventListener('mouseover', hover1 )
   $techNews.addEventListener('mouseover', hover2 )
+  $creator.addEventListener('mouseover', hover3 )
 
   const hoverEnd1 = () => {
     // console.log('클릭');
@@ -205,8 +215,13 @@ const move = () => {
     // console.log('클릭');
     $HotHeading.style.display = 'none';
   }
+  const hoverEnd3 = () => {
+    // console.log('클릭');
+    $creatorTitle.style.display = 'none';
+  }
   $chatBoard.addEventListener('mouseout', hoverEnd1 );
   $techNews.addEventListener('mouseout', hoverEnd2 );
+  $creator.addEventListener('mouseout', hoverEnd3 );
 
 
 
@@ -230,6 +245,7 @@ setTimeout(() => {
   }, 1500)
 }, 5000)
 const $leftContainer = document.querySelector('.left-container')
+const $techTitle = document.querySelector('.tech-title')
 
 
 // 렌더링

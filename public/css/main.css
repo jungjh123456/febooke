@@ -753,10 +753,20 @@ body::before {
 
 }
 
+.signup {
+  margin-right: 10px;
+}
+
+.signup.on{
+  display: none;
+}
+
 .login-in.on {
   display: none;
 
 }
+
+
 
 .logout.on {
   display: none;

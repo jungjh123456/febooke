@@ -56,7 +56,7 @@ window.onload = e => {
   const key = setInterval(() => {
     $logoTitle.innerHTML += title[titleCount];
     const $newT = $logoTitle.lastElementChild;
-    $newT.style.left = `${titleCount*($newT.textContent===''||4)}%`;
+    $newT.style.left = `${titleCount*($newT.textContent===''||3.7)}%`;
     if (titleCount === titleLength - 1) {
       clearInterval(key)
       $logoTitle.style.transition = '2s';
@@ -79,38 +79,43 @@ window.onload = e => {
   }, 120);
 
 
-  
+
 
 
 
   const $loginIn = document.querySelector('.login-in');
   const $logOut = document.querySelector('.logout');
+  const $signup = document.querySelector('.signup');
+
   if (sessionStorage.getItem('login')) {
     $loginIn.classList.add('on');
     $logOut.classList.remove('on');
+    $signup.classList.add('on');
+
   } else {
     $loginIn.classList.remove('on');
     $logOut.classList.add('on');
+    $signup.classList.remove('on');
   }
 
   const $searchInput = document.querySelector('.search-input');
 
-console.log($searchInput)
-$headerSearch.onsubmit = e => {
-  e.preventDefault();
-  
-}
-$headerSearch.onkeyup = async e => {
-  e.preventDefault();
-  if (e.key !== 'Enter' || e.target.value === '') return;
-  console.log(e.target.value)
-  const res = await fetch('/board')
-  arr = await res.json();
+  console.log($searchInput)
+  $headerSearch.onsubmit = e => {
+    e.preventDefault();
 
-  arr = arr.filter(item => item.nickname === e.target.value)
-  console.log(arr)
-  let html = ''
-  $leftContainer.innerHTML =  `<div class="board">
+  }
+  $headerSearch.onkeyup = async e => {
+    e.preventDefault();
+    if (e.key !== 'Enter' || e.target.value === '') return;
+    console.log(e.target.value)
+    const res = await fetch('/board')
+    arr = await res.json();
+
+    arr = arr.filter(item => item.nickname === e.target.value)
+    console.log(arr)
+    let html = ''
+    $leftContainer.innerHTML = `<div class="board">
   <div class="box2">
   <h2 class="tech-heading">TECH Board</h2>
   <span class="caption">Hello World! 프론트엔드 개발자들의 기술개발 게시판</span>
@@ -160,8 +165,8 @@ $headerSearch.onkeyup = async e => {
       </ul>
   </div>
 </div>`
-  render(arr);
-}
+    render(arr);
+  }
 }
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement
@@ -174,44 +179,44 @@ const $creatorTitle = document.querySelector('.creator-title');
 const $creator = document.querySelector('.creator');
 
 const move = () => {
-    // console.log('크릭');
-    location.assign('http://localhost:8000');
-  }
-  $chatBoard.addEventListener('click', move)
-  
+  // console.log('크릭');
+  location.assign('http://localhost:8000');
+}
+$chatBoard.addEventListener('click', move)
 
-  const hover1 = () => {
-    // console.log('클릭');
-    $chatTitle.style.display = 'block';
-    
-  }
-  const hover2 = () => {
-    $HotHeading.style.display = 'block';
-  }
 
-  const hover3 = () => {
-    $creatorTitle.style.display = 'block';
-  }
-  
-  $chatBoard.addEventListener('mouseover', hover1 )
-  $techNews.addEventListener('mouseover', hover2 )
-  $creator.addEventListener('mouseover', hover3 )
+const hover1 = () => {
+  // console.log('클릭');
+  $chatTitle.style.display = 'block';
 
-  const hoverEnd1 = () => {
-    // console.log('클릭');
-    $chatTitle.style.display = 'none';
-  }
-  const hoverEnd2 = () => {
-    // console.log('클릭');
-    $HotHeading.style.display = 'none';
-  }
-  const hoverEnd3 = () => {
-    // console.log('클릭');
-    $creatorTitle.style.display = 'none';
-  }
-  $chatBoard.addEventListener('mouseout', hoverEnd1 );
-  $techNews.addEventListener('mouseout', hoverEnd2 );
-  $creator.addEventListener('mouseout', hoverEnd3 );
+}
+const hover2 = () => {
+  $HotHeading.style.display = 'block';
+}
+
+const hover3 = () => {
+  $creatorTitle.style.display = 'block';
+}
+
+$chatBoard.addEventListener('mouseover', hover1)
+$techNews.addEventListener('mouseover', hover2)
+$creator.addEventListener('mouseover', hover3)
+
+const hoverEnd1 = () => {
+  // console.log('클릭');
+  $chatTitle.style.display = 'none';
+}
+const hoverEnd2 = () => {
+  // console.log('클릭');
+  $HotHeading.style.display = 'none';
+}
+const hoverEnd3 = () => {
+  // console.log('클릭');
+  $creatorTitle.style.display = 'none';
+}
+$chatBoard.addEventListener('mouseout', hoverEnd1);
+$techNews.addEventListener('mouseout', hoverEnd2);
+$creator.addEventListener('mouseout', hoverEnd3);
 
 
 
@@ -479,14 +484,27 @@ const $Login = document.querySelector('.login');
 
 $Login.onclick = e => {
   e.preventDefault();
-  console.log('gg')
-  console.log(e.target)
+  // console.log('gg')
+  // console.log(e.target)
   if (e.target.matches('.login > .login-in')) {
     location.href = '../signin.html';
-  } else {
+  } else if(e.target.matches('.login > .signup'))  {
+    location.href = '../signup.html';
+  }else{
     sessionStorage.clear();
     location.href = '../index.html';
   }
-  
 }
 
+// $Login.addEventListener('click',  )
+
+// $Login.onclick = (e) => {
+//   // e.preventDefault();
+//   if (e.target.matches('.login > .signup')) {
+//     location.href = '../signup.html';
+//   } else {
+//     sessionStorage.clear();
+//     location.href = '../index.html';
+//   }
+
+// }

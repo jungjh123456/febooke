@@ -29,6 +29,13 @@
       "password": "wjdwlgns1474",
       "nickname": "jungjh123456",
       "phone": "01042288874"
+    },
+    {
+      "name": "주현",
+      "id": "noonssub1004@naver.com",
+      "password": "123456",
+      "nickname": "주현",
+      "phone": "01092742066"
     }
   ],
   "board": [
@@ -38,7 +45,15 @@
       "id": 1,
       "nickname": "jungjh",
       "time": "2020-11-20 10:15:00",
-      "clickcount": 14
+      "clickcount": 15
+    },
+    {
+      "title": "앙뇽하세요",
+      "content": "안욘ㄴ안뇽",
+      "id": 2,
+      "nickname": "주현",
+      "time": "2020-11-20 16:03:44",
+      "clickcount": 1
     }
   ],
   "comment": [

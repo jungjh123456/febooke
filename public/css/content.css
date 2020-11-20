@@ -2,8 +2,53 @@ body {
     background-image: url(../image/3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
     
 }
+.a11y-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1px;
+  }
+.header {
+    /* padding-top: 2vh; */
+    height: 18vh;
+    /* position: relative; */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2vh 30px 0 30px;
+    /* position: fixed; */
+    /* z-index: 99999; */
+    /* position: relative; */
+  }
+  
+  .header.showColor {
+    /* background-color:black; */
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 1s;
+  }
+  
+  .logo {
+    margin: 0;
+  }
+  
+  .logo>a {}
+  
+  .logo-image {
+    display: block;
+    top: 5px;
+    width: 190px;
+    height: 190px;
+    position: absolute;
+    z-index: 4;
+  }
+  
+  .logo-image.showImage {
+    opacity: 1;
+    transition: 1S;
+  }
 .container {
     /* background-color: red; */
     /* background-color: rgba(0, 0, 0, 0.4); */

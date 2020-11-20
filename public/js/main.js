@@ -96,8 +96,77 @@ const $logOut = document.querySelector('.logout');
     $loginIn.classList.remove('on');
     $logOut.classList.add('on');
   }
-}
 
+  const $searchInput = document.querySelector('.search-input');
+
+console.log($searchInput)
+$headerSearch.onsubmit = e => {
+  e.preventDefault();
+  
+}
+$headerSearch.onkeyup = async e => {
+  e.preventDefault();
+  if (e.key !== 'Enter' || e.target.value === '') return;
+  console.log(e.target.value)
+  const res = await fetch('/board')
+  arr = await res.json();
+
+  arr = arr.filter(item => item.nickname === e.target.value)
+  console.log(arr)
+  let html = ''
+  $leftContainer.innerHTML =  `<div class="board">
+  <div class="box2">
+  <h2 class="tech-heading">TECH Board</h2>
+  <span class="caption">Hello World! 프론트엔드 개발자들의 기술개발 게시판</span>
+  </div>
+  <div class="filter-write">
+      <select name="조건 검색" class="select-option">
+          <option value="my-content">내글</option>
+          <optgroup label="조회수">
+              <option id="high" value="high">높은 순</option>
+              <option id="row" value="row">낮은 순</option>
+          </optgroup>
+          <optgroup label="날짜 순">
+              <option id="least-date" value="least-date">최근날짜 순</option>
+              <option id="last-date" value="last-date">과거날짜 순</option>
+          </optgroup>
+      </select>
+      <button class="write-btn">글쓰기</button>
+      <div class="login-check">
+          로그인 하시겠습니까?
+          <div class="btn-group">
+          <button class="btn-yes">네</button>
+          <button class="btn-no">아니오</button>
+         </div>
+      </div>
+  </div>
+  <div class="board-header">
+      <h3 class="title">제목</h3>
+      <span class="nick-name">닉네임</span>
+      <span class="heading-date">날짜</span>
+      <span class="heading-click">조회수</span>
+  </div>
+  <ul class="board-list">
+  </ul>
+  <div class="page">
+      <ul class="page-nation">
+          <li class="page-item"> 
+              <i class="fas fa-angle-double-left"></i>   
+              <a href="#">1</a>
+          </li>
+          <li class="page-item"> <a href="#">2</a></li>
+          <li class="page-item"> <a href="#">3</a></li>
+          <li class="page-item"> <a href="#">4</a></li>
+          <li class="page-item"> 
+              <a href="#">5</a>
+              <i class="fas fa-angle-double-right"></i>
+          </li>
+      </ul>
+  </div>
+</div>`
+  render(arr);
+}
+}
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement
 const $techBoard = document.querySelector('.tech-board');
@@ -371,3 +440,4 @@ $Login.onclick = e => {
   }
   
 }
+

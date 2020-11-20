@@ -56,5 +56,11 @@
       "commentId": 1,
       "id": 1
     }
+  ],
+  "chatUser": [
+    {
+      "nickname": "jungjh",
+      "id": 1
+    }
   ]
 }

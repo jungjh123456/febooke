@@ -168,10 +168,25 @@ const $techNews = document.querySelector('.tech-news');
 const $creatorTitle = document.querySelector('.creator-title');
 const $creator = document.querySelector('.creator');
 
-const move = () => {
+const move = async () => {
   // console.log('크릭');
-  location.assign('http://localhost:8000');
-}
+  if(!JSON.parse(sessionStorage.getItem('login'))) return;
+  const a =JSON.parse(sessionStorage.getItem('login'));
+    await fetch('/chatUser/1',{
+      method:'PATCH',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({
+        nickname: a.nickname
+      })
+    })
+    location.assign('http://localhost:8000');
+
+
+  }
+ 
+
+
+
 $chatBoard.addEventListener('click', move)
 
 const hover1 = () => {

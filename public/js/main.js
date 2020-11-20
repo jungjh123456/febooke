@@ -245,7 +245,7 @@ setTimeout(() => {
   }, 1500)
 }, 5000)
 const $leftContainer = document.querySelector('.left-container')
-const $techTitle = document.querySelector('.tech-title')
+
 
 
 // 렌더링

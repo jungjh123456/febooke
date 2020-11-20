@@ -113,6 +113,7 @@ window.onload = async () => {
                     commentId: arr3.find(item => item === contentId.id)
                 })
             })
+            
 
         } else {
             console.log('로그인이 필요합니다')
@@ -188,7 +189,7 @@ window.onload = async () => {
         arr = await res.json();
         console.log(arr)
 
-        const removeId = arr.find(item => item.id === +e.target.id);
+        const removeId = arr.find(item => item.nickname === loginNickname.nickname );
         if (loginNickname.nickname !== contentId.nickname) return;
         await fetch(`/comment/${removeId.id}`, {
             method: 'DELETE'
@@ -199,6 +200,7 @@ window.onload = async () => {
         //     method: 'DELETE'
         // });
         // sessionStorage.clear('comment')
+        location.reload()
 
     });
 
@@ -220,6 +222,7 @@ window.onload = async () => {
         $commentText[i].value = arr[i].commented.trim();
         console.log(arr);
 
+    
 
     });
     console.log($commentremake);

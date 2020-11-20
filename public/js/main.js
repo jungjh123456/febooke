@@ -74,19 +74,27 @@ window.onload = e=>{
     ++titleCount;
   },120);
 // TECH-Newest
-const $techNewHeadings = document.querySelector('.tech-new-headings');
-console.log($techNewHeadings)
-$techNewHeadings.onclick = async e => {
-  e.preventDefault();
-  if (!e.target.matches('.tech-new-headings > li > a')) return;
-  const res = await fetch(`/board/${e.target.parentNode.id}`);
-  arr = await res.json();
-  console.log(arr)
-  console.log(e.target.parentNode.id)
-  sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id,nickname: arr.nickname}))
-  location.assign('../../content.html')
-}
-
+// const $techNewHeadings = document.querySelector('.tech-new-headings');
+// console.log($techNewHeadings)
+// $techNewHeadings.onclick = async e => {
+//   e.preventDefault();
+//   if (!e.target.matches('.tech-new-headings > li > a')) return;
+//   const res = await fetch(`/board/${e.target.parentNode.id}`);
+//   arr = await res.json();
+//   console.log(arr)
+//   console.log(e.target.parentNode.id)
+//   sessionStorage.setItem('content',JSON.stringify({id: +e.target.parentNode.id,nickname: arr.nickname}))
+//   location.assign('../../content.html')
+// }
+const $loginIn = document.querySelector('.login-in');
+const $logOut = document.querySelector('.logout');
+  if(sessionStorage.getItem('login')) {
+    $loginIn.classList.add('on');
+    $logOut.classList.remove('on');
+  } else {
+    $loginIn.classList.remove('on');
+    $logOut.classList.add('on');
+  }
 }
 
 // 기술 게시판 변수, 함수, 이벤트
@@ -273,10 +281,10 @@ else if(e.target.value === 'my-content') {
 }
 }
 // 메인으로 가기
-$header.onclick = e => {
-  e.preventDefault();
-  location.assign('../../index.html')
-}
+// $header.onclick = e => {
+//   e.preventDefault();
+//   location.assign('../../index.html')
+// }
 
 
 const $techNewList = document.querySelector('.tech-new-list');
@@ -304,7 +312,7 @@ const render2 = todo => {
   <span class="click">${list.clickcount}</span>
 </li>`}
   )
-  $techNewHeadings.innerHTML = headings;
+  // $techNewHeadings.innerHTML = headings;
   $techNewList.innerHTML = html;
 }
 
@@ -327,13 +335,13 @@ const render3 = todo => {
   <span class="click">${list.clickcount}</span>
 </li>`}
   )
-  $techHotList.innerHTML = html;
+  // $techHotList.innerHTML = html;
 }
 
 const list = async e => {
-  const res = await fetch('/board/?_sort=id,views&_order=desc,asc&_page=1&_limit=4');
-  arr = await res.json();
-  render2(arr);
+  // const res = await fetch('/board/?_sort=id,views&_order=desc,asc&_page=1&_limit=4');
+  // arr = await res.json();
+  // render2(arr);
   const res1 = await fetch('/board/?_sort=clickcount&_order=desc&_page=1&_limit=4')
   arr = await res1.json();
   render3(arr);
@@ -344,3 +352,21 @@ list();
 
 // li go write
 
+
+
+// 로그인
+
+const $Login = document.querySelector('.login');
+
+$Login.onclick = e => {
+  e.preventDefault();
+  console.log('gg')
+  console.log(e.target)
+  if (e.target.matches('.login > .login-in')){
+    location.href = '../signin.html';
+  } else {
+    sessionStorage.clear();
+    location.href = '../index.html';
+  }
+  
+}

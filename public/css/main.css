@@ -72,6 +72,7 @@ body::before {
   padding: 2vh 30px 0 30px;
   /* position: fixed; */
   /* z-index: 99999; */
+  position: relative;
 }
 .header.showColor {
   /* background-color:black; */
@@ -612,4 +613,31 @@ body::before {
 .copyright{
   margin-top: 25px;
 	display: block;
+}
+
+/* --------------------------signup,signin---------------------------------- */
+
+.login {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.login-in.on {
+  display: none;
+}
+.logout.on {
+  display: none;
+}
+
+.login a {
+  text-decoration: none;
+  color: #eee;
+  display: inline-block;
+  padding: 10px 20px;
+  border-bottom: 1px solid;
+}
+
+.login a:hover {
+  background-color: rgba(0, 0, 0, 0.3)
 }

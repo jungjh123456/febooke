@@ -251,6 +251,7 @@
     background-color: transparent;
     border: none;
     outline: none;
+    cursor: pointer;
     /* float: right; */
     /* margin-bottom: 30px; */
 }

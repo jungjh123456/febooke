@@ -100,6 +100,7 @@ window.onload = e => {
 
   const $searchInput = document.querySelector('.search-input');
 
+<<<<<<< HEAD
   console.log($searchInput)
   $headerSearch.onsubmit = e => {
     e.preventDefault();
@@ -116,6 +117,22 @@ window.onload = e => {
     console.log(arr)
     let html = ''
     $leftContainer.innerHTML = `<div class="board">
+=======
+console.log($searchInput)
+$headerSearch.onsubmit = e => {
+  e.preventDefault();
+  
+}
+
+
+}
+
+$headerSearch.onkeyup = async e => {
+  e.preventDefault();
+  if (e.key !== 'Enter' || e.target.value === '') return;
+
+  $leftContainer.innerHTML =  `<div class="board">
+>>>>>>> d717c6ae909247d7fd17c064a29fac0c36372757
   <div class="box2">
   <h2 class="tech-heading">TECH Board</h2>
   <span class="caption">Hello World! 프론트엔드 개발자들의 기술개발 게시판</span>
@@ -165,8 +182,20 @@ window.onload = e => {
       </ul>
   </div>
 </div>`
+<<<<<<< HEAD
     render(arr);
   }
+=======
+const $searchInput = document.querySelector('.search-input');
+const res = await fetch('/board')
+arr = await res.json();
+console.log(Array.isArray(arr));
+console.log($searchInput)
+console.log(arr);
+arr = arr.find(item => item.nickname === $searchInput.value);
+console.log(arr)
+render(arr);
+>>>>>>> d717c6ae909247d7fd17c064a29fac0c36372757
 }
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement
@@ -175,8 +204,13 @@ const $chatTitle = document.querySelector('.chat-title');
 const $techStatement = document.querySelector('.tech-statement');
 const $HotHeading = document.querySelector('.Hot-heading');
 const $techNews = document.querySelector('.tech-news');
+
 const $creatorTitle = document.querySelector('.creator-title');
 const $creator = document.querySelector('.creator');
+
+const $techBoard = document.querySelector('.tech-board');
+const $techTitle = document.querySelector('.tech-title');
+
 
 const move = () => {
   // console.log('크릭');
@@ -240,14 +274,14 @@ setTimeout(() => {
   }, 1500)
 }, 5000)
 const $leftContainer = document.querySelector('.left-container')
-const $techTitle = document.querySelector('.tech-title')
+
 
 
 // 렌더링
 $techTitle.onclick = async e => {
   e.preventDefault();
   if (!e.target.matches('.tech-title-btn')) return
-  let html = ''
+ 
   $leftContainer.innerHTML = `<div class="board">
   <div class="box2">
   <h2 class="tech-heading">TECH Board</h2>

@@ -92,20 +92,22 @@ $signupName.onkeyup = (e) => {
 };
 
 // 닉네임
+const $checkNick = document.querySelector('.check-nick');
 
 const nickfilter = async () => {
   let nickFillter = await fetch("/users");
   arr = await nickFillter.json();
   console.log(arr);
   let nickname = arr.map((item) => item.nickname);
-
   $signupNick.onkeyup = (e) => {
     if (nickname.filter((item) => item === $signupNick.value).length) {
       console.log("error");
       state = "false";
+      $checkNick.classList.add('on')
       redBorder(e);
     } else {
       clearBorder(e);
+      $checkNick.classList.remove('on');
     }
 
     filterBorder();
@@ -181,7 +183,7 @@ $signupPass.onkeyup = (e) => {
 
   filterBorder();
 };
-
+const $checkPass = document.querySelector('.check-pass')
 $signupPass2.onkeyup = (e) => {
   if (
     $signupPass2.value !== $signupPass.value ||
@@ -189,8 +191,11 @@ $signupPass2.onkeyup = (e) => {
   ) {
     state = "false";
     redBorder(e);
+    $checkPass.classList.add('on')
+
   } else {
     clearBorder(e);
+    $checkPass.classList.remove('on')
   }
   filterBorder();
 };

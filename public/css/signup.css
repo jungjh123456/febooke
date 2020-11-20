@@ -485,3 +485,22 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+
+
+.check-pass {
+  display: none;
+}
+
+.check-pass.on {
+  display: block;
+  color: red;
+}
+
+.check-nick {
+  display: none;
+}
+
+.check-nick.on {
+  display: block;
+  color: red;
+}

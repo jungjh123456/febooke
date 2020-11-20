@@ -166,7 +166,7 @@ console.log($searchInput)
 console.log(arr);
 arr = arr.find(item => item.nickname === $searchInput.value);
 console.log(arr)
-  render(arr);
+render(arr);
 }
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement

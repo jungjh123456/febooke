@@ -31,13 +31,10 @@ let title = [
   `<span>r</span>`,
   `<span>s</span>`
 ];
-
 let titleLength = title.length;
 const $logoImage = document.querySelector('.logo-image');
 const $headerSearch = document.querySelector('.header-search');
 const $header = document.querySelector('.header');
-
-
 //헤더 함수, 이벤트
 (function printNow() {
   const now = new Date();
@@ -50,7 +47,6 @@ const $header = document.querySelector('.header');
   setTimeout(printNow, 1000);
 })();
 // 첫로딩 이벤트
-
 let titleCount = 0;
 window.onload = e => {
   const key = setInterval(() => {
@@ -78,11 +74,6 @@ window.onload = e => {
     ++titleCount;
   }, 120);
 
-
-
-
-
-
   const $loginIn = document.querySelector('.login-in');
   const $logOut = document.querySelector('.logout');
   const $signup = document.querySelector('.signup');
@@ -91,14 +82,13 @@ window.onload = e => {
     $loginIn.classList.add('on');
     $logOut.classList.remove('on');
     $signup.classList.add('on');
-
   } else {
     $loginIn.classList.remove('on');
     $logOut.classList.add('on');
     $signup.classList.remove('on');
   }
-
   const $searchInput = document.querySelector('.search-input');
+
 
   console.log($searchInput)
   $headerSearch.onsubmit = e => {
@@ -184,7 +174,6 @@ const move = () => {
 }
 $chatBoard.addEventListener('click', move)
 
-
 const hover1 = () => {
   // console.log('클릭');
   $chatTitle.style.display = 'block';
@@ -197,7 +186,6 @@ const hover2 = () => {
 const hover3 = () => {
   $creatorTitle.style.display = 'block';
 }
-
 $chatBoard.addEventListener('mouseover', hover1)
 $techNews.addEventListener('mouseover', hover2)
 $creator.addEventListener('mouseover', hover3)
@@ -217,8 +205,6 @@ const hoverEnd3 = () => {
 $chatBoard.addEventListener('mouseout', hoverEnd1);
 $techNews.addEventListener('mouseout', hoverEnd2);
 $creator.addEventListener('mouseout', hoverEnd3);
-
-
 
 let stateCount = 0;
 let stateColor = 0;
@@ -241,7 +227,6 @@ setTimeout(() => {
 }, 5000)
 const $leftContainer = document.querySelector('.left-container')
 const $techTitle = document.querySelector('.tech-title')
-
 
 // 렌더링
 $techTitle.onclick = async e => {
@@ -334,10 +319,7 @@ const render = async (todo) => {
     const res = await fetch(`/board/${e.target.parentNode.id}`);
     arr = await res.json();
     console.log(arr)
-
     const clickcounter = [arr].find((item) => item.id === +e.target.parentNode.id)
-
-
     await fetch(`/board/${e.target.parentNode.id}`, {
       method: "PATCH",
       headers: {
@@ -348,7 +330,6 @@ const render = async (todo) => {
       }),
     });
     render(arr);
-
     sessionStorage.setItem('content', JSON.stringify({
       id: +e.target.parentNode.id,
       nickname: arr.nickname
@@ -409,47 +390,36 @@ const render = async (todo) => {
 //   e.preventDefault();
 //   location.assign('../../index.html')
 // }
-
-
 const $techNewList = document.querySelector('.tech-new-list');
-
 const $techNewHeadings = document.querySelector('.tech-new-headings');
-
 // tech-list
 const render2 = todo => {
   let headings = '';
   let html = '';
-
-
   [...todo].forEach(list => {
     headings += `<li id ="${list.id}" class="top-tech-new-item">
   <a href="#" class="top-new-title">${list.title}</a>
   <span class="top-author">${list.nickname}</span>
-
   <time class="top-time">
     ${list.time}
       <span class="year"></span>
       <span class="month"></span>
       <span class="date"></span>
   </time>
-
   <span class="click">${list.clickcount}</span>
 </li>`
   })
   // $techNewHeadings.innerHTML = headings;
   $techNewList.innerHTML = html;
 }
-
 // hot -list
 const $techHotList = document.querySelector('.tech-hot-list')
 const render3 = todo => {
   let html = '';
-
   [...todo].forEach(list => {
     html += `<li id ="${list.id}" class="tech-new-item carousel-item">
   <a class="new-item-heading">${list.title}</a>
   <span class="author">${list.nickname}</span>
-
   <time class="time">
     ${list.time}
       <span class="year"></span>
@@ -461,7 +431,6 @@ const render3 = todo => {
   })
   // $techHotList.innerHTML = html;
 }
-
 const list = async e => {
   // const res = await fetch('/board/?_sort=id,views&_order=desc,asc&_page=1&_limit=4');
   // arr = await res.json();
@@ -471,17 +440,10 @@ const list = async e => {
   render3(arr);
   // const carousel = new Carousel();
 }
-
 list();
-
 // li go write
-
-
-
 // 로그인
-
 const $Login = document.querySelector('.login');
-
 $Login.onclick = e => {
   e.preventDefault();
   // console.log('gg')

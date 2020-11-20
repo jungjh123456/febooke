@@ -105,11 +105,7 @@ body::before {
   height: 190px;
   position: absolute;
   z-index: 4;
-<<<<<<< HEAD
   opacity: 0;
-=======
-  opacity:0;
->>>>>>> d717c6ae909247d7fd17c064a29fac0c36372757
 }
 
 .logo-image.showImage {

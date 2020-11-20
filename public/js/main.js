@@ -56,7 +56,7 @@ window.onload = e => {
   const key = setInterval(() => {
     $logoTitle.innerHTML += title[titleCount];
     const $newT = $logoTitle.lastElementChild;
-    $newT.style.left = `${titleCount*($newT.textContent===''||4)}%`;
+    $newT.style.left = `${titleCount*($newT.textContent===''||3.7)}%`;
     if (titleCount === titleLength - 1) {
       clearInterval(key)
       $logoTitle.style.transition = '2s';
@@ -100,16 +100,14 @@ $headerSearch.onsubmit = e => {
   e.preventDefault();
   
 }
+
+
+}
+
 $headerSearch.onkeyup = async e => {
   e.preventDefault();
   if (e.key !== 'Enter' || e.target.value === '') return;
-  console.log(e.target.value)
-  const res = await fetch('/board')
-  arr = await res.json();
 
-  arr = arr.filter(item => item.nickname === e.target.value)
-  console.log(arr)
-  let html = ''
   $leftContainer.innerHTML =  `<div class="board">
   <div class="box2">
   <h2 class="tech-heading">TECH Board</h2>
@@ -160,8 +158,15 @@ $headerSearch.onkeyup = async e => {
       </ul>
   </div>
 </div>`
+const $searchInput = document.querySelector('.search-input');
+const res = await fetch('/board')
+arr = await res.json();
+console.log(Array.isArray(arr));
+console.log($searchInput)
+console.log(arr);
+arr = arr.find(item => item.nickname === $searchInput.value);
+console.log(arr)
   render(arr);
-}
 }
 // 기술 게시판 변수, 함수, 이벤트
 // 게시판 statement
@@ -170,8 +175,13 @@ const $chatTitle = document.querySelector('.chat-title');
 const $techStatement = document.querySelector('.tech-statement');
 const $HotHeading = document.querySelector('.Hot-heading');
 const $techNews = document.querySelector('.tech-news');
+
 const $creatorTitle = document.querySelector('.creator-title');
 const $creator = document.querySelector('.creator');
+
+const $techBoard = document.querySelector('.tech-board');
+const $techTitle = document.querySelector('.tech-title');
+
 
 const move = () => {
     // console.log('크릭');
@@ -242,7 +252,7 @@ const $techTitle = document.querySelector('.tech-title')
 $techTitle.onclick = async e => {
   e.preventDefault();
   if (!e.target.matches('.tech-title-btn')) return
-  let html = ''
+ 
   $leftContainer.innerHTML = `<div class="board">
   <div class="box2">
   <h2 class="tech-heading">TECH Board</h2>

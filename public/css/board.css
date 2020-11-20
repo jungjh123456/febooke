@@ -277,6 +277,32 @@ overflow: hidden;
 
 /* login-check */
 
+
+.check-sign.on {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 250px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #423986;
+  border: 2px solid #fefeff;
+  border-radius: 20px;
+  opacity: 0.9;
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
+
 .login-check {
   position: absolute;
   width: 200px;
@@ -284,7 +310,7 @@ overflow: hidden;
   top: 30px;
   right: 50px;
   border: 2px solid;
-  background: red;
+  /* background: red; */
   display: none;
   flex-direction: column;
   justify-content: center;

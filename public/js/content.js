@@ -93,8 +93,6 @@ window.onload = async () => {
         let dateTime = new Date();
         if (JSON.parse(sessionStorage.getItem('login'))) {
 
-       
-
             const redId = await fetch('/board');
 
             let arr3 = await redId.json();
@@ -289,13 +287,12 @@ const render = (content) => {
         html += `<span class="board-name">TECH Board</span>
         <h2 class="content-heading">${item.title}</h2>
     <div class="member-info">
-      <span class="profile">프사</span>
       <div class="content-info">
         <span class="nickname">${item.nickname}</span>
         <span class="date">${item.time}</span>
       </div>
       <span class="click-count">${item.clickcount}</span>
-
+      <button class="go-main">메인 패이지</button>
     <div class="written">
     <button class="modify">수정</button>
     <button class="delete">삭제</button>

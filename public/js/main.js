@@ -30,6 +30,7 @@ let title = [
 `<span>e</span>`,
 `<span>r</span>`,
 `<span>s</span>`];
+
 let titleLength = title.length;
 const $logoImage = document.querySelector('.logo-image');
 const $headerSearch = document.querySelector('.header-search');

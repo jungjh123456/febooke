@@ -62,6 +62,7 @@ body::before {
   box-shadow: 40px 40px 4rem 4rem rgba(0,0,0,0.3),
   -40px -40px 4rem 4rem rgba(0,0,0,0.3); */
   /* border: 3vw solid rgba(0,0,0,0.2); */
+  overflow: hidden;
 }
 /* --------------------------header-------------------------- */
 .header {
@@ -100,20 +101,20 @@ body::before {
   /* background-color: blue; */
   /* opacity: 0; */
 }
-/* .logo-image.showImage {
+.logo-image.showImage {
   opacity: 1;
   transition:1S;
-} */
+}
 /* 헤딩 텍스트 */
-/* .logo-title {
+.logo-title {
   font-weight: 400;
   color: rgba(245,234,244,0.6);
   font-size: 4rem;
   line-height: 6rem;
   margin: 0;
   transition: 2s;
-} */
-/* .logo-title span{
+} 
+.logo-title span{
   position: absolute;
 }
 .logo-title.wT{
@@ -123,13 +124,13 @@ body::before {
 .logo-title .logoT {
   font-size : 6rem;
   color: rgba(255,255,255,1);
-} */
-/* .logo-title.midTime{
-  /* color: rgb(255,255,255,0) 
-} */
-/* .logo-title.midTime span{
-} */
-/* .midTime .firstT {
+} 
+ .logo-title.midTime{
+  color: rgb(255,255,255,0) 
+} 
+ .logo-title.midTime span{
+}
+.midTime .firstT {
   position: absolute;
   color: rgba(255,255,255,1);
   transition: 2s;
@@ -138,8 +139,8 @@ body::before {
   position: absolute;
   color: rgba(255,255,255,1);
   transition: 2s;
-} */
-/* @keyframes moveF{
+} 
+ @keyframes moveF{
   0%{
   }50%{
     top: 5%;
@@ -267,7 +268,17 @@ body::before {
 .tech-board {
   /* padding-top: 3rem; */
   width: 100%;
+
 }
+
+.tech-group {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .tech-statement {
   /* width: 100%; */
   line-height: 6rem;
@@ -280,7 +291,7 @@ body::before {
   transition: 1s;
   letter-spacing: 0.2rem;
   /* padding: 230px 0px; */
-  height: 700px;
+
   /* padding-right: 30px; */
 }
 .tech-statement span:nth-child(1) {
@@ -373,6 +384,8 @@ body::before {
   background-color: #655ba0;
   transition: .5s;
 }
+
+
 /* 기술게시판 new 게시판 */
 /* 캐러셀 슬라이더 ui 코드 건들지 마세요 */
 .carousel {
@@ -424,14 +437,16 @@ body::before {
 /* 여기까지 캐러셀 코드 */
 .info {
   display: flex;
+  width: 100vw;
+  height: 500px;
 }
 .tech-news {
   /* background-color: skyblue; */
   background-image: url(../image/board-3700116_1920.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: -50px 0;
   width: 650px;
-  height: 600px;
 }
 .tech-news:hover {
   background-image: none;
@@ -520,7 +535,8 @@ body::before {
   background-size: cover;
   background-position: center;
   width: 650px;
-  height: 600px;
+  cursor: pointer;
+  
 }
 .chat-board:hover {
   background-image: none;
@@ -592,7 +608,8 @@ body::before {
   background-repeat: no-repeat;
   background-size: cover;
   width: 650px;
-  height: 600px;
+
+  
 }
 .creator:hover {
   background-image: none;

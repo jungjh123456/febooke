@@ -1,24 +1,24 @@
 {
-  "name": "Febook-fds17",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "json-server --watch db.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jungjh123456/febooke.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jungjh123456/febooke/issues"
-  },
-  "homepage": "https://github.com/jungjh123456/febooke#readme",
-  "dependencies": {
-    "json-server": "^0.16.3",
-    "nodemon": "^2.0.6"
-  }
+	"name": "febooke",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "json-server --watch db.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jungjh123456/febooke.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jungjh123456/febooke/issues"
+	},
+	"homepage": "https://github.com/jungjh123456/febooke#readme",
+	"dependencies": {
+		"json-server": "^0.16.3",
+		"nodemon": "^2.0.6"
+	}
 }
